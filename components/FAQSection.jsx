@@ -1,11 +1,48 @@
 "use client"
 
 import { useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { ChevronDown, ChevronUp } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { 
+  Accordion, 
+  AccordionSummary, 
+  AccordionDetails,
+  Typography,
+  Container,
+  Box,
+  useTheme,
+  createTheme,
+  ThemeProvider
+} from "@mui/material"
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(null)
+  const [expanded, setExpanded] = useState(false)
+  
+  // Custom theme to match website
+  const hackTheme = createTheme({
+    palette: {
+      mode: 'dark',
+      primary: {
+        main: '#FF6B35', // Orange-red from the HACK logo
+      },
+      secondary: {
+        main: '#FFB800', // Gold color from the infinity symbol
+      },
+      background: {
+        default: '#121212',
+        paper: '#1A1A1A',
+      },
+      text: {
+        primary: '#ffffff',
+        secondary: '#b0b0b0',
+      },
+      divider: 'rgba(255, 255, 255, 0.12)',
+    },
+  })
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false)
+  }
 
   const faqs = [
     {
@@ -40,39 +77,94 @@ export default function FAQSection() {
     },
   ]
 
-  const toggleFAQ = (index) => {
-    if (openIndex === index) {
-      setOpenIndex(null)
-    } else {
-      setOpenIndex(index)
-    }
-  }
-
   return (
-    <div className="space-y-4">
-      {faqs.map((faq, index) => (
-        <Card
-          key={index}
-          className="bg-gray-900/50 border border-gray-800 hover:border-red-500/50 transition-all duration-300 transform hover:scale-[1.01]"
-        >
-          <CardContent className="p-0">
-            <button className="w-full p-6 text-left flex justify-between items-center" onClick={() => toggleFAQ(index)}>
-              <h3 className="text-lg font-medium">{faq.question}</h3>
-              {openIndex === index ? (
-                <ChevronUp className="text-red-500 flex-shrink-0" />
-              ) : (
-                <ChevronDown className="text-red-500 flex-shrink-0" />
-              )}
-            </button>
-            {openIndex === index && (
-              <div className="px-6 pb-6 pt-0 text-gray-400 animate-accordion-down">
-                <p>{faq.answer}</p>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+    <ThemeProvider theme={hackTheme}>
+      <Container maxWidth="md" sx={{ py: 8, backgroundColor: 'transparent' }}>
+        <Box sx={{ mb: 6, textAlign: "center" }}>
+          <Typography 
+            component="h2" 
+            variant="h3" 
+            sx={{ 
+              mb: 2,
+              fontWeight: 700,
+              background: `linear-gradient(90deg, ${hackTheme.palette.primary.main}, ${hackTheme.palette.secondary.main})`,
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent"
+            }}
+          >
+            Frequently Asked Questions
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            Everything you need to know about Hack Infinity
+          </Typography>
+        </Box>
+
+        <Box>
+          {faqs.map((faq, index) => (
+            <motion.div
+              key={`faq-${index}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Accordion
+                expanded={expanded === `panel${index}`}
+                onChange={handleChange(`panel${index}`)}
+                sx={{
+                  mb: 2,
+                  borderRadius: "8px",
+                  boxShadow: expanded === `panel${index}` 
+                    ? "0 10px 25px rgba(255,107,53,0.15)"
+                    : "0 4px 6px rgba(0,0,0,0.2)",
+                  "&:before": { display: "none" },
+                  overflow: "hidden",
+                  transition: "all 0.3s ease",
+                  border: "1px solid",
+                  borderColor: expanded === `panel${index}` 
+                    ? hackTheme.palette.primary.main
+                    : "rgba(255,255,255,0.1)",
+                  backgroundColor: expanded === `panel${index}` 
+                    ? "rgba(255,107,53,0.05)" 
+                    : "rgba(26,26,26,0.8)",
+                }}
+              >
+                <AccordionSummary
+                  expandIcon={
+                    <ExpandMoreIcon sx={{ color: hackTheme.palette.primary.main }} />
+                  }
+                  aria-controls={`panel${index}a-content`}
+                  id={`panel${index}a-header`}
+                >
+                  <Typography 
+                    fontWeight={600} 
+                    sx={{ 
+                      color: expanded === `panel${index}` 
+                        ? hackTheme.palette.primary.main 
+                        : hackTheme.palette.text.primary 
+                    }}
+                  >
+                    {faq.question}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <AnimatePresence>
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Typography color="text.secondary">
+                        {faq.answer}
+                      </Typography>
+                    </motion.div>
+                  </AnimatePresence>
+                </AccordionDetails>
+              </Accordion>
+            </motion.div>
+          ))}
+        </Box>
+      </Container>
+    </ThemeProvider>
   )
 }
-
