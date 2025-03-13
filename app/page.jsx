@@ -14,7 +14,7 @@ import CountdownTimer from "@/components/CountdownTimer"
 
 // Dynamically import the Three.js component with no SSR
 const InfinityLogo = dynamic(() => import("@/components/InfinityLogo"), {
-  ssr: false,
+  ssr: false, 
   loading: () => (
     <div className="flex h-[50vh] items-center justify-center">
       <div className="h-32 w-32 animate-spin rounded-full border-b-2 border-t-2 border-red-500"></div>
@@ -57,8 +57,7 @@ export default function HackathonWebsite() {
   }, [])
 
   // Hackathon date - set to 3 months from now
-  const hackathonDate = new Date()
-  hackathonDate.setMonth(hackathonDate.getMonth() + 3)
+  const hackathonDate = new Date("2025-04-17T00:00:00")
 
   return (
     <div className="min-h-screen bg-black text-white">
