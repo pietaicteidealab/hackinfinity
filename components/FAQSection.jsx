@@ -30,7 +30,7 @@ export default function FAQSection() {
       },
       background: {
         default: '#121212',
-        paper: '#1A1A1A',
+        paper: '#090d15', // Changed from #1A1A1A to #090d15
       },
       text: {
         primary: '#ffffff',
@@ -122,10 +122,10 @@ export default function FAQSection() {
                   border: "1px solid",
                   borderColor: expanded === `panel${index}` 
                     ? hackTheme.palette.primary.main
-                    : "rgba(255,255,255,0.1)",
+                    : "rgba(9, 13, 21, 0)",
                   backgroundColor: expanded === `panel${index}` 
-                    ? "rgba(255,107,53,0.05)" 
-                    : "rgba(26,26,26,0.8)",
+                    ? "rgba(9,13,21,0.05)" 
+                    : "#090d15", // Changed from rgba(26,26,26,0.8) to #090d15
                 }}
               >
                 <AccordionSummary
