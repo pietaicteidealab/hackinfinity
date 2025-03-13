@@ -4,10 +4,12 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto text-center">
         <div className="flex justify-center mb-6">
           <div className="flex flex-col items-center">
-            <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500">
+            <img src="./logo1.png" alt="Logo" className="h-[50px] " />
+
+            {/* <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500">
               HACK
-            </span>
-            <span className="text-3xl font-bold text-amber-500">∞</span>
+            </span> */}
+
           </div>
         </div>
         <p className="text-gray-500 mb-4">© {new Date().getFullYear()} Hack Infinity. All rights reserved.</p>
