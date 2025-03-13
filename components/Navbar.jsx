@@ -37,11 +37,11 @@ export default function Navbar({ activeSection }) {
     >
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
         <a href="#" className="flex flex-col items-center">
-          <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500">
-            HACK
-          </span>
-          <span className="text-3xl font-bold text-amber-500">∞</span>
+          <img src="./logo1.png" alt="Logo" className="h-[50px] " />
+
+          {/* <span className="text-3xl font-bold text-amber-500">∞</span> */}
         </a>
+
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">

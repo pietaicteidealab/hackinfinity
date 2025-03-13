@@ -86,11 +86,12 @@ export default function HackathonWebsite() {
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto mt-[40vh]">
           <h1 className="text-5xl md:text-7xl font-bold mb-4">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500">HACK</span>
+            
           </h1>
           <div className="text-6xl md:text-8xl font-bold mb-6 flex justify-center items-center">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-red-500">∞</span>
+            {/* <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-red-500">∞</span> */}
           </div>
-          <p className="text-xl md:text-2xl mb-8 text-gray-300">
+          <p className="text-xl md:text-2xl mb-2 text-gray-300 ">
             <span className="font-mono">INFINITE POSSIBILITIES. INFINITE INNOVATION.</span>
           </p>
           <p className="text-lg md:text-xl mb-8 text-gray-400 max-w-2xl mx-auto">
