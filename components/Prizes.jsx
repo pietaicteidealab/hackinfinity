@@ -1,156 +1,382 @@
-import React from 'react'
+import React from 'react';
+import { Box, Container, Typography, Grid, Card, CardContent, Button, Avatar, Divider } from '@mui/material';
+import { motion } from 'framer-motion';
+import { EmojiEvents, MonetizationOn, Lightbulb, CloudQueue, BusinessCenter, DevicesOther, Computer } from '@mui/icons-material';
 
-import { useState, useEffect } from "react"
-import { Suspense } from "react"
-import dynamic from "next/dynamic"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, Clock, Code, Cpu, Globe, Lightbulb, MapPin, Medal, Rocket, Trophy, Users, Wifi } from "lucide-react"
+const MotionBox = motion(Box);
+const MotionCard = motion(Card);
+const MotionTypography = motion(Typography);
+const MotionAvatar = motion(Avatar);
+
 function Prizes() {
-  return <div>
-    
-    <section id="prizes" className="relative py-20 px-4">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1600')] bg-cover bg-center opacity-5"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
 
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-flex items-center">
-              <span className="w-8 h-1 bg-red-500 mr-4"></span>
+  const itemVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12
+      }
+    }
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 20
+      }
+    }
+  };
+
+  const prizes = [
+    {
+      place: "1ST PLACE",
+      title: "GRAND PRIZE",
+      color: "#FFB800",
+      icon: <EmojiEvents sx={{ fontSize: 50 }} />,
+      rewards: [
+        { icon: <MonetizationOn />, text: "$10,000 Cash Prize" },
+        { icon: <BusinessCenter />, text: "Startup Incubation Opportunity" },
+        { icon: <DevicesOther />, text: "Latest AR/VR Development Kit" },
+        { icon: <CloudQueue />, text: "1-Year Cloud Credits" }
+      ]
+    },
+    {
+      place: "2ND PLACE",
+      title: "RUNNER-UP",
+      color: "#C0C0C0",
+      icon: <EmojiEvents sx={{ fontSize: 50 }} />,
+      rewards: [
+        { icon: <MonetizationOn />, text: "$5,000 Cash Prize" },
+        { icon: <Computer />, text: "AI Development Toolkit" },
+        { icon: <CloudQueue />, text: "6-Month Cloud Credits" }
+      ]
+    },
+    {
+      place: "3RD PLACE",
+      title: "THIRD PRIZE",
+      color: "#CD7F32",
+      icon: <EmojiEvents sx={{ fontSize: 50 }} />,
+      rewards: [
+        { icon: <MonetizationOn />, text: "$2,500 Cash Prize" },
+        { icon: <DevicesOther />, text: "Smart Home Devices" },
+        { icon: <CloudQueue />, text: "3-Month Cloud Credits" }
+      ]
+    }
+  ];
+
+  return (
+    <Box
+      id="prizes"
+      sx={{
+        position: 'relative',
+        py: 10,
+        px: 2,
+        backgroundColor: '#0a0a0a',
+        backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(50, 50, 50, 0.08) 0%, rgba(0, 0, 0, 0) 100%)',
+        overflow: 'hidden'
+      }}
+    >
+      {/* Background decorative elements */}
+      <Box
+        component={motion.div}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.05 }}
+        transition={{ duration: 1.5 }}
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `url('/placeholder.svg?height=800&width=1600')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          zIndex: 0
+        }}
+      />
+      
+      {/* Animated particles */}
+      {[...Array(12)].map((_, i) => (
+        <MotionBox
+          key={i}
+          sx={{
+            position: 'absolute',
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: theme => theme.palette.primary.main,
+            filter: 'blur(3px)',
+            zIndex: 1
+          }}
+          animate={{
+            x: ['-20vw', '120vw'],
+            y: [
+              Math.floor(i / 4) * 30 + '%',
+              Math.floor(i / 4) * 30 + Math.sin(i) * 20 + '%'
+            ],
+            opacity: [0, 1, 1, 0],
+          }}
+          transition={{
+            duration: 15 + i * 2,
+            repeat: Infinity,
+            ease: 'linear',
+            delay: i * 0.8,
+          }}
+        />
+      ))}
+
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+        <MotionBox
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {/* Section Header */}
+          <MotionBox
+            variants={titleVariants}
+            sx={{ textAlign: 'center', mb: 8 }}
+          >
+            <MotionTypography
+              component="h2"
+              variant="h3"
+              fontWeight="bold"
+              color="white"
+              sx={{ mb: 2, display: 'inline-flex', alignItems: 'center' }}
+            >
+              <Box 
+                component="span" 
+                sx={{ 
+                  width: '2rem', 
+                  height: '4px', 
+                  bgcolor: 'error.main', 
+                  mr: 2, 
+                  display: 'inline-block' 
+                }} 
+              />
               PRIZES & AWARDS
-              <span className="w-8 h-1 bg-red-500 ml-4"></span>
-            </h2>
-            <p className="text-gray-400 max-w-3xl mx-auto">
+              <Box 
+                component="span" 
+                sx={{ 
+                  width: '2rem', 
+                  height: '4px', 
+                  bgcolor: 'error.main', 
+                  ml: 2, 
+                  display: 'inline-block' 
+                }} 
+              />
+            </MotionTypography>
+            
+            <MotionTypography 
+              variant="subtitle1" 
+              color="grey.400"
+              sx={{ maxWidth: '800px', mx: 'auto' }}
+            >
               Exceptional innovation deserves exceptional rewards. Check out what you can win!
-            </p>
-          </div>
+            </MotionTypography>
+          </MotionBox>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-gradient-to-b from-amber-950/30 to-gray-900 border border-amber-500/30 backdrop-blur-sm overflow-hidden relative transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(245,158,11,0.3)]">
-              <div className="absolute top-0 right-0 w-20 h-20">
-                <div className="absolute transform rotate-45 bg-amber-500 text-black font-bold py-1 right-[-35px] top-[32px] w-[170px] text-center text-sm">
-                  1ST PLACE
-                </div>
-              </div>
-              <CardContent className="p-6 pt-12">
-                <div className="w-20 h-20 mx-auto mb-6 relative">
-                  <Trophy className="w-full h-full text-amber-500" />
-                  <div className="absolute inset-0 bg-amber-500/20 blur-xl rounded-full"></div>
-                </div>
-                <h3 className="text-2xl font-bold text-center mb-4 text-amber-500">GRAND PRIZE</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-                      <Medal className="w-3 h-3 text-amber-500" />
-                    </div>
-                    <p className="text-gray-300">$10,000 Cash Prize</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-                      <Medal className="w-3 h-3 text-amber-500" />
-                    </div>
-                    <p className="text-gray-300">Startup Incubation Opportunity</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-                      <Medal className="w-3 h-3 text-amber-500" />
-                    </div>
-                    <p className="text-gray-300">Latest AR/VR Development Kit</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-                      <Medal className="w-3 h-3 text-amber-500" />
-                    </div>
-                    <p className="text-gray-300">1-Year Cloud Credits</p>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+          {/* Prize Cards */}
+          <Grid container spacing={4} sx={{ mb: 6 }}>
+            {prizes.map((prize, index) => (
+              <Grid item xs={12} md={4} key={index}>
+                <MotionCard
+                  variants={itemVariants}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    boxShadow: `0 0 25px ${prize.color}40` 
+                  }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  sx={{
+                    bgcolor: 'rgba(20, 20, 20, 0.8)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: 2,
+                    overflow: 'hidden',
+                    position: 'relative',
+                    border: `1px solid ${prize.color}40`,
+                    height: '100%'
+                  }}
+                >
+                  {/* Prize ribbon */}
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: 0,
+                      right: 0,
+                      width: '150px',
+                      height: '150px',
+                      overflow: 'hidden',
+                      zIndex: 1
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        bgcolor: prize.color,
+                        color: '#000',
+                        fontWeight: 'bold',
+                        py: 0.75,
+                        width: '200px',
+                        textAlign: 'center',
+                        transform: 'rotate(45deg)',
+                        position: 'absolute',
+                        top: '40px',
+                        right: '-40px',
+                        boxShadow: '0 3px 10px rgba(0,0,0,0.3)'
+                      }}
+                    >
+                      {prize.place}
+                    </Box>
+                  </Box>
+                  
+                  <CardContent sx={{ p: 4, pt: 6 }}>
+                    <MotionBox
+                      sx={{ 
+                        display: 'flex', 
+                        flexDirection: 'column', 
+                        alignItems: 'center',
+                        mb: 3
+                      }}
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ 
+                        type: "spring", 
+                        stiffness: 260, 
+                        damping: 20,
+                        delay: 0.2 + index * 0.1
+                      }}
+                    >
+                      {/* Prize icon with glow effect */}
+                      <MotionAvatar
+                        sx={{
+                          width: 80,
+                          height: 80,
+                          bgcolor: `${prize.color}20`,
+                          color: prize.color,
+                          mb: 2,
+                          position: 'relative'
+                        }}
+                      >
+                        {prize.icon}
+                        <Box
+                          sx={{
+                            position: 'absolute',
+                            inset: 0,
+                            bgcolor: prize.color,
+                            borderRadius: '50%',
+                            filter: 'blur(20px)',
+                            opacity: 0.3
+                          }}
+                        />
+                      </MotionAvatar>
+                      
+                      <Typography 
+                        variant="h5" 
+                        fontWeight="bold" 
+                        sx={{ color: prize.color, textAlign: 'center' }}
+                      >
+                        {prize.title}
+                      </Typography>
+                    </MotionBox>
+                    
+                    <Divider sx={{ mb: 3, bgcolor: `${prize.color}30` }} />
+                    
+                    {/* Prize rewards list */}
+                    <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none' }}>
+                      {prize.rewards.map((reward, i) => (
+                        <Box
+                          component="li"
+                          key={i}
+                          sx={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: 2,
+                            mb: 2
+                          }}
+                        >
+                          <Avatar
+                            sx={{
+                              width: 32,
+                              height: 32,
+                              bgcolor: `${prize.color}20`,
+                              color: prize.color
+                            }}
+                          >
+                            {reward.icon}
+                          </Avatar>
+                          <Typography variant="body1" color="grey.300" sx={{ mt: 0.5 }}>
+                            {reward.text}
+                          </Typography>
+                        </Box>
+                      ))}
+                    </Box>
+                  </CardContent>
+                </MotionCard>
+              </Grid>
+            ))}
+          </Grid>
 
-            <Card className="bg-gradient-to-b from-gray-800/30 to-gray-900 border border-gray-700 backdrop-blur-sm overflow-hidden relative transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(156,163,175,0.3)]">
-              <div className="absolute top-0 right-0 w-20 h-20">
-                <div className="absolute transform rotate-45 bg-gray-500 text-black font-bold py-1 right-[-35px] top-[32px] w-[170px] text-center text-sm">
-                  2ND PLACE
-                </div>
-              </div>
-              <CardContent className="p-6 pt-12">
-                <div className="w-20 h-20 mx-auto mb-6 relative">
-                  <Trophy className="w-full h-full text-gray-400" />
-                  <div className="absolute inset-0 bg-gray-500/20 blur-xl rounded-full"></div>
-                </div>
-                <h3 className="text-2xl font-bold text-center mb-4 text-gray-400">RUNNER-UP</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-gray-500/20 flex items-center justify-center flex-shrink-0">
-                      <Medal className="w-3 h-3 text-gray-400" />
-                    </div>
-                    <p className="text-gray-300">$5,000 Cash Prize</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-gray-500/20 flex items-center justify-center flex-shrink-0">
-                      <Medal className="w-3 h-3 text-gray-400" />
-                    </div>
-                    <p className="text-gray-300">AI Development Toolkit</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-gray-500/20 flex items-center justify-center flex-shrink-0">
-                      <Medal className="w-3 h-3 text-gray-400" />
-                    </div>
-                    <p className="text-gray-300">6-Month Cloud Credits</p>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-b from-red-950/30 to-gray-900 border border-red-500/30 backdrop-blur-sm overflow-hidden relative transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-              <div className="absolute top-0 right-0 w-20 h-20">
-                <div className="absolute transform rotate-45 bg-red-500 text-black font-bold py-1 right-[-35px] top-[32px] w-[170px] text-center text-sm">
-                  3RD PLACE
-                </div>
-              </div>
-              <CardContent className="p-6 pt-12">
-                <div className="w-20 h-20 mx-auto mb-6 relative">
-                  <Trophy className="w-full h-full text-red-400" />
-                  <div className="absolute inset-0 bg-red-500/20 blur-xl rounded-full"></div>
-                </div>
-                <h3 className="text-2xl font-bold text-center mb-4 text-red-400">THIRD PRIZE</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
-                      <Medal className="w-3 h-3 text-red-400" />
-                    </div>
-                    <p className="text-gray-300">$2,500 Cash Prize</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
-                      <Medal className="w-3 h-3 text-red-400" />
-                    </div>
-                    <p className="text-gray-300">Smart Home Devices</p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1 w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
-                      <Medal className="w-3 h-3 text-red-400" />
-                    </div>
-                    <p className="text-gray-300">3-Month Cloud Credits</p>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="mt-12 text-center">
-            <p className="text-gray-400 mb-6">
+          {/* Footer Section */}
+          <MotionBox
+            variants={itemVariants}
+            sx={{ textAlign: 'center' }}
+          >
+            <Typography 
+              variant="body1" 
+              color="grey.400" 
+              sx={{ mb: 3, maxWidth: '800px', mx: 'auto' }}
+            >
               Additionally, all participants will receive exclusive hackathon swag, certificates of participation, and
               networking opportunities with industry leaders.
-            </p>
-            <Button className="bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300">
-              Register Now
-            </Button>
-          </div>
-        </div>
-      </section>
-  </div>
+            </Typography>
+            
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Button
+                variant="contained"
+                size="large"
+                sx={{
+                  backgroundImage: 'linear-gradient(to right, #f44336, #ff9800)',
+                  fontWeight: 'bold',
+                  borderRadius: 2,
+                  px: 4,
+                  py: 1.5,
+                  color: 'white',
+                  '&:hover': {
+                    backgroundImage: 'linear-gradient(to right, #d32f2f, #f57c00)',
+                    boxShadow: '0 4px 20px rgba(244, 67, 54, 0.4)'
+                  }
+                }}
+              >
+                Register Now
+              </Button>
+            </motion.div>
+          </MotionBox>
+        </MotionBox>
+      </Container>
+    </Box>
+  );
 }
 
-export default Prizes
+export default Prizes;

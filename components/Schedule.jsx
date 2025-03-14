@@ -1,224 +1,371 @@
-import React from 'react'
+import React from 'react';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  Box, 
+  Typography, 
+  Container, 
+  Tabs, 
+  Tab, 
+  Card, 
+  CardContent, 
+  Stack, 
+  Divider, 
+  Chip, 
+  useMediaQuery, 
+  useTheme 
+} from "@mui/material";
+import { 
+  AccessTime as ClockIcon, 
+  EventNote as CalendarIcon,
+  FlightTakeoff as RocketIcon
+} from "@mui/icons-material";
+import { styled } from "@mui/material/styles";
 
-import { useState, useEffect } from "react"
-import { Suspense } from "react"
-import dynamic from "next/dynamic"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, Clock, Code, Cpu, Globe, Lightbulb, MapPin, Medal, Rocket, Trophy, Users, Wifi } from "lucide-react"
+// Styled components
+const StyledTab = styled(Tab)(({ theme }) => ({
+  color: "#fff",
+  fontWeight: "bold",
+  fontSize: "1rem",
+  transition: "all 0.3s ease",
+  '&.Mui-selected': {
+    color: "#f44336",
+  },
+}));
+
+const DayTabs = styled(Tabs)(({ theme }) => ({
+  backgroundColor: "rgba(30, 30, 35, 0.6)",
+  borderRadius: "8px",
+  marginBottom: "2rem",
+  '& .MuiTabs-indicator': {
+    backgroundColor: "#f44336",
+    height: "3px",
+  },
+}));
+
+const EventCard = styled(Card)(({ theme, day }) => ({
+  background: "rgba(30, 30, 35, 0.6)",
+  borderRadius: "12px",
+  border: "1px solid #444",
+  marginBottom: "1rem",
+  transition: "all 0.3s ease",
+  overflow: "hidden",
+  color: "#fff", // Add default text color for the card
+  '&:hover': {
+    borderColor: day === "day1" || day === "day3" ? "rgba(244, 67, 54, 0.5)" : "rgba(255, 193, 7, 0.5)",
+    transform: "translateY(-5px)",
+    boxShadow: "0 10px 20px rgba(0, 0, 0, 0.3)",
+  },
+}));
+
+const TimeChip = styled(Chip)(({ theme, day }) => ({
+  backgroundColor: day === "day1" || day === "day3" ? "rgba(244, 67, 54, 0.2)" : "rgba(255, 193, 7, 0.2)",
+  color: day === "day1" || day === "day3" ? "#f44336" : "#ffb300",
+  fontFamily: "monospace",
+  fontWeight: "bold",
+  border: `1px solid ${day === "day1" || day === "day3" ? "#f44336" : "#ffb300"}`,
+}));
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1,
+    transition: { 
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      type: "spring", 
+      stiffness: 100, 
+      damping: 12 
+    }
+  }
+};
+
+const titleVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      type: "spring", 
+      stiffness: 100, 
+      damping: 10,
+      delay: 0.1
+    }
+  }
+};
+
+const lineVariants = {
+  hidden: { width: 0 },
+  visible: { 
+    width: "100%", 
+    transition: { 
+      duration: 0.8, 
+      ease: "easeInOut"
+    }
+  }
+};
+
+const tabContentVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { 
+    opacity: 1, 
+    x: 0,
+    transition: { 
+      type: "spring", 
+      stiffness: 100, 
+      damping: 10
+    }
+  },
+  exit: { 
+    opacity: 0, 
+    x: 20,
+    transition: { 
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  }
+};
+
+const scheduleData = {
+  day1: [
+    { time: "09:00 AM", title: "Registration & Check-in", description: "Get your badge, swag bag, and find your team area" },
+    { time: "10:00 AM", title: "Opening Ceremony", description: "Welcome address, theme introduction, and rules explanation" },
+    { time: "11:30 AM", title: "Team Formation", description: "Find teammates or finalize your existing team" },
+    { time: "12:00 PM", title: "Hacking Begins!", description: "Start building your innovative solutions" },
+    { time: "07:00 PM", title: "Dinner & Networking", description: "Refuel and connect with fellow participants" },
+  ],
+  day2: [
+    { time: "08:00 AM", title: "Breakfast", description: "Start your day with a nutritious meal" },
+    { time: "10:00 AM", title: "Technical Workshops", description: "AI, Blockchain, and Web3 workshops to help with your projects" },
+    { time: "12:30 PM", title: "Lunch", description: "Refuel for the afternoon hacking session" },
+    { time: "03:00 PM", title: "Mentorship Sessions", description: "Get guidance from industry experts" },
+    { time: "08:00 PM", title: "Gaming Break", description: "Take a break with some fun tech-themed games" },
+  ],
+  day3: [
+    { time: "08:00 AM", title: "Breakfast", description: "Final day breakfast to power through" },
+    { time: "10:00 AM", title: "Submission Preparation", description: "Finalize your projects and prepare for presentations" },
+    { time: "12:00 PM", title: "Hacking Ends", description: "All code submissions due" },
+    { time: "01:00 PM", title: "Project Presentations", description: "Teams showcase their innovations to judges" },
+    { time: "04:00 PM", title: "Awards Ceremony", description: "Winners announced and prizes awarded" },
+  ]
+};
+
+// Generate consistent particle data
+const generateParticleData = () => {
+  // Use a seed to generate the same random values
+  const particles = [];
+  for (let i = 0; i < 15; i++) {
+    particles.push({
+      width: 2 + (i % 5),
+      height: 2 + ((i + 2) % 5),
+      left: `${(i * 7) % 100}%`,
+      top: `${(i * 6) % 100}%`,
+      color: i % 2 === 0 ? "#f44336" : "#ffb300",
+      delay: i * 0.2,
+      duration: 20 + (i % 10)
+    });
+  }
+  return particles;
+};
 
 function Schedule() {
-  return <div>
-    <section id="schedule" className="relative py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-flex items-center">
-              <span className="w-8 h-1 bg-red-500 mr-4"></span>
-              EVENT SCHEDULE
-              <span className="w-8 h-1 bg-red-500 ml-4"></span>
-            </h2>
-            <p className="text-gray-400 max-w-3xl mx-auto">
-              Your 48-hour journey to build the next generation of technology solutions.
-            </p>
-          </div>
+  const [activeTab, setActiveTab] = useState("day1");
+  const [particles, setParticles] = useState([]);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-          <Tabs defaultValue="day1" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8 bg-gray-900/50">
-              <TabsTrigger value="day1" className="data-[state=active]:bg-red-950/50 data-[state=active]:text-red-500">
-                DAY 1
-              </TabsTrigger>
-              <TabsTrigger
-                value="day2"
-                className="data-[state=active]:bg-amber-950/50 data-[state=active]:text-amber-500"
-              >
-                DAY 2
-              </TabsTrigger>
-              <TabsTrigger value="day3" className="data-[state=active]:bg-red-950/50 data-[state=active]:text-red-500">
-                DAY 3
-              </TabsTrigger>
-            </TabsList>
+  // Only run particle generation on the client side
+  useEffect(() => {
+    setParticles(generateParticleData());
+  }, []);
 
-            <TabsContent value="day1" className="border border-gray-800 rounded-lg p-6 bg-gray-900/30">
-              <div className="space-y-6">
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-red-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-red-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">09:00 AM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Registration & Check-in</h3>
-                    <p className="text-gray-400">Get your badge, swag bag, and find your team area</p>
-                  </div>
-                </div>
+  const handleTabChange = (event, newValue) => {
+    setActiveTab(newValue);
+  };
 
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-red-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-red-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">10:00 AM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Opening Ceremony</h3>
-                    <p className="text-gray-400">Welcome address, theme introduction, and rules explanation</p>
-                  </div>
-                </div>
+  return (
+    <Box sx={{ 
+      py: 10, 
+      px: 4, 
+      background: "linear-gradient(to bottom, #121212, #1a1a1a)",
+      position: "relative",
+      overflow: "hidden"
+    }}>
+      {/* Background animated particles - Only render on client side to avoid hydration mismatch */}
+      <Box sx={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, overflow: "hidden" }}>
+        {particles.map((particle, i) => (
+          <motion.div
+            key={i}
+            animate={{
+              x: [0, 30, 0],
+              y: [0, 30, 0],
+              opacity: [0.2, 0.6, 0.2],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: particle.duration,
+              ease: "linear",
+              repeat: Infinity,
+              repeatType: "reverse",
+              delay: particle.delay
+            }}
+            style={{
+              position: "absolute",
+              width: particle.width,
+              height: particle.height,
+              borderRadius: "50%",
+              background: particle.color,
+              filter: "blur(3px)",
+              left: particle.left,
+              top: particle.top,
+            }}
+          />
+        ))}
+      </Box>
 
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-red-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-red-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">11:30 AM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Team Formation</h3>
-                    <p className="text-gray-400">Find teammates or finalize your existing team</p>
-                  </div>
-                </div>
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          {/* Title Section */}
+          <Box sx={{ textAlign: "center", mb: 8 }}>
+            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mb: 2 }}>
+              <motion.div variants={lineVariants} style={{ height: "2px", backgroundColor: "#f44336", marginRight: "1rem" }} />
+              <motion.div variants={titleVariants}>
+                <Typography variant="h3" component="h2" sx={{ 
+                  fontWeight: "bold", 
+                  letterSpacing: "0.05em",
+                  display: "flex",
+                  alignItems: "center",
+                  color: "#fff"
+                }}>
+                  <RocketIcon sx={{ mr: 1, color: "#f44336" }} />
+                  EVENT SCHEDULE
+                </Typography>
+              </motion.div>
+              <motion.div variants={lineVariants} style={{ height: "2px", backgroundColor: "#f44336", marginLeft: "1rem" }} />
+            </Box>
+            <motion.div variants={itemVariants}>
+              <Typography variant="body1" sx={{ color: "#aaa", maxWidth: "700px", mx: "auto" }}>
+                Your 48-hour journey to build the next generation of technology solutions.
+              </Typography>
+            </motion.div>
+          </Box>
 
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-red-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-red-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">12:00 PM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Hacking Begins!</h3>
-                    <p className="text-gray-400">Start building your innovative solutions</p>
-                  </div>
-                </div>
+          {/* Tabs */}
+          <DayTabs 
+            value={activeTab} 
+            onChange={handleTabChange} 
+            variant="fullWidth"
+            component={motion.div}
+            variants={itemVariants}
+          >
+            <StyledTab 
+              label={
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <CalendarIcon sx={{ color: "#f44336" }} />
+                  <Typography sx={{ color: "#fff" }}>DAY 1</Typography>
+                </Stack>
+              } 
+              value="day1" 
+            />
+            <StyledTab 
+              label={
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <CalendarIcon sx={{ color: "#ffb300" }} />
+                  <Typography sx={{ color: "#fff" }}>DAY 2</Typography>
+                </Stack>
+              } 
+              value="day2" 
+            />
+            <StyledTab 
+              label={
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <CalendarIcon sx={{ color: "#f44336" }} />
+                  <Typography sx={{ color: "#fff" }}>DAY 3</Typography>
+                </Stack>
+              } 
+              value="day3" 
+            />
+          </DayTabs>
 
-                <div className="flex flex-col md:flex-row gap-4 md:items-center hover:border-red-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-red-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">07:00 PM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Dinner & Networking</h3>
-                    <p className="text-gray-400">Refuel and connect with fellow participants</p>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="day2" className="border border-gray-800 rounded-lg p-6 bg-gray-900/30">
-              <div className="space-y-6">
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-amber-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-amber-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">08:00 AM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Breakfast</h3>
-                    <p className="text-gray-400">Start your day with a nutritious meal</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-amber-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-amber-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">10:00 AM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Technical Workshops</h3>
-                    <p className="text-gray-400">AI, Blockchain, and Web3 workshops to help with your projects</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-amber-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-amber-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">12:30 PM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Lunch</h3>
-                    <p className="text-gray-400">Refuel for the afternoon hacking session</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-amber-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-amber-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">03:00 PM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Mentorship Sessions</h3>
-                    <p className="text-gray-400">Get guidance from industry experts</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-4 md:items-center hover:border-amber-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-amber-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">08:00 PM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Gaming Break</h3>
-                    <p className="text-gray-400">Take a break with some fun tech-themed games</p>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
-
-            <TabsContent value="day3" className="border border-gray-800 rounded-lg p-6 bg-gray-900/30">
-              <div className="space-y-6">
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-red-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-red-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">08:00 AM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Breakfast</h3>
-                    <p className="text-gray-400">Final day breakfast to power through</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-red-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-red-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">10:00 AM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Submission Preparation</h3>
-                    <p className="text-gray-400">Finalize your projects and prepare for presentations</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-red-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-red-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">12:00 PM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Hacking Ends</h3>
-                    <p className="text-gray-400">All code submissions due</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-4 md:items-center border-b border-gray-800 pb-6 hover:border-red-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-red-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">01:00 PM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Project Presentations</h3>
-                    <p className="text-gray-400">Teams showcase their innovations to judges</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row gap-4 md:items-center hover:border-red-500/30 transition-colors duration-300">
-                  <div className="md:w-1/4 flex items-center gap-3">
-                    <Clock className="text-red-500 flex-shrink-0" />
-                    <span className="text-amber-500 font-mono">04:00 PM</span>
-                  </div>
-                  <div className="md:w-3/4">
-                    <h3 className="text-xl font-bold">Awards Ceremony</h3>
-                    <p className="text-gray-400">Winners announced and prizes awarded</p>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
-          </Tabs>
-        </div>
-      </section>
-  </div>
+          {/* Tab Content */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={tabContentVariants}
+            >
+              <Box sx={{ 
+                p: 4, 
+                border: "1px solid #444", 
+                borderRadius: "12px", 
+                backgroundColor: "rgba(30, 30, 35, 0.6)",
+                backdropFilter: "blur(10px)",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)"
+              }}>
+                <motion.div variants={containerVariants}>
+                  {scheduleData[activeTab].map((event, index) => (
+                    <motion.div key={index} variants={itemVariants}>
+                      <EventCard day={activeTab} elevation={4}>
+                        <CardContent>
+                          <Stack 
+                            direction={isMobile ? "column" : "row"} 
+                            spacing={3} 
+                            alignItems={isMobile ? "flex-start" : "center"}
+                          >
+                            <Box sx={{ minWidth: isMobile ? "100%" : "25%", mb: isMobile ? 2 : 0 }}>
+                              <Stack direction="row" spacing={1} alignItems="center">
+                                <ClockIcon sx={{ 
+                                  color: activeTab === "day1" || activeTab === "day3" ? "#f44336" : "#ffb300"
+                                }} />
+                                <TimeChip 
+                                  day={activeTab} 
+                                  label={event.time} 
+                                  size="medium"
+                                />
+                              </Stack>
+                            </Box>
+                            <Box sx={{ flexGrow: 1 }}>
+                              <Typography variant="h6" component="h3" sx={{ 
+                                fontWeight: "bold", 
+                                mb: 1, 
+                                color: "#fff" // Explicitly set title color to white
+                              }}>
+                                {event.title}
+                              </Typography>
+                              <Typography variant="body2" sx={{ color: "#ccc" }}>
+                                {event.description}
+                              </Typography>
+                            </Box>
+                          </Stack>
+                        </CardContent>
+                      </EventCard>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </Box>
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
+      </Container>
+    </Box>
+  );
 }
 
-export default Schedule
+export default Schedule;
