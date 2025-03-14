@@ -78,26 +78,22 @@ export default function FAQSection() {
   ]
 
   return (
+
+    <section id="faq" className="relative py-20 px-4">
+    <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900"></div>
+    <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-flex items-center">
+          <span className="w-8 h-1 bg-red-500 mr-4"></span>
+          FREQUENTLY ASKED QUESTIONS
+          <span className="w-8 h-1 bg-red-500 ml-4"></span>
+        </h2>
+        <p className="text-gray-400 max-w-3xl mx-auto">Everything you need to know about Hack Infinity.</p>
+      </div>
+
     <ThemeProvider theme={hackTheme}>
       <Container maxWidth="md" sx={{ py: 8, backgroundColor: 'transparent' }}>
-        <Box sx={{ mb: 6, textAlign: "center" }}>
-          <Typography 
-            component="h2" 
-            variant="h3" 
-            sx={{ 
-              mb: 2,
-              fontWeight: 700,
-              background: `linear-gradient(90deg, ${hackTheme.palette.primary.main}, ${hackTheme.palette.secondary.main})`,
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent"
-            }}
-          >
-            Frequently Asked Questions
-          </Typography>
-          <Typography variant="body1" color="text.secondary">
-            Everything you need to know about Hack Infinity
-          </Typography>
-        </Box>
+       
 
         <Box>
           {faqs.map((faq, index) => (
@@ -166,5 +162,8 @@ export default function FAQSection() {
         </Box>
       </Container>
     </ThemeProvider>
+    </div>
+      </section>
+
   )
 }
