@@ -1,40 +1,481 @@
-
-import { useState, useEffect } from "react"
-import { Suspense } from "react"
-import dynamic from "next/dynamic"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, Clock, Code, Cpu, Globe, Lightbulb, MapPin, Medal, Rocket, Trophy, Users, Wifi } from "lucide-react"
-
-import React from 'react'
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { 
+  Box, 
+  Typography, 
+  Container, 
+  Grid, 
+  Card, 
+  CardContent, 
+  Button, 
+  Divider,
+  useTheme
+} from "@mui/material";
+import HandshakeIcon from "@mui/icons-material/Handshake";
+import GroupsIcon from "@mui/icons-material/Groups";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import DiamondIcon from "@mui/icons-material/Diamond";
+import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 
 function Sponsors() {
-  return <div>
-          <section id="sponsors" className="relative py-20 px-4 bg-gradient-to-b from-gray-900 to-black">
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-flex items-center">
-              <span className="w-8 h-1 bg-red-500 mr-4"></span>
-              OUR SPONSORS
-              <span className="w-8 h-1 bg-red-500 ml-4"></span>
-            </h2>
-            <p className="text-gray-400 max-w-3xl mx-auto">These industry leaders make our hackathon possible.</p>
-          </div>
+  const theme = useTheme();
+  
+  // Sample sponsor data - replace with your actual sponsors
+  const sponsors = {
+    platinum: [
+      { id: 1, name: "Platinum Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 2, name: "Platinum Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
+    ],
+    gold: [
+      { id: 1, name: "Gold Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 2, name: "Gold Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 3, name: "Gold Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
+    ],
+    silver: [
+      { id: 1, name: "Silver Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 2, name: "Silver Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 3, name: "Silver Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 4, name: "Silver Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
+    ],
+    community: [
+      { id: 1, name: "Community Partner 1", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 2, name: "Community Partner 2", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 3, name: "Community Partner 3", logo: "/placeholder.svg?height=100&width=200" },
+    ],
+    previous: [
+      { id: 1, name: "Previous Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 2, name: "Previous Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 3, name: "Previous Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 4, name: "Previous Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
+    ]
+  };
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div
-                key={i}
-                className="flex items-center justify-center p-6 bg-gray-900/50 rounded-lg border border-gray-800 hover:border-red-500/50 transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="w-[150px] h-[60px] opacity-70 hover:opacity-100 transition-opacity duration-300 bg-[url('/placeholder.svg?height=100&width=200')] bg-contain bg-center bg-no-repeat"></div>
-              </div>
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+  
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
+
+  const titleVariants = {
+    hidden: { x: -50, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        duration: 0.8
+      }
+    }
+  };
+
+  // Custom styled section title component
+  const SectionTitle = ({ icon, title }) => (
+    <motion.div
+      variants={titleVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+    >
+      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 5 }}>
+        <Box sx={{ 
+          width: "40px", 
+          height: "3px", 
+          backgroundColor: "#FF5733",
+          mr: 2 
+        }} />
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          {icon}
+          <Typography variant="h3" component="h2" sx={{ 
+            fontWeight: "bold",
+            textTransform: "uppercase",
+            background: "linear-gradient(to right, #FF5733, #FFC300)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent"
+          }}>
+            {title}
+          </Typography>
+        </Box>
+        <Box sx={{ 
+          width: "40px", 
+          height: "3px", 
+          backgroundColor: "#FF5733",
+          ml: 2 
+        }} />
+      </Box>
+    </motion.div>
+  );
+
+  // Sponsor card component
+  const SponsorCard = ({ logo, name, tier }) => {
+    const getBorderColor = () => {
+      switch(tier) {
+        case 'platinum': return 'linear-gradient(to right, #E5E4E2, #FFFFFF)';
+        case 'gold': return 'linear-gradient(to right, #FFD700, #FFC300)';
+        case 'silver': return 'linear-gradient(to right, #C0C0C0, #E8E8E8)';
+        default: return 'linear-gradient(to right, #333333, #555555)';
+      }
+    };
+    
+    return (
+      <motion.div
+        variants={itemVariants}
+        whileHover={{ 
+          scale: 1.05,
+          boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
+        }}
+      >
+        <Card sx={{ 
+          background: "rgba(17, 17, 17, 0.7)",
+          border: "1px solid rgba(255, 87, 51, 0.3)",
+          borderRadius: 2,
+          padding: 2,
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "relative",
+          overflow: "hidden",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "4px",
+            background: getBorderColor()
+          }
+        }}>
+          <CardContent sx={{ padding: 2, textAlign: "center" }}>
+            <Box 
+              component="img"
+              src={logo}
+              alt={name}
+              sx={{ 
+                maxWidth: "150px",
+                maxHeight: "80px",
+                filter: "brightness(0.9)",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  filter: "brightness(1.2)"
+                }
+              }}
+            />
+          </CardContent>
+        </Card>
+      </motion.div>
+    );
+  };
+
+  return (
+    <Box 
+      id="sponsors" 
+      sx={{ 
+        position: "relative",
+        py: 10,
+        background: "linear-gradient(to bottom, #000000, #111111)",
+        overflow: "hidden"
+      }}
+    >
+      {/* Background effects */}
+      <Box sx={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        overflow: "hidden",
+        zIndex: 0
+      }}>
+        {[...Array(20)].map((_, i) => (
+          <Box
+            key={i}
+            component={motion.div}
+            animate={{
+              y: [i * 30, i * 30 + 700],
+              opacity: [0.3, 0],
+              scale: [1, 1.5]
+            }}
+            transition={{
+              duration: 15 + i,
+              repeat: Infinity,
+              repeatType: "loop",
+              ease: "linear",
+              delay: i * 2
+            }}
+            sx={{
+              position: "absolute",
+              width: "5px",
+              height: "5px",
+              borderRadius: "50%",
+              backgroundColor: "#FF5733",
+              left: `${i * 5}%`
+            }}
+          />
+        ))}
+      </Box>
+
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+        {/* Main Sponsors Section */}
+        <SectionTitle icon={<EmojiEventsIcon sx={{ mr: 1, color: "#FF5733" }} />} title="Our Sponsors" />
+        
+        <Typography 
+          variant="subtitle1" 
+          align="center" 
+          sx={{ 
+            color: "text.secondary", 
+            maxWidth: "700px", 
+            mx: "auto", 
+            mb: 8,
+            opacity: 0.7
+          }}
+          component={motion.p}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 0.7, y: 0 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          These industry leaders make our hackathon possible through their generous support and commitment to innovation.
+        </Typography>
+
+        {/* Platinum Sponsors */}
+        <Box sx={{ mb: 8 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <Typography 
+              variant="h5" 
+              align="center" 
+              sx={{ 
+                mb: 4, 
+                display: "flex", 
+                alignItems: "center", 
+                justifyContent: "center",
+                color: "#E5E4E2"
+              }}
+            >
+              <DiamondIcon sx={{ mr: 1 }} /> PLATINUM SPONSORS
+            </Typography>
+          </motion.div>
+          
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            <Grid container spacing={4} justifyContent="center">
+              {sponsors.platinum.map(sponsor => (
+                <Grid item xs={12} sm={6} md={4} key={sponsor.id}>
+                  <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="platinum" />
+                </Grid>
+              ))}
+            </Grid>
+          </motion.div>
+        </Box>
+
+        {/* Gold Sponsors */}
+        <Box sx={{ mb: 8 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <Typography 
+              variant="h5" 
+              align="center" 
+              sx={{ 
+                mb: 4, 
+                display: "flex", 
+                alignItems: "center", 
+                justifyContent: "center",
+                color: "#FFD700"
+              }}
+            >
+              <WorkspacePremiumIcon sx={{ mr: 1 }} /> GOLD SPONSORS
+            </Typography>
+          </motion.div>
+          
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            <Grid container spacing={3} justifyContent="center">
+              {sponsors.gold.map(sponsor => (
+                <Grid item xs={6} sm={4} md={3} key={sponsor.id}>
+                  <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="gold" />
+                </Grid>
+              ))}
+            </Grid>
+          </motion.div>
+        </Box>
+
+        {/* Silver Sponsors */}
+        <Box sx={{ mb: 12 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <Typography 
+              variant="h5" 
+              align="center" 
+              sx={{ 
+                mb: 4, 
+                display: "flex", 
+                alignItems: "center", 
+                justifyContent: "center",
+                color: "#C0C0C0"
+              }}
+            >
+              <AutoAwesomeIcon sx={{ mr: 1 }} /> SILVER SPONSORS
+            </Typography>
+          </motion.div>
+          
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            <Grid container spacing={3} justifyContent="center">
+              {sponsors.silver.map(sponsor => (
+                <Grid item xs={6} sm={3} md={3} key={sponsor.id}>
+                  <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="silver" />
+                </Grid>
+              ))}
+            </Grid>
+          </motion.div>
+        </Box>
+
+        {/* Community Partners Section */}
+        <SectionTitle icon={<GroupsIcon sx={{ mr: 1, color: "#FF5733" }} />} title="Community Partners" />
+        
+        <Box mb={12}>
+          <Grid container spacing={3} justifyContent="center">
+            {sponsors.community.map(partner => (
+              <Grid item xs={6} sm={4} md={3} key={partner.id}>
+                <SponsorCard logo={partner.logo} name={partner.name} />
+              </Grid>
             ))}
-          </div>
-        </div>
-      </section>
-  </div>
+          </Grid>
+        </Box>
+
+        {/* Previous Sponsors Section */}
+        <SectionTitle icon={<HandshakeIcon sx={{ mr: 1, color: "#FF5733" }} />} title="Previous Sponsors" />
+        
+        <Box mb={12}>
+          <Grid container spacing={3} justifyContent="center">
+            {sponsors.previous.map(sponsor => (
+              <Grid item xs={6} sm={3} md={2} key={sponsor.id}>
+                <SponsorCard logo={sponsor.logo} name={sponsor.name} />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
+        {/* Become a Sponsor/Partner CTA - Modified to have two separate buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <Grid container spacing={4} sx={{ mt: 4 }}>
+            <Grid item xs={12}>
+              <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
+                <Typography variant="h4" component="h3" align="center" sx={{
+                  mb: 4,
+                  background: "linear-gradient(to right, #FF5733, #FFC300)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  fontWeight: "bold"
+                }}>
+                  Join Our Mission to Empower Innovation
+                </Typography>
+              </Box>
+              <Box sx={{ 
+                display: "flex", 
+                gap: 3, 
+                justifyContent: "center",
+                flexWrap: "wrap" 
+              }}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  href="/become-sponsor"
+                  sx={{
+                    background: "linear-gradient(to right, #FF5733, #FFC300)",
+                    color: "white",
+                    px: 4,
+                    py: 2,
+                    fontSize: "1.1rem",
+                    fontWeight: "bold",
+                    "&:hover": {
+                      background: "linear-gradient(to right, #FFC300, #FF5733)",
+                      transform: "translateY(-2px)",
+                      boxShadow: "0 10px 20px rgba(255, 87, 51, 0.3)"
+                    },
+                    transition: "all 0.3s ease"
+                  }}
+                >
+                  Become a Sponsor
+                </Button>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  href="/community-partner"
+                  sx={{
+                    borderColor: "#FF5733",
+                    color: "#FF5733",
+                    px: 4,
+                    py: 2,
+                    fontSize: "1.1rem",
+                    fontWeight: "bold",
+                    "&:hover": {
+                      borderColor: "#FFC300",
+                      color: "#FFC300",
+                      transform: "translateY(-2px)",
+                      boxShadow: "0 10px 20px rgba(255, 87, 51, 0.1)"
+                    },
+                    transition: "all 0.3s ease"
+                  }}
+                >
+                  Become a Community Partner
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        </motion.div>
+      </Container>
+    </Box>
+  );
 }
 
-export default Sponsors
+export default Sponsors;
