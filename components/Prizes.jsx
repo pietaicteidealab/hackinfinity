@@ -1,7 +1,11 @@
 import React from 'react';
 import { Box, Container, Typography, Grid, Card, CardContent, Button, Avatar, Divider } from '@mui/material';
 import { motion } from 'framer-motion';
-import { EmojiEvents, MonetizationOn, Lightbulb, CloudQueue, BusinessCenter, DevicesOther, Computer } from '@mui/icons-material';
+import { EmojiEvents, MonetizationOn, Lightbulb, CloudQueue, BusinessCenter, DevicesOther, Computer, Business, Router } from '@mui/icons-material';
+import dynamic from 'next/dynamic';
+
+// Dynamically import ParticleComponent with no SSR to avoid hydration issues
+const ParticleComponent = dynamic(() => import('./ParticleComponent'), { ssr: false });
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
@@ -84,6 +88,31 @@ function Prizes() {
     }
   ];
 
+  const specialPrizes = [
+    {
+      place: "SPECIAL PRIZE",
+      title: "BEST BUSINESS IDEA",
+      color: "#4CAF50",
+      icon: <Business sx={{ fontSize: 50 }} />,
+      rewards: [
+        { icon: <MonetizationOn />, text: "$2,000 Cash Prize" },
+        { icon: <BusinessCenter />, text: "Business Mentorship Program" },
+        { icon: <CloudQueue />, text: "3-Month Business Suite Access" }
+      ]
+    },
+    {
+      place: "SPECIAL PRIZE",
+      title: "BEST IoT PROJECT",
+      color: "#2196F3",
+      icon: <Router sx={{ fontSize: 50 }} />,
+      rewards: [
+        { icon: <MonetizationOn />, text: "$2,000 Cash Prize" },
+        { icon: <DevicesOther />, text: "IoT Development Kit" },
+        { icon: <CloudQueue />, text: "3-Month IoT Platform Credits" }
+      ]
+    }
+  ];
+
   return (
     <Box
       id="prizes"
@@ -96,6 +125,9 @@ function Prizes() {
         overflow: 'hidden'
       }}
     >
+      {/* Particles Background */}
+      <ParticleComponent />
+
       {/* Background decorative elements */}
       <Box
         component={motion.div}
@@ -166,10 +198,10 @@ function Prizes() {
             </MotionTypography>
           </MotionBox>
 
-          {/* Prize Cards */}
+          {/* Main Prize Cards */}
           <Grid container spacing={4} sx={{ mb: 6 }}>
             {prizes.map((prize, index) => (
-              <Grid item xs={12} md={4} key={index}>
+              <Grid item xs={12} md={4} key={`main-${index}`}>
                 <MotionCard
                   variants={itemVariants}
                   whileHover={{ 
@@ -184,7 +216,8 @@ function Prizes() {
                     overflow: 'hidden',
                     position: 'relative',
                     border: `1px solid ${prize.color}40`,
-                    height: '100%'
+                    height: '100%',
+                    minHeight: '500px'
                   }}
                 >
                   {/* Prize ribbon */}
@@ -218,7 +251,7 @@ function Prizes() {
                     </Box>
                   </Box>
                   
-                  <CardContent sx={{ p: 4, pt: 6 }}>
+                  <CardContent sx={{ p: 4, pt: 6, height: '100%', display: 'flex', flexDirection: 'column' }}>
                     <MotionBox
                       sx={{ 
                         display: 'flex', 
@@ -235,7 +268,6 @@ function Prizes() {
                         delay: 0.2 + index * 0.1
                       }}
                     >
-                      {/* Prize icon with glow effect */}
                       <MotionAvatar
                         sx={{
                           width: 80,
@@ -270,8 +302,172 @@ function Prizes() {
                     
                     <Divider sx={{ mb: 3, bgcolor: `${prize.color}30` }} />
                     
-                    {/* Prize rewards list */}
-                    <Box component="ul" sx={{ p: 0, m: 0, listStyle: 'none' }}>
+                    <Box 
+                      component="ul" 
+                      sx={{ 
+                        p: 0, 
+                        m: 0, 
+                        listStyle: 'none',
+                        flex: 1,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-start'
+                      }}
+                    >
+                      {prize.rewards.map((reward, i) => (
+                        <Box
+                          component="li"
+                          key={i}
+                          sx={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: 2,
+                            mb: 2
+                          }}
+                        >
+                          <Avatar
+                            sx={{
+                              width: 32,
+                              height: 32,
+                              bgcolor: `${prize.color}20`,
+                              color: prize.color
+                            }}
+                          >
+                            {reward.icon}
+                          </Avatar>
+                          <Typography variant="body1" color="grey.300" sx={{ mt: 0.5 }}>
+                            {reward.text}
+                          </Typography>
+                        </Box>
+                      ))}
+                    </Box>
+                  </CardContent>
+                </MotionCard>
+              </Grid>
+            ))}
+          </Grid>
+
+          {/* Special Prize Cards - Centered */}
+          <Grid 
+            container 
+            spacing={4} 
+            sx={{ mb: 6 }} 
+            justifyContent="center"
+          >
+            {specialPrizes.map((prize, index) => (
+              <Grid item xs={12} md={4} key={`special-${index}`} sx={{ maxWidth: { md: '33.33%' } }}>
+                <MotionCard
+                  variants={itemVariants}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    boxShadow: `0 0 25px ${prize.color}40` 
+                  }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  sx={{
+                    bgcolor: 'rgba(20, 20, 20, 0.8)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: 2,
+                    overflow: 'hidden',
+                    position: 'relative',
+                    border: `1px solid ${prize.color}40`,
+                    height: '100%',
+                    minHeight: '500px'
+                  }}
+                >
+                  {/* Prize ribbon */}
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: 0,
+                      right: 0,
+                      width: '150px',
+                      height: '150px',
+                      overflow: 'hidden',
+                      zIndex: 1
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        bgcolor: prize.color,
+                        color: '#000',
+                        fontWeight: 'bold',
+                        py: 0.75,
+                        width: '200px',
+                        textAlign: 'center',
+                        transform: 'rotate(45deg)',
+                        position: 'absolute',
+                        top: '40px',
+                        right: '-40px',
+                        boxShadow: '0 3px 10px rgba(0,0,0,0.3)'
+                      }}
+                    >
+                      {prize.place}
+                    </Box>
+                  </Box>
+                  
+                  <CardContent sx={{ p: 4, pt: 6, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <MotionBox
+                      sx={{ 
+                        display: 'flex', 
+                        flexDirection: 'column', 
+                        alignItems: 'center',
+                        mb: 3
+                      }}
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ 
+                        type: "spring", 
+                        stiffness: 260, 
+                        damping: 20,
+                        delay: 0.2 + index * 0.1
+                      }}
+                    >
+                      <MotionAvatar
+                        sx={{
+                          width: 80,
+                          height: 80,
+                          bgcolor: `${prize.color}20`,
+                          color: prize.color,
+                          mb: 2,
+                          position: 'relative'
+                        }}
+                      >
+                        {prize.icon}
+                        <Box
+                          sx={{
+                            position: 'absolute',
+                            inset: 0,
+                            bgcolor: prize.color,
+                            borderRadius: '50%',
+                            filter: 'blur(20px)',
+                            opacity: 0.3
+                          }}
+                        />
+                      </MotionAvatar>
+                      
+                      <Typography 
+                        variant="h5" 
+                        fontWeight="bold" 
+                        sx={{ color: prize.color, textAlign: 'center' }}
+                      >
+                        {prize.title}
+                      </Typography>
+                    </MotionBox>
+                    
+                    <Divider sx={{ mb: 3, bgcolor: `${prize.color}30` }} />
+                    
+                    <Box 
+                      component="ul" 
+                      sx={{ 
+                        p: 0, 
+                        m: 0, 
+                        listStyle: 'none',
+                        flex: 1,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-start'
+                      }}
+                    >
                       {prize.rewards.map((reward, i) => (
                         <Box
                           component="li"
