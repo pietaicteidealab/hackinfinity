@@ -92,7 +92,7 @@ const Theme = () => {
   ];
 
   return (
-    <Box
+    <Box id="themes"
       sx={{
         position: 'relative',
         py: 12,
