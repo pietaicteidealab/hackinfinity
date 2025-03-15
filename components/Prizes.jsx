@@ -114,36 +114,6 @@ function Prizes() {
           zIndex: 0
         }}
       />
-      
-      {/* Animated particles */}
-      {[...Array(12)].map((_, i) => (
-        <MotionBox
-          key={i}
-          sx={{
-            position: 'absolute',
-            width: '8px',
-            height: '8px',
-            borderRadius: '50%',
-            background: theme => theme.palette.primary.main,
-            filter: 'blur(3px)',
-            zIndex: 1
-          }}
-          animate={{
-            x: ['-20vw', '120vw'],
-            y: [
-              Math.floor(i / 4) * 30 + '%',
-              Math.floor(i / 4) * 30 + Math.sin(i) * 20 + '%'
-            ],
-            opacity: [0, 1, 1, 0],
-          }}
-          transition={{
-            duration: 15 + i * 2,
-            repeat: Infinity,
-            ease: 'linear',
-            delay: i * 0.8,
-          }}
-        />
-      ))}
 
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
         <MotionBox

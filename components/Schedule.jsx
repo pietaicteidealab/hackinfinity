@@ -252,7 +252,6 @@ function Schedule() {
                   alignItems: "center",
                   color: "#fff"
                 }}>
-                  <RocketIcon sx={{ mr: 1, color: "#f44336" }} />
                   EVENT SCHEDULE
                 </Typography>
               </motion.div>
