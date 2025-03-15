@@ -195,7 +195,7 @@ function Schedule() {
   };
 
   return (
-    <Box sx={{ 
+    <Box id="schedule" sx={{ 
       py: 10, 
       px: 4, 
       background: "linear-gradient(to bottom, #121212, #1a1a1a)",
