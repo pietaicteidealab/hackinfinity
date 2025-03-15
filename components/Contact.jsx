@@ -28,7 +28,7 @@ function Contact() {
 
   return (
     <div>
-      <section id="contact" className="relative py-20 px-4">
+      <section id="contact" className="relative mb-8 px-4">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black"></div>
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="text-center mb-16">

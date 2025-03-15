@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { 
-  Box, 
-  Typography, 
-  Container, 
-  Grid, 
-  Card, 
-  CardContent, 
-  Button, 
+import {
+  Box,
+  Typography,
+  Container,
+  Grid,
+  Card,
+  CardContent,
+  Button,
   Divider,
   useTheme
 } from "@mui/material";
@@ -20,7 +20,7 @@ import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 
 function Sponsors() {
   const theme = useTheme();
-  
+
   // Sample sponsor data - replace with your actual sponsors
   const sponsors = {
     platinum: [
@@ -62,7 +62,7 @@ function Sponsors() {
       }
     }
   };
-  
+
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -115,14 +115,14 @@ function Sponsors() {
       viewport={{ once: true, amount: 0.1 }}
     >
       <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 5 }}>
-        <Box sx={{ 
-          width: "40px", 
-          height: "3px", 
-          backgroundColor: "#FF5733",
-          mr: 2 
+        <Box sx={{
+          width: "40px",
+          height: "3px",
+          backgroundColor: "#ef4444",
+          mr: 2
         }} />
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Typography variant="h3" component="h2" sx={{ 
+          <Typography className="text-4xl " sx={{
             fontWeight: "bold",
             textTransform: "uppercase",
             color: "white"
@@ -130,11 +130,11 @@ function Sponsors() {
             {title}
           </Typography>
         </Box>
-        <Box sx={{ 
-          width: "40px", 
-          height: "3px", 
-          backgroundColor: "#FF5733",
-          ml: 2 
+        <Box sx={{
+          width: "40px",
+          height: "3px",
+          backgroundColor: "#ef4444",
+          ml: 2
         }} />
       </Box>
     </motion.div>
@@ -143,23 +143,23 @@ function Sponsors() {
   // Sponsor card component
   const SponsorCard = ({ logo, name, tier }) => {
     const getBorderColor = () => {
-      switch(tier) {
+      switch (tier) {
         case 'platinum': return 'linear-gradient(to right, #E5E4E2, #FFFFFF)';
         case 'gold': return 'linear-gradient(to right, #FFD700, #FFC300)';
         case 'silver': return 'linear-gradient(to right, #C0C0C0, #E8E8E8)';
         default: return 'linear-gradient(to right, #333333, #555555)';
       }
     };
-    
+
     return (
       <motion.div
         variants={itemVariants}
-        whileHover={{ 
+        whileHover={{
           scale: 1.05,
           boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
         }}
       >
-        <Card sx={{ 
+        <Card sx={{
           background: "rgba(17, 17, 17, 0.7)",
           border: "1px solid rgba(255, 87, 51, 0.3)",
           borderRadius: 2,
@@ -181,11 +181,11 @@ function Sponsors() {
           }
         }}>
           <CardContent sx={{ padding: 2, textAlign: "center" }}>
-            <Box 
+            <Box
               component="img"
               src={logo}
               alt={name}
-              sx={{ 
+              sx={{
                 maxWidth: "150px",
                 maxHeight: "80px",
                 filter: "brightness(0.9)",
@@ -202,9 +202,9 @@ function Sponsors() {
   };
 
   return (
-    <Box 
-      id="sponsors" 
-      sx={{ 
+    <Box
+      id="sponsors"
+      sx={{
         position: "relative",
         py: 10,
         background: "linear-gradient(to bottom, #000000, #111111)",
@@ -251,15 +251,17 @@ function Sponsors() {
 
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         {/* Main Sponsors Section */}
+
         <SectionTitle title="Our Sponsors" />
-        
-        <Typography 
-          variant="subtitle1" 
-          align="center" 
-          sx={{ 
-            color: "text.secondary", 
-            maxWidth: "700px", 
-            mx: "auto", 
+
+        <Typography
+          className="text-white"
+          variant="subtitle1"
+          align="center"
+          sx={{
+            color: "text.secondary",
+            maxWidth: "700px",
+            mx: "auto",
             mb: 8,
             opacity: 0.7
           }}
@@ -274,18 +276,18 @@ function Sponsors() {
 
         {/* Platinum Sponsors */}
         <Box sx={{ mb: 8 }}>
-          <Typography 
-            variant="h5" 
-            align="center" 
-            sx={{ 
-              mb: 4, 
+          <Typography
+            variant="h5"
+            align="center"
+            sx={{
+              mb: 4,
               textAlign: "center",
               color: "white"
             }}
           >
             PLATINUM SPONSORS
           </Typography>
-          
+
           <Grid container spacing={4} justifyContent="center">
             {sponsors.platinum.map(sponsor => (
               <Grid item xs={12} sm={6} md={4} key={sponsor.id}>
@@ -297,18 +299,18 @@ function Sponsors() {
 
         {/* Gold Sponsors */}
         <Box sx={{ mb: 8 }}>
-          <Typography 
-            variant="h5" 
-            align="center" 
-            sx={{ 
-              mb: 4, 
+          <Typography
+            variant="h5"
+            align="center"
+            sx={{
+              mb: 4,
               textAlign: "center",
               color: "white"
             }}
           >
             GOLD SPONSORS
           </Typography>
-          
+
           <Grid container spacing={3} justifyContent="center">
             {sponsors.gold.map(sponsor => (
               <Grid item xs={6} sm={4} md={3} key={sponsor.id}>
@@ -320,18 +322,18 @@ function Sponsors() {
 
         {/* Silver Sponsors */}
         <Box sx={{ mb: 12 }}>
-          <Typography 
-            variant="h5" 
-            align="center" 
-            sx={{ 
-              mb: 4, 
+          <Typography
+            variant="h5"
+            align="center"
+            sx={{
+              mb: 4,
               textAlign: "center",
               color: "white"
             }}
           >
             SILVER SPONSORS
           </Typography>
-          
+
           <Grid container spacing={3} justifyContent="center">
             {sponsors.silver.map(sponsor => (
               <Grid item xs={6} sm={3} md={3} key={sponsor.id}>
@@ -343,7 +345,7 @@ function Sponsors() {
 
         {/* Community Partners Section */}
         <SectionTitle title="Community Partners" />
-        
+
         <Box mb={12}>
           <Grid container spacing={3} justifyContent="center">
             {sponsors.community.map(partner => (
@@ -356,10 +358,10 @@ function Sponsors() {
 
         {/* Previous Sponsors Section */}
         <SectionTitle title="Previous Sponsors" />
-        
-        <Box 
-          mb={12} 
-          sx={{ 
+
+        <Box
+          mb={12}
+          sx={{
             overflow: "hidden",
             position: "relative",
             "&::after": {
@@ -425,30 +427,31 @@ function Sponsors() {
                   Join Our Mission to Empower Innovation
                 </Typography>
               </Box>
-              <Box sx={{ 
-                display: "flex", 
-                gap: 3, 
+              <Box sx={{
+                display: "flex",
+                gap: 3,
                 justifyContent: "center",
-                flexWrap: "wrap" 
+                flexWrap: "wrap"
               }}>
                 <Button
                   variant="contained"
                   size="large"
                   href="/become-sponsor"
-                  sx={{
-                    background: "linear-gradient(to right, #FF5733, #FFC300)",
-                    color: "white",
-                    px: 4,
-                    py: 2,
-                    fontSize: "1.1rem",
-                    fontWeight: "bold",
-                    "&:hover": {
-                      background: "linear-gradient(to right, #FFC300, #FF5733)",
-                      transform: "translateY(-2px)",
-                      boxShadow: "0 10px 20px rgba(255, 87, 51, 0.3)"
-                    },
-                    transition: "all 0.3s ease"
-                  }}
+                  // sx={{
+                  //   background: "linear-gradient(to right, #FF5733, #FFC300)",
+                  //   color: "white",
+                  //   px: 4,
+                  //   py: 2,
+                  //   fontSize: "1.1rem",
+                  //   fontWeight: "bold",
+                  //   "&:hover": {
+                  //     background: "linear-gradient(to right, #FFC300, #FF5733)",
+                  //     transform: "translateY(-2px)",
+                  //     boxShadow: "0 10px 20px rgba(255, 87, 51, 0.3)"
+                  //   },
+                  //   transition: "all 0.3s ease"
+                  // }}
+                  className="text-bold bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300"
                 >
                   Become a Sponsor
                 </Button>
