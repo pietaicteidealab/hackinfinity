@@ -1,153 +1,363 @@
-import React from 'react'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Box, Typography, Grid, Card, CardContent, CardActionArea, Container, Chip, Stack, useTheme } from '@mui/material';
+import { Computer, Language, EmojiObjects, Wifi } from '@mui/icons-material';
 
-import { useState, useEffect } from "react"
-import { Suspense } from "react"
-import dynamic from "next/dynamic"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Calendar, Clock, Code, Cpu, Globe, Lightbulb, MapPin, Medal, Rocket, Trophy, Users, Wifi } from "lucide-react"
-function Theme() {
-  return <div>
+// Framer motion variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
+    }
+  }
+};
 
-<section id="themes" className="relative py-24 px-4 overflow-hidden bg-gradient-to-b from-black to-gray-900">
-  {/* Background elements */}
-  <div className="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1600')] bg-cover bg-center opacity-5"></div>
-  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500 to-transparent"></div>
-  <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
-  
-  {/* Static particles instead of randomly positioned ones */}
-  <div className="absolute inset-0 overflow-hidden">
-    <div className="absolute top-1/4 left-1/4 w-1 h-1 rounded-full bg-amber-500 opacity-20 animate-pulse"></div>
-    <div className="absolute top-3/4 left-1/2 w-1 h-1 rounded-full bg-amber-500 opacity-20 animate-pulse"></div>
-    <div className="absolute top-1/2 left-3/4 w-1 h-1 rounded-full bg-amber-500 opacity-20 animate-pulse"></div>
-    <div className="absolute top-1/3 left-1/5 w-1 h-1 rounded-full bg-amber-500 opacity-20 animate-pulse"></div>
-    <div className="absolute top-2/3 left-4/5 w-1 h-1 rounded-full bg-amber-500 opacity-20 animate-pulse"></div>
-  </div>
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  },
+  hover: {
+    y: -10,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  }
+};
 
-  <div className="relative z-10 max-w-6xl mx-auto">
-    {/* Section header */}
-    <div className="text-center mb-16">
-      <div className="inline-block mb-3">
-        <span className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-red-500/10 to-amber-500/10 border border-red-500/20 text-xs font-mono text-red-400">
-          <span className="w-2 h-2 rounded-full bg-red-500 mr-2 animate-pulse"></span>
-          EXPLORE THE POSSIBILITIES
-        </span>
-      </div>
-      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500">
-        HACKATHON THEMES
-      </h2>
-      <p className="text-gray-400 max-w-2xl mx-auto">
-        This year's hackathon focuses on pushing the boundaries of what's possible. Choose one theme or combine multiple to create something extraordinary.
-      </p>
-    </div>
+const titleVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: "easeOut"
+    }
+  }
+};
 
-    {/* Themes grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {/* AI Theme */}
-      <div className="group relative bg-gradient-to-br from-black to-gray-900 rounded-xl p-6 border border-gray-800 hover:border-red-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg hover:shadow-red-500/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div className="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4 group-hover:bg-red-500/20 transition-colors duration-300">
-          <Cpu className="w-6 h-6 text-red-500" />
-        </div>
-        <h3 className="text-xl font-bold text-amber-500 mb-2 group-hover:text-amber-400 transition-colors duration-300">
-          Artificial Intelligence
-        </h3>
-        <p className="text-gray-400 mb-4">
-          Develop AI solutions that solve real-world problems and enhance human capabilities.
-        </p>
-        <div className="pt-4 border-t border-gray-800 flex items-center text-gray-500 text-sm">
-          <span className="flex items-center">
-            <Users className="w-3 h-3 mr-1" />
-            129 teams
-          </span>
-          <span className="mx-2">•</span>
-          <span className="flex items-center">
-            <Trophy className="w-3 h-3 mr-1" />
-            Top prize
-          </span>
-        </div>
-      </div>
+const glowVariants = {
+  initial: { opacity: 0.5 },
+  animate: {
+    opacity: [0.5, 1, 0.5],
+    transition: {
+      duration: 3,
+      repeat: Infinity,
+      repeatType: "reverse"
+    }
+  }
+};
 
-      {/* Web3 Theme */}
-      <div className="group relative bg-gradient-to-br from-black to-gray-900 rounded-xl p-6 border border-gray-800 hover:border-amber-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg hover:shadow-amber-500/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div className="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4 group-hover:bg-amber-500/20 transition-colors duration-300">
-          <Globe className="w-6 h-6 text-amber-500" />
-        </div>
-        <h3 className="text-xl font-bold text-amber-500 mb-2 group-hover:text-amber-400 transition-colors duration-300">
-          Web3 & Blockchain
-        </h3>
-        <p className="text-gray-400 mb-4">
-          Build decentralized applications that redefine digital ownership and transform industries.
-        </p>
-        <div className="pt-4 border-t border-gray-800 flex items-center text-gray-500 text-sm">
-          <span className="flex items-center">
-            <Users className="w-3 h-3 mr-1" />
-            87 teams
-          </span>
-          <span className="mx-2">•</span>
-          <span className="flex items-center">
-            <Trophy className="w-3 h-3 mr-1" />
-            Top prize
-          </span>
-        </div>
-      </div>
+const Theme = () => {
+  const theme = useTheme();
 
-      {/* Open Innovation Theme */}
-      <div className="group relative bg-gradient-to-br from-black to-gray-900 rounded-xl p-6 border border-gray-800 hover:border-red-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg hover:shadow-red-500/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div className="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mb-4 group-hover:bg-red-500/20 transition-colors duration-300">
-          <Lightbulb className="w-6 h-6 text-red-500" />
-        </div>
-        <h3 className="text-xl font-bold text-amber-500 mb-2 group-hover:text-amber-400 transition-colors duration-300">
-          Open Innovation
-        </h3>
-        <p className="text-gray-400 mb-4">
-          Surprise us with your creativity in any tech domain. No boundaries, just pure innovation.
-        </p>
-        <div className="pt-4 border-t border-gray-800 flex items-center text-gray-500 text-sm">
-          <span className="flex items-center">
-            <Users className="w-3 h-3 mr-1" />
-            72 teams
-          </span>
-          <span className="mx-2">•</span>
-          <span className="flex items-center">
-            <Trophy className="w-3 h-3 mr-1" />
-            Top prize
-          </span>
-        </div>
-      </div>
+  const themes = [
+    {
+      title: "Artificial Intelligence",
+      description: "Develop AI solutions that solve real-world problems and enhance human capabilities.",
+      icon: <Computer />,
+      teams: 129,
+      color: "#FF4444"
+    },
+    {
+      title: "Web3 & Blockchain",
+      description: "Build decentralized applications that redefine digital ownership and transform industries.",
+      icon: <Language />,
+      teams: 87,
+      color: "#FFBB33"
+    },
+    {
+      title: "Open Innovation",
+      description: "Surprise us with your creativity in any tech domain. No boundaries, pure innovation.",
+      icon: <EmojiObjects />,
+      teams: 72,
+      color: "#FF4444"
+    },
+    {
+      title: "Internet of Things",
+      description: "Connect the physical and digital worlds through smart devices and innovative IoT applications.",
+      icon: <Wifi />,
+      teams: 93,
+      color: "#FFBB33"
+    }
+  ];
 
-      {/* IoT Theme */}
-      <div className="group relative bg-gradient-to-br from-black to-gray-900 rounded-xl p-6 border border-gray-800 hover:border-amber-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-lg hover:shadow-amber-500/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div className="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4 group-hover:bg-amber-500/20 transition-colors duration-300">
-          <Wifi className="w-6 h-6 text-amber-500" />
-        </div>
-        <h3 className="text-xl font-bold text-amber-500 mb-2 group-hover:text-amber-400 transition-colors duration-300">
-          Internet of Things
-        </h3>
-        <p className="text-gray-400 mb-4">
-          Connect the physical and digital worlds through smart devices and innovative IoT applications.
-        </p>
-        <div className="pt-4 border-t border-gray-800 flex items-center text-gray-500 text-sm">
-          <span className="flex items-center">
-            <Users className="w-3 h-3 mr-1" />
-            93 teams
-          </span>
-          <span className="mx-2">•</span>
-          <span className="flex items-center">
-            <Trophy className="w-3 h-3 mr-1" />
-            Top prize
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  return (
+    <Box id="themes"
+      sx={{
+        position: 'relative',
+        py: 12,
+        px: 2,
+        overflow: 'hidden',
+        background: 'linear-gradient(to bottom, #000000, #181818)',
+        color: 'white'
+      }}
+    >
+      {/* Animated background elements */}
+      <Box
+        component={motion.div}
+        variants={glowVariants}
+        initial="initial"
+        animate="animate"
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '1px',
+          background: 'linear-gradient(to right, transparent, #FF4444, transparent)'
+        }}
+      />
+      <Box
+        component={motion.div}
+        variants={glowVariants}
+        initial="initial"
+        animate="animate"
+        sx={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '1px',
+          background: 'linear-gradient(to right, transparent, #FFBB33, transparent)'
+        }}
+      />
 
-  </div>
-}
+      {/* Particle effect */}
+      {[...Array(15)].map((_, index) => (
+        <Box
+          key={index}
+          component={motion.div}
+          sx={{
+            position: 'absolute',
+            width: '4px',
+            height: '4px',
+            borderRadius: '50%',
+            backgroundColor: index % 2 === 0 ? '#FF4444' : '#FFBB33',
+            opacity: 0.2
+          }}
+          animate={{
+            opacity: [0.2, 0.4, 0.2],
+            scale: [1, 1.5, 1]
+          }}
+          transition={{
+            duration: 3 + index % 3,
+            repeat: Infinity,
+            repeatType: "reverse",
+            delay: index * 0.5
+          }}
+          style={{
+            // Use static positioning to avoid hydration errors
+            top: `${15 + (index * 7) % 70}%`,
+            left: `${10 + (index * 11) % 80}%`
+          }}
+        />
+      ))}
 
-export default Theme
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
+        {/* Section header */}
+        <Box
+          component={motion.div}
+          variants={titleVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          sx={{ textAlign: 'center', mb: 8 }}
+        >
+          <Chip
+            label="EXPLORE THE POSSIBILITIES"
+            variant="outlined"
+            size="small"
+            icon={
+              <Box
+                component={motion.div}
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.7, 1, 0.7]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity
+                }}
+                sx={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: '50%',
+                  backgroundColor: '#FF4444',
+                  mr: 1
+                }}
+              />
+            }
+            sx={{
+              mb: 3,
+              fontFamily: 'monospace',
+              border: '1px solid rgba(255, 68, 68, 0.2)',
+              background: 'linear-gradient(to right, rgba(255, 68, 68, 0.1), rgba(255, 187, 51, 0.1))',
+              color: '#FF4444'
+            }}
+          />
+          
+          <Typography
+            variant="h2"
+            component="h2"
+            sx={{
+              mb: 2,
+              fontWeight: 'bold',
+              background: 'linear-gradient(to right, #FF4444, #FFBB33)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              textFillColor: 'transparent'
+            }}
+          >
+            HACKATHON THEMES
+          </Typography>
+          
+          <Typography
+            variant="body1"
+            sx={{
+              color: 'grey.400',
+              maxWidth: '600px',
+              mx: 'auto'
+            }}
+          >
+            This year's hackathon focuses on pushing the boundaries of what's possible. Choose one theme or combine multiple to create something extraordinary.
+          </Typography>
+        </Box>
+
+        {/* Themes grid */}
+        <Grid
+          container
+          spacing={3}
+          component={motion.div}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {themes.map((theme, index) => (
+            <Grid item xs={12} sm={6} md={3} key={index}>
+              <motion.div
+                variants={itemVariants}
+                whileHover="hover"
+              >
+                <Card
+                  sx={{
+                    height: '100%',
+                    background: 'linear-gradient(to bottom right, #000000, #181818)',
+                    border: '1px solid rgba(48, 48, 48, 0.8)',
+                    borderRadius: 4,
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      borderColor: `${theme.color}80`,
+                      boxShadow: `0 8px 16px -2px ${theme.color}20`
+                    },
+                    position: 'relative',
+                    overflow: 'hidden'
+                  }}
+                >
+                  <CardActionArea sx={{ height: '100%', p: 2 }}>
+                    {/* Hover glow effect */}
+                    <Box
+                      component={motion.div}
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 0.2 }}
+                      transition={{ duration: 0.3 }}
+                      sx={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: `radial-gradient(circle at 50% 50%, ${theme.color}20, transparent 70%)`,
+                        zIndex: 0
+                      }}
+                    />
+                    
+                    <CardContent>
+                      <Box
+                        sx={{
+                          width: 48,
+                          height: 48,
+                          borderRadius: 2,
+                          backgroundColor: `${theme.color}20`,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          mb: 2,
+                          color: theme.color,
+                          transition: 'all 0.3s ease',
+                          '&:hover': {
+                            backgroundColor: `${theme.color}30`
+                          }
+                        }}
+                      >
+                        {theme.icon}
+                      </Box>
+                      
+                      <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{
+                          mb: 1,
+                          fontWeight: 'bold',
+                          color: '#FFBB33',
+                          transition: 'color 0.3s ease',
+                          '&:hover': {
+                            color: '#FFCC66'
+                          }
+                        }}
+                      >
+                        {theme.title}
+                      </Typography>
+                      
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          mb: 3,
+                          color: 'grey.400'
+                        }}
+                      >
+                        {theme.description}
+                      </Typography>
+                      
+                      <Stack
+                        direction="row"
+                        spacing={1}
+                        alignItems="center"
+                        sx={{
+                          pt: 2,
+                          borderTop: '1px solid rgba(48, 48, 48, 0.8)',
+                          color: 'grey.500',
+                          fontSize: '0.75rem'
+                        }}
+                      >
+                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                          <Language sx={{ width: 14, height: 14, mr: 0.5 }} />
+                          {theme.teams} teams
+                        </Box>
+                        <Box sx={{ mx: 1 }}>•</Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                          <EmojiObjects sx={{ width: 14, height: 14, mr: 0.5 }} />
+                          Top prize
+                        </Box>
+                      </Stack>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
+  );
+};
+
+export default Theme;

@@ -78,92 +78,95 @@ export default function FAQSection() {
   ]
 
   return (
-
     <section id="faq" className="relative py-20 px-4">
-    <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900"></div>
-    <div className="relative z-10 max-w-6xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-flex items-center">
-          <span className="w-8 h-1 bg-red-500 mr-4"></span>
-          FREQUENTLY ASKED QUESTIONS
-          <span className="w-8 h-1 bg-red-500 ml-4"></span>
-        </h2>
-        <p className="text-gray-400 max-w-3xl mx-auto">Everything you need to know about Hack Infinity.</p>
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900"></div>
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-flex items-center">
+            <span className="w-8 h-1 bg-red-500 mr-4"></span>
+            FREQUENTLY ASKED QUESTIONS
+            <span className="w-8 h-1 bg-red-500 ml-4"></span>
+          </h2>
+          <p className="text-gray-400 max-w-3xl mx-auto">Everything you need to know about Hack Infinity.</p>
+        </div>
 
-    <ThemeProvider theme={hackTheme}>
-      <Container maxWidth="md" sx={{ py: 8, backgroundColor: 'transparent' }}>
-       
-
-        <Box>
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={`faq-${index}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Accordion
-                expanded={expanded === `panel${index}`}
-                onChange={handleChange(`panel${index}`)}
-                sx={{
-                  mb: 2,
-                  borderRadius: "8px",
-                  boxShadow: expanded === `panel${index}` 
-                    ? "0 10px 25px rgba(255,107,53,0.15)"
-                    : "0 4px 6px rgba(0,0,0,0.2)",
-                  "&:before": { display: "none" },
-                  overflow: "hidden",
-                  transition: "all 0.3s ease",
-                  border: "1px solid",
-                  borderColor: expanded === `panel${index}` 
-                    ? hackTheme.palette.primary.main
-                    : "rgba(9, 13, 21, 0)",
-                  backgroundColor: expanded === `panel${index}` 
-                    ? "rgba(9,13,21,0.05)" 
-                    : "#090d15", // Changed from rgba(26,26,26,0.8) to #090d15
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={
-                    <ExpandMoreIcon sx={{ color: hackTheme.palette.primary.main }} />
-                  }
-                  aria-controls={`panel${index}a-content`}
-                  id={`panel${index}a-header`}
+        <ThemeProvider theme={hackTheme}>
+          <Box 
+            sx={{ 
+              width: '90%', // Makes the container take up 4/5 of the available width
+              mx: 'auto', // Centers the container
+              py: 8, 
+              backgroundColor: 'transparent' 
+            }}
+          >
+            <Box>
+              {faqs.map((faq, index) => (
+                <motion.div
+                  key={`faq-${index}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  <Typography 
-                    fontWeight={600} 
-                    sx={{ 
-                      color: expanded === `panel${index}` 
-                        ? hackTheme.palette.primary.main 
-                        : hackTheme.palette.text.primary 
+                  <Accordion
+                    expanded={expanded === `panel${index}`}
+                    onChange={handleChange(`panel${index}`)}
+                    sx={{
+                      mb: 2,
+                      borderRadius: "8px",
+                      boxShadow: expanded === `panel${index}` 
+                        ? "0 10px 25px rgba(255,107,53,0.15)"
+                        : "0 4px 6px rgba(0,0,0,0.2)",
+                      "&:before": { display: "none" },
+                      overflow: "hidden",
+                      transition: "all 0.3s ease",
+                      border: "1px solid",
+                      borderColor: expanded === `panel${index}` 
+                        ? hackTheme.palette.primary.main
+                        : "rgba(9, 13, 21, 0)",
+                      backgroundColor: expanded === `panel${index}` 
+                        ? "rgba(9,13,21,0.05)" 
+                        : "#090d15", // Changed from rgba(26,26,26,0.8) to #090d15
                     }}
                   >
-                    {faq.question}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <AnimatePresence>
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
+                    <AccordionSummary
+                      expandIcon={
+                        <ExpandMoreIcon sx={{ color: hackTheme.palette.primary.main }} />
+                      }
+                      aria-controls={`panel${index}a-content`}
+                      id={`panel${index}a-header`}
                     >
-                      <Typography color="text.secondary">
-                        {faq.answer}
+                      <Typography 
+                        fontWeight={600} 
+                        sx={{ 
+                          color: expanded === `panel${index}` 
+                            ? hackTheme.palette.primary.main 
+                            : hackTheme.palette.text.primary 
+                        }}
+                      >
+                        {faq.question}
                       </Typography>
-                    </motion.div>
-                  </AnimatePresence>
-                </AccordionDetails>
-              </Accordion>
-            </motion.div>
-          ))}
-        </Box>
-      </Container>
-    </ThemeProvider>
-    </div>
-      </section>
-
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <AnimatePresence>
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Typography color="text.secondary">
+                            {faq.answer}
+                          </Typography>
+                        </motion.div>
+                      </AnimatePresence>
+                    </AccordionDetails>
+                  </Accordion>
+                </motion.div>
+              ))}
+            </Box>
+          </Box>
+        </ThemeProvider>
+      </div>
+    </section>
   )
 }
