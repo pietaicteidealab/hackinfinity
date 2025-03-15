@@ -118,12 +118,12 @@ function Sponsors() {
         <Box sx={{ 
           width: "40px", 
           height: "3px", 
-          backgroundColor: "#FF5733",
+          backgroundColor: "#ef4444",
           mr: 2 
         }} />
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Typography variant="h3" component="h2" sx={{ 
-            fontWeight: "bold",
+          <Typography className="text-sm " variant="h3" component="h3" sx={{ 
+            fontWeight: "medium",
             textTransform: "uppercase",
             color: "white"
           }}>
@@ -133,7 +133,7 @@ function Sponsors() {
         <Box sx={{ 
           width: "40px", 
           height: "3px", 
-          backgroundColor: "#FF5733",
+          backgroundColor: "#ef4444",
           ml: 2 
         }} />
       </Box>
@@ -251,6 +251,7 @@ function Sponsors() {
 
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         {/* Main Sponsors Section */}
+        
         <SectionTitle title="Our Sponsors" />
         
         <Typography 
