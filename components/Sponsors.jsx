@@ -88,8 +88,26 @@ function Sponsors() {
     }
   };
 
+  // Animation for sliding sponsors
+  const slideVariants = {
+    animate: {
+      x: [0, -2400], // Width of one complete set of sponsors
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: 30,
+          ease: "linear",
+        },
+      },
+    },
+  };
+
+  // Triple the previous sponsors array for seamless loop
+  const duplicatedPreviousSponsors = [...sponsors.previous, ...sponsors.previous, ...sponsors.previous];
+
   // Custom styled section title component
-  const SectionTitle = ({ icon, title }) => (
+  const SectionTitle = ({ title }) => (
     <motion.div
       variants={titleVariants}
       initial="hidden"
@@ -104,13 +122,10 @@ function Sponsors() {
           mr: 2 
         }} />
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          {icon}
           <Typography variant="h3" component="h2" sx={{ 
             fontWeight: "bold",
             textTransform: "uppercase",
-            background: "linear-gradient(to right, #FF5733, #FFC300)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent"
+            color: "white"
           }}>
             {title}
           </Typography>
@@ -236,7 +251,7 @@ function Sponsors() {
 
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         {/* Main Sponsors Section */}
-        <SectionTitle icon={<EmojiEventsIcon sx={{ mr: 1, color: "#FF5733" }} />} title="Our Sponsors" />
+        <SectionTitle title="Our Sponsors" />
         
         <Typography 
           variant="subtitle1" 
@@ -259,123 +274,75 @@ function Sponsors() {
 
         {/* Platinum Sponsors */}
         <Box sx={{ mb: 8 }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            viewport={{ once: true }}
+          <Typography 
+            variant="h5" 
+            align="center" 
+            sx={{ 
+              mb: 4, 
+              textAlign: "center",
+              color: "white"
+            }}
           >
-            <Typography 
-              variant="h5" 
-              align="center" 
-              sx={{ 
-                mb: 4, 
-                display: "flex", 
-                alignItems: "center", 
-                justifyContent: "center",
-                color: "#E5E4E2"
-              }}
-            >
-              <DiamondIcon sx={{ mr: 1 }} /> PLATINUM SPONSORS
-            </Typography>
-          </motion.div>
+            PLATINUM SPONSORS
+          </Typography>
           
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <Grid container spacing={4} justifyContent="center">
-              {sponsors.platinum.map(sponsor => (
-                <Grid item xs={12} sm={6} md={4} key={sponsor.id}>
-                  <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="platinum" />
-                </Grid>
-              ))}
-            </Grid>
-          </motion.div>
+          <Grid container spacing={4} justifyContent="center">
+            {sponsors.platinum.map(sponsor => (
+              <Grid item xs={12} sm={6} md={4} key={sponsor.id}>
+                <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="platinum" />
+              </Grid>
+            ))}
+          </Grid>
         </Box>
 
         {/* Gold Sponsors */}
         <Box sx={{ mb: 8 }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            viewport={{ once: true }}
+          <Typography 
+            variant="h5" 
+            align="center" 
+            sx={{ 
+              mb: 4, 
+              textAlign: "center",
+              color: "white"
+            }}
           >
-            <Typography 
-              variant="h5" 
-              align="center" 
-              sx={{ 
-                mb: 4, 
-                display: "flex", 
-                alignItems: "center", 
-                justifyContent: "center",
-                color: "#FFD700"
-              }}
-            >
-              <WorkspacePremiumIcon sx={{ mr: 1 }} /> GOLD SPONSORS
-            </Typography>
-          </motion.div>
+            GOLD SPONSORS
+          </Typography>
           
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <Grid container spacing={3} justifyContent="center">
-              {sponsors.gold.map(sponsor => (
-                <Grid item xs={6} sm={4} md={3} key={sponsor.id}>
-                  <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="gold" />
-                </Grid>
-              ))}
-            </Grid>
-          </motion.div>
+          <Grid container spacing={3} justifyContent="center">
+            {sponsors.gold.map(sponsor => (
+              <Grid item xs={6} sm={4} md={3} key={sponsor.id}>
+                <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="gold" />
+              </Grid>
+            ))}
+          </Grid>
         </Box>
 
         {/* Silver Sponsors */}
         <Box sx={{ mb: 12 }}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            viewport={{ once: true }}
+          <Typography 
+            variant="h5" 
+            align="center" 
+            sx={{ 
+              mb: 4, 
+              textAlign: "center",
+              color: "white"
+            }}
           >
-            <Typography 
-              variant="h5" 
-              align="center" 
-              sx={{ 
-                mb: 4, 
-                display: "flex", 
-                alignItems: "center", 
-                justifyContent: "center",
-                color: "#C0C0C0"
-              }}
-            >
-              <AutoAwesomeIcon sx={{ mr: 1 }} /> SILVER SPONSORS
-            </Typography>
-          </motion.div>
+            SILVER SPONSORS
+          </Typography>
           
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <Grid container spacing={3} justifyContent="center">
-              {sponsors.silver.map(sponsor => (
-                <Grid item xs={6} sm={3} md={3} key={sponsor.id}>
-                  <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="silver" />
-                </Grid>
-              ))}
-            </Grid>
-          </motion.div>
+          <Grid container spacing={3} justifyContent="center">
+            {sponsors.silver.map(sponsor => (
+              <Grid item xs={6} sm={3} md={3} key={sponsor.id}>
+                <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="silver" />
+              </Grid>
+            ))}
+          </Grid>
         </Box>
 
         {/* Community Partners Section */}
-        <SectionTitle icon={<GroupsIcon sx={{ mr: 1, color: "#FF5733" }} />} title="Community Partners" />
+        <SectionTitle title="Community Partners" />
         
         <Box mb={12}>
           <Grid container spacing={3} justifyContent="center">
@@ -388,16 +355,56 @@ function Sponsors() {
         </Box>
 
         {/* Previous Sponsors Section */}
-        <SectionTitle icon={<HandshakeIcon sx={{ mr: 1, color: "#FF5733" }} />} title="Previous Sponsors" />
+        <SectionTitle title="Previous Sponsors" />
         
-        <Box mb={12}>
-          <Grid container spacing={3} justifyContent="center">
-            {sponsors.previous.map(sponsor => (
-              <Grid item xs={6} sm={3} md={2} key={sponsor.id}>
+        <Box 
+          mb={12} 
+          sx={{ 
+            overflow: "hidden",
+            position: "relative",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              right: 0,
+              top: 0,
+              bottom: 0,
+              width: "100px",
+              background: "linear-gradient(to left, #000000, transparent)",
+              zIndex: 2
+            },
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              left: 0,
+              top: 0,
+              bottom: 0,
+              width: "100px",
+              background: "linear-gradient(to right, #000000, transparent)",
+              zIndex: 2
+            }
+          }}
+        >
+          <motion.div
+            variants={slideVariants}
+            animate="animate"
+            style={{
+              display: "flex",
+              width: "fit-content",
+              gap: "16px"
+            }}
+          >
+            {duplicatedPreviousSponsors.map((sponsor, index) => (
+              <Box
+                key={`${sponsor.id}-${index}`}
+                sx={{
+                  minWidth: "200px",
+                  px: 2,
+                }}
+              >
                 <SponsorCard logo={sponsor.logo} name={sponsor.name} />
-              </Grid>
+              </Box>
             ))}
-          </Grid>
+          </motion.div>
         </Box>
 
         {/* Become a Sponsor/Partner CTA - Modified to have two separate buttons */}
@@ -412,9 +419,7 @@ function Sponsors() {
               <Box sx={{ display: "flex", justifyContent: "center", mb: 4 }}>
                 <Typography variant="h4" component="h3" align="center" sx={{
                   mb: 4,
-                  background: "linear-gradient(to right, #FF5733, #FFC300)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                  color: "white",
                   fontWeight: "bold"
                 }}>
                   Join Our Mission to Empower Innovation
