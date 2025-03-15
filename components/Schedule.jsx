@@ -245,7 +245,7 @@ function Schedule() {
             <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", mb: 2 }}>
               <motion.div variants={lineVariants} style={{ height: "2px", backgroundColor: "#f44336", marginRight: "1rem" }} />
               <motion.div variants={titleVariants}>
-                <Typography variant="h3" component="h2" sx={{ 
+                <Typography variant="h3" component="h3" sx={{ 
                   fontWeight: "bold", 
                   letterSpacing: "0.05em",
                   display: "flex",

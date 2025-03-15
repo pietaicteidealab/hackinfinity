@@ -31,9 +31,7 @@ export default function HackathonWebsite() {
   const [mounted, setMounted] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-   
-    // Add smooth scrolling behavior to the document
-    document.documentElement.style.scrollBehavior = 'smooth';
+
     
   useEffect(() => {
     setMounted(true);

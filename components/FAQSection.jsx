@@ -78,11 +78,11 @@ export default function FAQSection() {
   ]
 
   return (
-    <section id="faq" className="relative py-20 px-4">
+    <section id="faq" className="relative py-10 px-4">
       <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900"></div>
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-flex items-center">
+          <h2 className="text-6xl md:text-4xl font-bold mb-4 inline-flex items-center">
             <span className="w-8 h-1 bg-red-500 mr-4"></span>
             FREQUENTLY ASKED QUESTIONS
             <span className="w-8 h-1 bg-red-500 ml-4"></span>
