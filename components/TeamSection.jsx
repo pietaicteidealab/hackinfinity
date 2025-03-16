@@ -193,7 +193,7 @@ const TeamSection = () => {
           </h2>
 
           {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-2 mb-16">
             {Object.keys(teamMembers).map((tab) => (
               <button
                 key={tab}
@@ -221,7 +221,7 @@ const TeamSection = () => {
                 variants={containerVariants}
               >
                 <motion.div
-                  className="grid grid-cols-1 md:grid-cols-2 gap-12"
+                  className="grid grid-cols-1 md:grid-cols-2 "
                 >
                   {teamMembers[activeTab].map((member, index) => (
                     <motion.div key={index} variants={itemVariants}>
