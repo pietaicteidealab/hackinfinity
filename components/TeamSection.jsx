@@ -137,8 +137,12 @@ const TeamSection = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-black to-orange-950/20 text-white px-4 py-16 relative overflow-hidden">
-      <FloatingParticles />
+    <div className="relative min-h-screen bg-gradient-to-b from-black via-black to-orange-950/20 text-white px-4 py-16 overflow-hidden">
+      {/* Background container */}
+      <div className="absolute inset-0">
+        <FloatingParticles />
+      </div>
+
       <div className="max-w-7xl mx-auto relative">
         {/* Decorative elements */}
         <div className="absolute inset-0 grid grid-cols-2 -z-10 pointer-events-none">

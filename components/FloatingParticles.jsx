@@ -18,7 +18,7 @@ const FloatingParticles = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
@@ -33,16 +33,16 @@ const FloatingParticles = () => {
           animate={{
             x: [
               0,
-              Math.random() * 100 - 50,
-              Math.random() * 100 - 50,
-              Math.random() * 100 - 50,
+              Math.random() * 50 - 25, // Reduced movement range
+              Math.random() * 50 - 25,
+              Math.random() * 50 - 25,
               0,
             ],
             y: [
               0,
-              Math.random() * 100 - 50,
-              Math.random() * 100 - 50,
-              Math.random() * 100 - 50,
+              Math.random() * 50 - 25,
+              Math.random() * 50 - 25,
+              Math.random() * 50 - 25,
               0,
             ],
             scale: [1, 1.2, 0.9, 1.1, 1],
