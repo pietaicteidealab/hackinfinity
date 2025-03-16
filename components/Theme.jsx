@@ -216,7 +216,15 @@ const Theme = () => {
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-              textFillColor: 'transparent'
+              textFillColor: 'transparent',
+              fontSize: {
+                xs: '2rem',    // for extra-small devices
+                sm: '2.5rem',  // for small devices
+                md: '3rem',    // for medium devices
+                lg: '3.5rem'   // for large devices
+              },
+              wordBreak: 'break-word',
+              lineHeight: 1.2
             }}
           >
             HACKATHON THEMES
