@@ -6,7 +6,7 @@ import TiltedCard from './TiltedCard';
 import FloatingParticles from './FloatingParticles';
 
 const TeamSection = () => {
-  const [activeTab, setActiveTab] = useState('Organizers');
+  const [activeTab, setActiveTab] = useState('Tech');
 
   // Animation variants
   const containerVariants = {
