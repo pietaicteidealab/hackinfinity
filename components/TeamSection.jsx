@@ -137,13 +137,13 @@ const TeamSection = () => {
   );
 
   return (
-    <div id='team' className="relative min-h-screen bg-gradient-to-b from-black via-black to-orange-950/20 text-white px-4 py-16 overflow-hidden">
+    <div id='team' className="relative min-h-screen bg-gradient-to-b from-black via-black to-orange-950/20 text-white px-4 py-32 overflow-hidden">
       {/* Background container */}
       <div className="absolute inset-0">
         <FloatingParticles />
       </div>
 
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-7xl mx-auto relative space-y-32">
         {/* Decorative elements */}
         <div className="absolute inset-0 grid grid-cols-2 -z-10 pointer-events-none">
           <div className="bg-gradient-to-br from-orange-500/5 to-transparent rounded-full blur-3xl h-96 w-96 -translate-y-1/2"></div>
@@ -186,7 +186,7 @@ const TeamSection = () => {
           initial="hidden"
           animate="visible"
           variants={titleVariants}
-          className="mb-24"
+          className="mb-32"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-16 text-center bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
             Meet the Core Team
@@ -210,18 +210,18 @@ const TeamSection = () => {
           </div>
 
           {/* Team Members Content */}
-          <div className="relative min-h-[500px]">
+          <div className="relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
-                className="absolute inset-0"
+                className="w-full"
                 initial="hidden"
                 animate="visible"
                 exit="exit"
                 variants={containerVariants}
               >
                 <motion.div
-                  className="grid grid-cols-1 md:grid-cols-2 "
+                  className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full pb-12"
                 >
                   {teamMembers[activeTab].map((member, index) => (
                     <motion.div key={index} variants={itemVariants}>
