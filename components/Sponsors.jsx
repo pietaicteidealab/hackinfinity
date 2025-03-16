@@ -115,26 +115,31 @@ function Sponsors() {
       viewport={{ once: true, amount: 0.1 }}
     >
       <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 5 }}>
-        <Box sx={{
-          width: "40px",
-          height: "3px",
+        <Box sx={{ 
+          width: "40px", 
+          height: "3px", 
           backgroundColor: "#ef4444",
-          mr: 2
+          mr: 2 
         }} />
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Typography className="text-4xl " sx={{
-            fontWeight: "bold",
-            textTransform: "uppercase",
-            color: "white"
-          }}>
+          <Typography 
+            variant="h2"
+            sx={{ 
+              fontWeight: "bold",
+              textTransform: "uppercase",
+              color: "white",
+              fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+              lineHeight: 1.2
+            }}
+          >
             {title}
           </Typography>
         </Box>
-        <Box sx={{
-          width: "40px",
-          height: "3px",
+        <Box sx={{ 
+          width: "40px", 
+          height: "3px", 
           backgroundColor: "#ef4444",
-          ml: 2
+          ml: 2 
         }} />
       </Box>
     </motion.div>
@@ -485,5 +490,6 @@ function Sponsors() {
     </Box>
   );
 }
+
 
 export default Sponsors;
