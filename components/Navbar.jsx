@@ -28,6 +28,7 @@ export default function Navbar({ activeSection }) {
     { href: "#schedule", label: "Schedule" },
     { href: "#prizes", label: "Prizes" },
     { href: "#sponsors", label: "Sponsors" },
+    { href: "#team", label: "Team" },
     { href: "#faq", label: "FAQ" },
   ]
 

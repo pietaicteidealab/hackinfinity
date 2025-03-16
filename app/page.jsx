@@ -107,8 +107,8 @@ export default function HackathonWebsite() {
       <Schedule />
       <Prizes />
       <Sponsors />
-      <FAQSection />
       <TeamSection />
+      <FAQSection />
       <Contact />
 
       {/* Footer */}
