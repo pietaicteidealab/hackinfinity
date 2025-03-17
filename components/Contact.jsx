@@ -1,5 +1,3 @@
-
-
 "use client"
 
 import { useState } from "react"
@@ -7,9 +5,10 @@ import { useForm, ValidationError } from "@formspree/react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { toast } from "sonner"
+import { FaFacebookF, FaXTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa6"
 
 function Contact() {
-  const [state, handleSubmit] = useForm("xjkykbkq") // Replace with your actual Formspree form ID
+  const [state, handleSubmit] = useForm("xanenbvb") // Replace with your actual Formspree form ID
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -66,7 +65,7 @@ function Contact() {
                       <h4 className="font-bold text-amber-500 group-hover:text-amber-400 transition-colors duration-300">
                         Phone
                       </h4>
-                      <p className="text-gray-400">(123) 456-7890</p>
+                      <p className="text-gray-400">+91 8209132917</p>
                     </div>
                   </div>
 
@@ -92,7 +91,7 @@ function Contact() {
                       <h4 className="font-bold text-amber-500 group-hover:text-amber-400 transition-colors duration-300">
                         Email
                       </h4>
-                      <p className="text-gray-400">info@hackinfinity.com</p>
+                      <p className="text-gray-400">aicte.idealab@poornima.org</p>
                     </div>
                   </div>
 
@@ -118,91 +117,35 @@ function Contact() {
                       <h4 className="font-bold text-amber-500 group-hover:text-amber-400 transition-colors duration-300">
                         Location
                       </h4>
-                      <p className="text-gray-400">Poornima Instutute of Engineering And Technology</p>
+                      <p className="text-gray-400">Jaipur, Rajasthan</p>
                       <h3 className="text-xl font-bold mb-4 text-amber-500 mt-2">Follow Us</h3>
                       <p className="text-gray-400 mb-6">
                         Stay updated with the latest news and announcements about the hackathon.
                       </p>
                       <div className="flex gap-4">
                         <a
-                          href="#"
+                          href="https://www.facebook.com/PoornimaInstitute?rdid=SZjxp6HvV91oximh"
                           className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center hover:bg-red-500/40 transition-colors duration-300 transform hover:scale-110"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-red-500"
-                          >
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                          </svg>
+                          <FaFacebookF className="text-red-500 text-xl" />
                         </a>
                         <a
-                          href="#"
+                          href="https://x.com/PIET_Jaipur"
                           className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center hover:bg-red-500/40 transition-colors duration-300 transform hover:scale-110"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-red-500"
-                          >
-                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-                          </svg>
+                          <FaXTwitter className="text-red-500 text-xl" />
                         </a>
                         <a
-                          href="#"
+                          href="https://www.instagram.com/pietaicteidealab"
                           className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center hover:bg-amber-500/40 transition-colors duration-300 transform hover:scale-110"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-amber-500"
-                          >
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                          </svg>
+                          <FaInstagram className="text-amber-500 text-xl" />
                         </a>
                         <a
-                          href="#"
+                          href="https://www.linkedin.com/school/poornima-group-of-colleges/"
                           className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center hover:bg-amber-500/40 transition-colors duration-300 transform hover:scale-110"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-amber-500"
-                          >
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                            <rect x="2" y="9" width="4" height="12" />
-                            <circle cx="4" cy="4" r="2" />
-                          </svg>
+                          <FaLinkedinIn className="text-amber-500 text-xl" />
                         </a>
                       </div>
                     </div>
