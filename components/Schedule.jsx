@@ -263,7 +263,7 @@ function Schedule() {
             </Box>
             <motion.div variants={itemVariants}>
               <Typography variant="body1" sx={{ color: "#aaa", maxWidth: "700px", mx: "auto" }}>
-                Your 48-hour journey to build the next generation of technology solutions.
+                Your 36-hour journey to build the next generation of technology solutions.
               </Typography>
             </motion.div>
           </Box>

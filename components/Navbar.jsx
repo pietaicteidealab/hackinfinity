@@ -56,7 +56,7 @@ export default function Navbar({ activeSection }) {
             </a>
           ))}
           <Button className="bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300">
-            Register
+            <a href="https://forms.gle/Yx7kPVchM4P1RVWP8" className="text-white no-underline">Register</a>
           </Button>
         </nav>
 
@@ -81,7 +81,7 @@ export default function Navbar({ activeSection }) {
               </a>
             ))}
             <Button className="bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300">
-              Register
+              <a href="https://lu.ma/xl5esac2" className="text-white no-underline">Register</a>
             </Button>
           </nav>
         </div>
