@@ -453,7 +453,21 @@ function Sponsors() {
                   <Button
                     variant="contained"
                     size="large"
-                    className="text-bold bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300"
+                    sx={{
+                      px: 4,
+                      py: 2,
+                      fontSize: "1.1rem",
+                      fontWeight: "bold",
+                      background: "linear-gradient(to right, #ef4444, #f97316)",
+                      color: "white",
+                      border: "none",
+                      "&:hover": {
+                        background: "linear-gradient(to right, #dc2626, #ea580c)",
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 10px 20px rgba(239, 68, 68, 0.2)"
+                      },
+                      transition: "all 0.3s ease"
+                    }}
                   >
                     Become a Sponsor
                   </Button>
@@ -463,17 +477,17 @@ function Sponsors() {
                     variant="outlined"
                     size="large"
                     sx={{
-                      borderColor: "#FF5733",
-                      color: "#FF5733",
                       px: 4,
                       py: 2,
                       fontSize: "1.1rem",
                       fontWeight: "bold",
+                      borderColor: "#ef4444",
+                      color: "#ef4444",
                       "&:hover": {
-                        borderColor: "#FFC300",
-                        color: "#FFC300",
+                        borderColor: "#f97316",
+                        color: "#f97316",
                         transform: "translateY(-2px)",
-                        boxShadow: "0 10px 20px rgba(255, 87, 51, 0.1)"
+                        boxShadow: "0 10px 20px rgba(239, 68, 68, 0.1)"
                       },
                       transition: "all 0.3s ease"
                     }}

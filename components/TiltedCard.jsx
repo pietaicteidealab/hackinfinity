@@ -99,7 +99,9 @@ export default function TiltedCard({
           scale,
         }}
       >
-        <motion.div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-900/20 to-yellow-900/20 rounded-[15px] border-2 border-orange-500/30 backdrop-blur-sm" />
+        <motion.div
+          className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-900/20 to-yellow-900/20 rounded-[15px] border-2 border-orange-500/30 backdrop-blur-sm"
+        />
         <motion.img
           src={imageSrc}
           alt={altText}
@@ -108,7 +110,7 @@ export default function TiltedCard({
 
         {displayOverlayContent && overlayContent && (
           <motion.div
-            className="w-full h-[40%] bg-black/50 backdrop-blur-sm rounded-b-[15px] will-change-transform [transform:translateZ(30px)] flex flex-col items-center justify-center"
+            className="w-full h-[40%] bg-black rounded-b-[15px] will-change-transform [transform:translateZ(30px)] flex flex-col items-center justify-center pt-6"
           >
             {overlayContent}
           </motion.div>

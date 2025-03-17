@@ -87,7 +87,8 @@ const Theme = () => {
       description: "Connect the physical and digital worlds through smart devices and innovative IoT applications.",
       icon: <Wifi />,
       teams: 93,
-      color: "#FFBB33"
+      color: "#FFBB33",
+      isBounty: true
     }
   ];
 
@@ -270,10 +271,11 @@ const Theme = () => {
                       boxShadow: `0 8px 16px -2px ${theme.color}20`
                     },
                     position: 'relative',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    display: 'flex'
                   }}
                 >
-                  <CardActionArea sx={{ height: '100%', p: 2 }}>
+                  <CardActionArea sx={{ height: '100%', p: 2, display: 'flex', flexDirection: 'column' }}>
                     {/* Hover glow effect */}
                     <Box
                       component={motion.div}
@@ -288,7 +290,13 @@ const Theme = () => {
                       }}
                     />
                     
-                    <CardContent>
+                    <CardContent sx={{ 
+                      flex: 1, 
+                      display: 'flex', 
+                      flexDirection: 'column',
+                      height: '100%',
+                      p: '0 !important'
+                    }}>
                       <Box
                         sx={{
                           width: 48,
@@ -319,17 +327,41 @@ const Theme = () => {
                           transition: 'color 0.3s ease',
                           '&:hover': {
                             color: '#FFCC66'
-                          }
+                          },
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 1,
+                          minHeight: '32px',
+                          lineHeight: 1.2
                         }}
                       >
                         {theme.title}
+                        {theme.isBounty && (
+                          <Chip
+                            label="SPECIAL BOUNTY"
+                            size="small"
+                            sx={{
+                              backgroundColor: `${theme.color}20`,
+                              color: theme.color,
+                              fontSize: '0.6rem',
+                              height: '20px',
+                              flexShrink: 0
+                            }}
+                          />
+                        )}
                       </Typography>
                       
                       <Typography
                         variant="body2"
                         sx={{
                           mb: 3,
-                          color: 'grey.400'
+                          color: 'grey.400',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                          height: '4.5em',
+                          lineHeight: 1.5
                         }}
                       >
                         {theme.description}
@@ -343,7 +375,8 @@ const Theme = () => {
                           pt: 2,
                           borderTop: '1px solid rgba(48, 48, 48, 0.8)',
                           color: 'grey.500',
-                          fontSize: '0.75rem'
+                          fontSize: '0.75rem',
+                          mt: 'auto'
                         }}
                       >
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
