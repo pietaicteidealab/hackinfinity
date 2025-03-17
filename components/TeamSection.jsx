@@ -104,7 +104,7 @@ const TeamSection = () => {
     ],
     'Designing': [
       { name: 'Suhani Bansal', image: '/team/suhani-bansal.jpg', role: 'UI/UX Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Arpit Garg', image: '/team/copy of arpit.jpg', role: 'Graphics Designer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Arpit Garg', image: '/team/arpit.jpg', role: 'Graphics Designer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
       { name: 'Krati Saini', image: '/team/krati-saini.jpg', role: 'Graphics Designer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
     ],
     'Content': [
