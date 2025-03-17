@@ -55,7 +55,7 @@ export default function HackathonWebsite() {
     };
   }, []);
 
-  const hackathonDate = new Date("2025-04-17T00:00:00");
+  const hackathonDate = new Date("2025-04-18T00:00:00");
 
   return (
     <div className="min-h-screen bg-black text-white">
