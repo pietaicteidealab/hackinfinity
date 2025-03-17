@@ -449,7 +449,7 @@ function Sponsors() {
                 justifyContent: "center",
                 flexWrap: "wrap"
               }}>
-                <Link href="https://lu.ma/40abgjcr" target="_blank" rel="noopener noreferrer">
+                <Link href="https://drive.google.com/file/d/14L2HqNx7_mHnavibZqMBWgoD-putdvwI/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                   <Button
                     variant="contained"
                     size="large"
