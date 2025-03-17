@@ -66,14 +66,14 @@ const TeamSection = () => {
   // Faculty coordinators data
   const facultyCoordinators = [
     {
-      name: 'Dr. Payal Bansal',
+      name: 'Dr Dinesh Goyal',
       image: '/placeholder-user.jpg',
       role: 'Faculty Coordinator',
       linkedin: 'https://www.linkedin.com/in/dr-payal-bansal',
       twitter: 'https://twitter.com/dr-payal-bansal'
     },
     {
-      name: 'Dr. Dinesh Goyal',
+      name: 'Dr Payal Bansal',
       image: '/placeholder-user.jpg',
       role: 'Faculty Coordinator',
       linkedin: 'https://www.linkedin.com/in/dr-dinesh-goyal',
@@ -84,24 +84,43 @@ const TeamSection = () => {
   // Team members data
   const teamMembers = {
     'Organizers': [
-      { name: 'Lead Organizer', image: '/placeholder-user.jpg', role: 'Team Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Co-Organizer', image: '/placeholder-user.jpg', role: 'Co-Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
+      { name: 'Hardik Jain', image: '/team/hardik-jain.jpg', role: 'Team Lead', linkedin: 'https://www.linkedin.com/in/jainhardik06/', twitter: 'https://x.com/jainhardik06' },
+      { name: 'Sarthak Chopra', image: '/team/sarthak-chopra.jpg', role: 'Co-Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Raghav Sharma', image: '/team/raghav-sharma.jpg', role: 'Co-Lead', linkedin: 'https://www.linkedin.com/in/raghavsharma098?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', twitter: 'https://x.com/raghav_sharma34?s=21' },
     ],
     'Tech': [
-      { name: 'Tech Lead', image: '/placeholder-user.jpg', role: 'Lead Developer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Tech Co-Lead', image: '/placeholder-user.jpg', role: 'Backend Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
+      { name: 'Aaditya Vinayak', image: '/team/Aadiii.jpg', role: 'Tech Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Sahaj Jain', image: '/team/kuldeep.jpg', role: 'Supporting Developer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Siddhika Agrawal', image: '/team/siddhika.jpg', role: 'Developer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Vibhor Mathur', image: '/team/vibhor-mathur.jpg', role: 'Tech Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Ankit Rao', image: '/team/ankit-rao.jpg', role: 'Tech Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
     ],
     'PR': [
-      { name: 'PR Manager', image: '/placeholder-user.jpg', role: 'PR Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'PR Coordinator', image: '/placeholder-user.jpg', role: 'Social Media Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
+      { name: 'Palak Modi', image: '/team/palak-modi.jpg', role: 'PR Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Kuldeep Soni', image: '/team/kuldeep.jpg', role: 'PR Co-Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Dishu Choudhary', image: '/team/dishu-choudhary.jpg', role: 'PR Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Ujjwal Dubey', image: '/team/ujjwal-dubey.jpg', role: 'PR Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      
     ],
     'Designing': [
-      { name: 'Design Lead', image: '/placeholder-user.jpg', role: 'UI/UX Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Design Co-Lead', image: '/placeholder-user.jpg', role: 'Graphics Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
+      { name: 'Suhani Bansal', image: '/team/suhani-bansal.jpg', role: 'UI/UX Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Arpit Garg', image: '/team/copy of arpit.jpg', role: 'Graphics Designer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Krati Saini', image: '/team/krati-saini.jpg', role: 'Graphics Designer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
     ],
     'Content': [
-      { name: 'Content Head', image: '/placeholder-user.jpg', role: 'Content Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Content Manager', image: '/placeholder-user.jpg', role: 'Editor', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
+      { name: 'Ridhi Jain', image: '/placeholder-user.jpg', role: 'Content Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Khushi Gupta', image: '/placeholder-user.jpg', role: 'Content Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Himanshu Gaud', image: '/team/himanshu-gaud.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Palak Agarwal', image: '/team/palak-agrawal.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+    ],
+    'Advisory': [
+      { name: 'Kartik Mehta', image: '/team/kartik-mehta.jpg', role: 'Technical Advisor', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Aditya Pareek', image: '/placeholder-user.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Kartikey Sharma', image: '/team/kartikey-sharma.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Mayank Saini', image: '/team/mayank-saini.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Manish Vaishnav', image: '/placeholder-user.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Himani Jangid', image: '/team/himani jangid.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Naman Sharma', image: '/team/naman-sharma.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
     ]
   };
 
@@ -162,7 +181,7 @@ const TeamSection = () => {
           </h2>
           
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
             variants={containerVariants}
           >
             {facultyCoordinators.map((faculty, index) => (
@@ -171,9 +190,9 @@ const TeamSection = () => {
                   imageSrc={faculty.image}
                   altText={faculty.name}
                   captionText={`${faculty.name} - ${faculty.role}`}
-                  containerHeight="400px"
-                  imageHeight="300px"
-                  imageWidth="300px"
+                  containerHeight="300px"
+                  imageHeight="200px"
+                  imageWidth="200px"
                   overlayContent={<CardContent member={faculty} />}
                 />
               </motion.div>
@@ -221,7 +240,7 @@ const TeamSection = () => {
                 variants={containerVariants}
               >
                 <motion.div
-                  className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full pb-12"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full pb-12"
                 >
                   {teamMembers[activeTab].map((member, index) => (
                     <motion.div key={index} variants={itemVariants}>
@@ -229,9 +248,9 @@ const TeamSection = () => {
                         imageSrc={member.image}
                         altText={member.name}
                         captionText={`${member.name} - ${member.role}`}
-                        containerHeight="400px"
-                        imageHeight="300px"
-                        imageWidth="300px"
+                        containerHeight="300px"
+                        imageHeight="200px"
+                        imageWidth="200px"
                         overlayContent={<CardContent member={member} />}
                       />
                     </motion.div>

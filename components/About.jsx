@@ -33,8 +33,8 @@ const About = () => {
   }
 
   // Hackathon dates
-  const startDate = new Date("2024-04-18T00:00:00")
-  const endDate = new Date("2024-04-19T23:59:59")
+  const startDate = new Date("2025-04-18T00:00:00")
+  const endDate = new Date("2025-04-19T23:59:59")
 
   return (
     <motion.div
@@ -104,8 +104,8 @@ const About = () => {
                     <MapPin className="text-amber-500" />
                   </motion.div>
                   <h3 className="text-xl font-bold mb-2">Location</h3>
-                  <p className="text-gray-400">Revealing soon...</p>
-                  <p className="text-gray-500 text-sm mt-2">Stay tuned for venue announcement</p>
+                  <p className="text-gray-400">Poornima Institute of Engineering and Technology</p>
+                  <p className="text-gray-500 text-sm mt-2">Jaipur, Rajasthan</p>
                 </CardContent>
               </Card>
             </motion.div>

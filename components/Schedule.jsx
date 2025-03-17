@@ -143,21 +143,18 @@ const scheduleData = {
     { time: "10:00 AM", title: "Opening Ceremony", description: "Welcome address, theme introduction, and rules explanation" },
     { time: "11:30 AM", title: "Team Formation", description: "Find teammates or finalize your existing team" },
     { time: "12:00 PM", title: "Hacking Begins!", description: "Start building your innovative solutions" },
+    { time: "02:00 PM", title: "Technical Workshops", description: "AI, Blockchain, and Web3 workshops to help with your projects" },
     { time: "07:00 PM", title: "Dinner & Networking", description: "Refuel and connect with fellow participants" },
+    { time: "09:00 PM", title: "Gaming Break", description: "Take a break with some fun tech-themed games" },
   ],
   day2: [
     { time: "08:00 AM", title: "Breakfast", description: "Start your day with a nutritious meal" },
-    { time: "10:00 AM", title: "Technical Workshops", description: "AI, Blockchain, and Web3 workshops to help with your projects" },
+    { time: "10:00 AM", title: "Mentorship Sessions", description: "Get guidance from industry experts" },
     { time: "12:30 PM", title: "Lunch", description: "Refuel for the afternoon hacking session" },
-    { time: "03:00 PM", title: "Mentorship Sessions", description: "Get guidance from industry experts" },
-    { time: "08:00 PM", title: "Gaming Break", description: "Take a break with some fun tech-themed games" },
-  ],
-  day3: [
-    { time: "08:00 AM", title: "Breakfast", description: "Final day breakfast to power through" },
-    { time: "10:00 AM", title: "Submission Preparation", description: "Finalize your projects and prepare for presentations" },
-    { time: "12:00 PM", title: "Hacking Ends", description: "All code submissions due" },
-    { time: "01:00 PM", title: "Project Presentations", description: "Teams showcase their innovations to judges" },
-    { time: "04:00 PM", title: "Awards Ceremony", description: "Winners announced and prizes awarded" },
+    { time: "02:00 PM", title: "Submission Preparation", description: "Finalize your projects and prepare for presentations" },
+    { time: "04:00 PM", title: "Hacking Ends", description: "All code submissions due" },
+    { time: "05:00 PM", title: "Project Presentations", description: "Teams showcase their innovations to judges" },
+    { time: "07:00 PM", title: "Awards Ceremony", description: "Winners announced and prizes awarded" },
   ]
 };
 
@@ -289,15 +286,6 @@ function Schedule() {
                 </Stack>
               } 
               value="day2" 
-            />
-            <StyledTab 
-              label={
-                <Stack direction="row" spacing={1} alignItems="center">
-                  <CalendarIcon sx={{ color: "#f44336" }} />
-                  <Typography sx={{ color: "#fff" }}>DAY 3</Typography>
-                </Stack>
-              } 
-              value="day3" 
             />
           </DayTabs>
 

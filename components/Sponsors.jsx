@@ -44,10 +44,20 @@ function Sponsors() {
       { id: 3, name: "Community Partner 3", logo: "/placeholder.svg?height=100&width=200" },
     ],
     previous: [
-      { id: 1, name: "Previous Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 2, name: "Previous Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 3, name: "Previous Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 4, name: "Previous Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 1, name: "accenture", logo: "/hackthon/accenture.png?height=100&width=200" },
+      { id: 2, name: "Aryavart", logo: "/hackthon/af.png?height=100&width=200" },
+      { id: 3, name: "Coding Tale", logo: "/hackthon/ct.png?height=100&width=200" },
+      { id: 4, name: "Durdarshan", logo: "/hackthon/durdarshan.png?height=100&width=200" },
+      { id: 5, name: "H2S", logo: "/hackthon/h2s.png?height=100&width=200" },
+      { id: 6, name: "Aerophantom", logo: "/hackthon/ap.png?height=100&width=200" },
+      { id: 7, name: "IBM", logo: "/hackthon/ibm.png?height=100&width=200" },
+      { id: 8, name: "Local Eyes", logo: "/hackthon/le.png?height=100&width=200" },
+      { id: 9, name: "moe", logo: "/hackthon/moe.png?height=100&width=200" },
+      { id: 12, name: "rgb", logo: "/hackthon/rgb.png?height=100&width=200" },
+      { id: 13, name: "rm", logo: "/hackthon/rm.png?height=100&width=200" },
+      { id: 14, name: "tt", logo: "/hackthon/tt.png?height=100&width=200" },
+      { id: 15, name: "vg", logo: "/hackthon/vg.png?height=100&width=200" },
+      { id: 16, name: "yi", logo: "/hackthon/yi.png?height=100&width=200" }
     ]
   };
 
