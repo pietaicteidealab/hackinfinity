@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Link from 'next/link';
 import {
   Box,
   Typography,
@@ -448,50 +449,38 @@ function Sponsors() {
                 justifyContent: "center",
                 flexWrap: "wrap"
               }}>
-                <Button
-                  variant="contained"
-                  size="large"
-                  href="/become-sponsor"
-                  // sx={{
-                  //   background: "linear-gradient(to right, #FF5733, #FFC300)",
-                  //   color: "white",
-                  //   px: 4,
-                  //   py: 2,
-                  //   fontSize: "1.1rem",
-                  //   fontWeight: "bold",
-                  //   "&:hover": {
-                  //     background: "linear-gradient(to right, #FFC300, #FF5733)",
-                  //     transform: "translateY(-2px)",
-                  //     boxShadow: "0 10px 20px rgba(255, 87, 51, 0.3)"
-                  //   },
-                  //   transition: "all 0.3s ease"
-                  // }}
-                  className="text-bold bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300"
-                >
-                  Become a Sponsor
-                </Button>
-                <Button
-                  variant="outlined"
-                  size="large"
-                  href="/community-partner"
-                  sx={{
-                    borderColor: "#FF5733",
-                    color: "#FF5733",
-                    px: 4,
-                    py: 2,
-                    fontSize: "1.1rem",
-                    fontWeight: "bold",
-                    "&:hover": {
-                      borderColor: "#FFC300",
-                      color: "#FFC300",
-                      transform: "translateY(-2px)",
-                      boxShadow: "0 10px 20px rgba(255, 87, 51, 0.1)"
-                    },
-                    transition: "all 0.3s ease"
-                  }}
-                >
-                  Become a Community Partner
-                </Button>
+                <Link href="https://lu.ma/40abgjcr" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="contained"
+                    size="large"
+                    className="text-bold bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300"
+                  >
+                    Become a Sponsor
+                  </Button>
+                </Link>
+                <Link href="https://lu.ma/40abgjcr" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    sx={{
+                      borderColor: "#FF5733",
+                      color: "#FF5733",
+                      px: 4,
+                      py: 2,
+                      fontSize: "1.1rem",
+                      fontWeight: "bold",
+                      "&:hover": {
+                        borderColor: "#FFC300",
+                        color: "#FFC300",
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 10px 20px rgba(255, 87, 51, 0.1)"
+                      },
+                      transition: "all 0.3s ease"
+                    }}
+                  >
+                    Become a Community Partner
+                  </Button>
+                </Link>
               </Box>
             </Grid>
           </Grid>

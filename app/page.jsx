@@ -1,11 +1,9 @@
-
-
-
 "use client"
 
 import { useState, useEffect } from "react";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -89,9 +87,11 @@ export default function HackathonWebsite() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300">
-              Register Now
-            </Button>
+            <Link href="https://lu.ma/xl5esac2" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300">
+                Register Now
+              </Button>
+            </Link>
             <Button variant="outline" className="border-red-500 text-red-500 hover:bg-red-950/20 transform hover:scale-105 transition-all duration-300">
               Learn More
             </Button>
