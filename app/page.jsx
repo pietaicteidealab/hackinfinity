@@ -80,7 +80,7 @@ export default function HackathonWebsite() {
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 font-mono">INFINITE POSSIBILITIES. INFINITE INNOVATION.</p>
           <p className="text-lg md:text-xl text-gray-400 mt-2 max-w-2xl mx-auto">
-            Join us for 48 hours of coding, creativity, and collaboration. Push the boundaries of what's possible and build the future.
+            Join us for 36 hours of coding, creativity, and collaboration. Push the boundaries of what's possible and build the future.
           </p>
 
           {/* Countdown Timer */}
