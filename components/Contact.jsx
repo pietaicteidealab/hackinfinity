@@ -159,7 +159,7 @@ function Contact() {
 
 
                 <div className="mt">
-                  <h4 className="text-xl font-bold text-amber-500 mb-6">Ask Quries</h4>
+                  <h4 className="text-xl font-bold text-amber-500 mb-6">Ask Queries</h4>
                   <form onSubmit={handleSubscribe}>
                     <div className="space-y-4">
                       <div className="flex gap-2">

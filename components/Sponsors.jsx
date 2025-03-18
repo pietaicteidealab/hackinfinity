@@ -24,6 +24,9 @@ function Sponsors() {
 
   // Sample sponsor data - replace with your actual sponsors
   const sponsors = {
+    hosted_by: [
+      { id: 1, name: "Host Organization", logo: "/piet.png?height=400&width=600" },
+    ],
     platinum: [
       { id: 1, name: "Platinum Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
       { id: 2, name: "Platinum Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
@@ -160,11 +163,24 @@ function Sponsors() {
   const SponsorCard = ({ logo, name, tier }) => {
     const getBorderColor = () => {
       switch (tier) {
+        case 'hosted': return 'linear-gradient(to right, #FF5733, #FF8C33)';
         case 'platinum': return 'linear-gradient(to right, #E5E4E2, #FFFFFF)';
         case 'gold': return 'linear-gradient(to right, #FFD700, #FFC300)';
         case 'silver': return 'linear-gradient(to right, #C0C0C0, #E8E8E8)';
         default: return 'linear-gradient(to right, #333333, #555555)';
       }
+    };
+
+    const getImageSize = () => {
+      return tier === 'hosted' ? {
+        maxWidth: "500px",
+        maxHeight: "300px",
+        width: "100%",
+        objectFit: "contain"
+      } : {
+        maxWidth: "150px",
+        maxHeight: "80px",
+      };
     };
 
     return (
@@ -179,7 +195,7 @@ function Sponsors() {
           background: "rgba(17, 17, 17, 0.7)",
           border: "1px solid rgba(255, 87, 51, 0.3)",
           borderRadius: 2,
-          padding: 2,
+          padding: tier === 'hosted' ? 2 : 2,
           height: "100%",
           display: "flex",
           alignItems: "center",
@@ -202,8 +218,7 @@ function Sponsors() {
               src={logo}
               alt={name}
               sx={{
-                maxWidth: "150px",
-                maxHeight: "80px",
+                ...getImageSize(),
                 filter: "brightness(0.9)",
                 transition: "all 0.3s ease",
                 "&:hover": {
@@ -289,6 +304,29 @@ function Sponsors() {
         >
           These industry leaders make our hackathon possible through their generous support and commitment to innovation.
         </Typography>
+
+        {/* Hosted By Section */}
+        <Box sx={{ mb: 8 }}>
+          <Typography
+            variant="h5"
+            align="center"
+            sx={{
+              mb: 2,
+              textAlign: "center",
+              color: "white"
+            }}
+          >
+            HOSTED BY
+          </Typography>
+
+          <Grid container spacing={1} justifyContent="center">
+            {sponsors.hosted_by.map(host => (
+              <Grid item xs={12} sm={8} md={6} key={host.id}>
+                <SponsorCard logo={host.logo} name={host.name} tier="hosted" />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
 
         {/* Platinum Sponsors */}
         <Box sx={{ mb: 8 }}>

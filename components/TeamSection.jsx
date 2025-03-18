@@ -6,7 +6,7 @@ import TiltedCard from './TiltedCard';
 import FloatingParticles from './FloatingParticles';
 
 const TeamSection = () => {
-  const [activeTab, setActiveTab] = useState('Tech');
+  const [activeTab, setActiveTab] = useState('Organizers');
 
   // Animation variants
   const containerVariants = {
@@ -64,62 +64,66 @@ const TeamSection = () => {
   };
 
   // Faculty coordinators data
-  const facultyCoordinators = [
-    {
-      name: 'Dr Dinesh Goyal',
-      image: '/team/the-DG.jpg',
-      role: 'Principal and Director,piet',
-      linkedin: 'https://www.linkedin.com/in/dr-payal-bansal',
-      twitter: 'https://twitter.com/dr-payal-bansal'
-    },
-    {
-      name: 'Dr Payal Bansal',
-      image: '/team/payal.jpg',
-      role: 'HOD, Idea Lab & IoT Department',
-      linkedin: 'https://www.linkedin.com/in/dr-dinesh-goyal',
-      twitter: 'https://twitter.com/dr-dinesh-goyal'
-    }
-  ];
+  // const facultyCoordinators = [
+  //   {
+  //     name: 'Dr Dinesh Goyal',
+  //     image: '/team/the-DG.jpg',
+  //     role: 'Principal and Director,piet',
+  //     linkedin: 'https://www.linkedin.com/in/dr-payal-bansal',
+  //     twitter: 'https://twitter.com/dr-payal-bansal'
+  //   },
+  //   {
+  //     name: 'Dr Payal Bansal',
+  //     image: '/team/payal.jpg',
+  //     role: 'HOD, Idea Lab & IoT Department',
+  //     linkedin: 'https://www.linkedin.com/in/dr-dinesh-goyal',
+  //     twitter: 'https://twitter.com/dr-dinesh-goyal'
+  //   }
+  // ];
 
   // Team members data
   const teamMembers = {
     'Organizers': [
       { name: 'Hardik Jain', image: '/team/hardik-jain.jpg', role: 'Team Lead', linkedin: 'https://www.linkedin.com/in/jainhardik06/', twitter: 'https://x.com/jainhardik06' },
-      { name: 'Sarthak Chopra', image: '/team/sarthak-chopra.jpg', role: 'Co-Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Sarthak Chopra', image: '/team/sarthak-chopra.jpg', role: 'Co-Lead', linkedin: 'https://www.linkedin.com/in/sarthakchopra654', twitter: 'https://twitter.com' },
       { name: 'Raghav Sharma', image: '/team/raghav-sharma.jpg', role: 'Co-Lead', linkedin: 'https://www.linkedin.com/in/raghavsharma098?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', twitter: 'https://x.com/raghav_sharma34?s=21' },
     ],
     'Tech': [
-      { name: 'Aaditya Vinayak', image: '/team/Aadiii.jpg', role: 'Tech Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Sahaj Jain', image: '/team/kuldeep.jpg', role: 'Supporting Developer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Siddhika Agrawal', image: '/team/siddhika.jpg', role: 'Developer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Vibhor Mathur', image: '/team/vibhor-mathur.jpg', role: 'Tech Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Ankit Rao', image: '/team/ankit-rao.jpg', role: 'Tech Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Aaditya Vinayak', image: '/team/Aadiii.jpg', role: 'Tech Lead', linkedin: 'https://linkedin.com/in/vaaditya320', twitter: 'https://twitter.com/vaaditya320' },
+      { name: 'Sahaj Jain', image: 'https://avatars.githubusercontent.com/u/118066299?v=4', role: 'Supporting Developer', linkedin: 'https://www.linkedin.com/in/this-is-sahaj-jain/', twitter: 'https://twitter.com' },
+      { name: 'Siddhika Agrawal', image: '/team/siddhika.jpg', role: 'Developer', linkedin: 'https://www.linkedin.com/in/siddhi-agrawal-566591229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/siddhi9352?t=14M_i0W-XaJ6-1eVr4tFww&s=09' },
+      { name: 'Vibhor Mathur', image: '/team/vibhor-mathur.jpg', role: 'Tech Team', linkedin: 'https://www.linkedin.com/in/viibhor-mathur-9905b9332/', twitter: 'https://x.com/vibhhormathur' },
+      { name: 'Ankit Rao', image: '/team/ankit-rao.jpg', role: 'Tech Team', linkedin: 'https://www.linkedin.com/in/ankit-rao-190427327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/__raoankitt__?s=09' },
     ],
     'PR': [
-      { name: 'Palak Modi', image: '/team/palak-modi.jpg', role: 'PR Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Kuldeep Soni', image: '/team/kuldeep.jpg', role: 'PR Co-Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Dishu Choudhary', image: '/team/dishu-choudhary.jpg', role: 'PR Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Ujjwal Dubey', image: '/team/ujjwal-dubey.jpg', role: 'PR Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Palak Modi', image: '/team/palak-modi.jpg', role: 'PR Lead', linkedin: 'https://www.linkedin.com/in/palak-modi-413707332', twitter: 'https://x.com/Palakmodi09?t=svEaiIweetpUQsgu-E6b0g&s=09' },
+      { name: 'Kuldeep Soni', image: '/team/kuldeep.jpg', role: 'PR Co-Lead', linkedin: 'https://www.linkedin.com/in/kuldeep-soni-83b432293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/kul00035?t=wUgXlFSHHjfi4x7YYMjvxw&s=09' },
+      { name: 'Dishu Choudhary', image: '/team/dishu-choudhary.jpg', role: 'PR Team', linkedin: 'https://www.linkedin.com/in/dishu-choudhary-008a40328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/dishu_2806_?t=hV3AaOVhFx_DeRqvQa6QIg&s=09' },
+      { name: 'Ujjwal Dubey', image: '/team/ujjwal-dubey.jpg', role: 'PR Team', linkedin: 'https://www.linkedin.com/in/ujjwal-dubey-1921ba328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/UjjwalDube36317?t=2x9vPa8qyQRYVm8WDGnVJA&s=09' },
+      
+      { name: 'Hariom Choudhary', image: '/team/hariom.jpg', role: 'PR Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },   
+      
+      
       
     ],
     'Designing': [
       { name: 'Suhani Bansal', image: '/team/suhani-bansal.jpg', role: 'UI/UX Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Arpit Garg', image: '/team/arpit.jpg', role: 'Graphics Designer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Krati Saini', image: '/team/krati-saini.jpg', role: 'Graphics Designer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
+      { name: 'Arpit Garg', image: '/team/arpit.jpg', role: 'Graphics Designer', linkedin: 'https://www.linkedin.com/in/arpitgarg5689', twitter: 'https://x.com/Arpitgarg5689' },
+      { name: 'Krati Saini', image: '/team/krati-saini.jpg', role: 'Graphics Designer', linkedin: 'https://www.linkedin.com/in/krati-saini-2b3016327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/krati_sain11?t=GjIUUpkizQqdOpreU-uCtQ&s=09' },
+      { name: 'Harsh Sahu', image: '/team/harsh-sahu.jpg', role: 'Graphics Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
     ],
     'Content': [
       { name: 'Ridhi Jain', image: '/team/ridhi-jain.jpg', role: 'Content Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Khushi Gupta', image: '/team/Khushi-Gupta.jpg', role: 'Content Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Himanshu Gaud', image: '/team/himanshu-gaud.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Palak Agarwal', image: '/team/palak-agrawal.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-    ],
+      { name: 'Khushi Gupta', image: '/team/Khushi-Gupta.jpg', role: 'Content Lead', linkedin: 'https://www.linkedin.com/in/khushi-gupta-ab07a12a3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/Khusii27?t=WRhppsuMj2UfExupGaQR-Q&s=09' },
+      { name: 'Himanshu Gaud', image: '/team/himanshu-gaud.jpg', role: 'Content Team', linkedin: 'https://www.linkedin.com/in/himanshu-gaud-50a5b4327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/himanshu_g75540?t=HBPj0GaMbQWm16ve-ujtXQ&s=09' },
+      { name: 'Palak Agarwal', image: '/team/palak-agrawal.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' } ],
     'Advisory': [
       { name: 'Kartik Mehta', image: '/team/kartik-mehta.jpg', role: 'Technical Advisor', linkedin: 'https://www.linkedin.com/in/kartik-mehta-6729b0255/', twitter: 'https://twitter.com/kartikmehta_png' },
-      { name: 'Aditya Pareek', image: '/team/aditya-pareek.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Kartikey Sharma', image: '/team/kartikey-sharma.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Mayank Saini', image: '/team/mayank-saini.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Manish Vaishnav', image: '/placeholder-user.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Himani Jangid', image: '/team/himani jangid.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Aditya Pareek', image: '/team/aditya-pareek.jpg', role: 'Advisory', linkedin: 'https://www.linkedin.com/in/aditya-pareek-4291a1258/', twitter: 'https://x.com/Aditya4289' },
+      { name: 'Kartikey Sharma', image: '/team/kartikey-sharma.jpg', role: 'Advisory', linkedin: 'https://www.linkedin.com/in/kartikey-sharma-aa0183264?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/Kartikeyk424?t=Ya6bkL0NPP3zRhfht4e8mg&s=09' },
+      { name: 'Mayank Saini', image: '/team/mayank-saini.jpg', role: 'Advisory', linkedin: 'https://www.linkedin.com/in/mayanksaini21?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/MayankSaini21?t=jpFQ4_JCZVLI2gKSIg7Z9w&s=09' },
+      { name: 'Manish Vaishnav', image: '/team/manish.png', role: 'Advisory', linkedin: 'https://www.linkedin.com/in/manish-vaishnav-4659b0256/', twitter: 'https://twitter.com' },
+      { name: 'Himani Jangid', image: '/team/himani jangid.jpg', role: 'Advisory', linkedin: 'https://www.linkedin.com/in/himanijangid07/', twitter: 'https://x.com/himanijangid07?t=N6qGTFl5IQygCz-xfdRI3g&s=09' },
       { name: 'Naman Sharma', image: '/team/naman-sharma.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
     ]
   };
@@ -156,13 +160,13 @@ const TeamSection = () => {
   );
 
   return (
-    <div id='team' className="relative min-h-screen bg-gradient-to-b from-black via-black to-orange-950/20 text-white px-4 py-32 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-b from-black via-black to-orange-950/20 text-white px-4 py-16 overflow-hidden">
       {/* Background container */}
       <div className="absolute inset-0">
         <FloatingParticles />
       </div>
 
-      <div className="max-w-7xl mx-auto relative space-y-32">
+      <div className="max-w-7xl mx-auto relative space-y-16">
         {/* Decorative elements */}
         <div className="absolute inset-0 grid grid-cols-2 -z-10 pointer-events-none">
           <div className="bg-gradient-to-br from-orange-500/5 to-transparent rounded-full blur-3xl h-96 w-96 -translate-y-1/2"></div>
@@ -170,7 +174,7 @@ const TeamSection = () => {
         </div>
 
         {/* Faculty Coordinators Section */}
-        <motion.div
+        {/* <motion.div
           className="mb-24"
           initial="hidden"
           animate="visible"
@@ -208,16 +212,16 @@ const TeamSection = () => {
               ))}
             </motion.div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Core Team Section */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={titleVariants}
-          className="mb-32"
+          className="mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-16 text-center bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
+          <h2 id='team' className="text-5xl md:text-6xl font-bold mb-16 text-center bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
             Meet the Core Team
           </h2>
 

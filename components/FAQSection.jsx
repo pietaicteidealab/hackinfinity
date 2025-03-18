@@ -48,17 +48,17 @@ export default function FAQSection() {
     {
       question: "Who can participate in Hack Infinity?",
       answer:
-        "Hack Infinity is open to students, professionals, and tech enthusiasts of all skill levels. Whether you're a beginner or an experienced developer, you're welcome to join!",
+        "Hack Infinity is open to students and tech enthusiasts of all skill levels. Whether you're a beginner or an exp inerienced developer, you're welcome to join!",
     },
     {
       question: "Do I need to have a team to register?",
       answer:
-        "No, you can register as an individual and form a team during the event. We'll have team formation activities to help you find teammates with complementary skills.",
+        "Yes, you need to register as a  form a team before the event. Minimum two students in a team are compulsory and maximum four.",
     },
     {
       question: "What should I bring to the hackathon?",
       answer:
-        "You should bring your laptop, charger, any hardware you plan to use for your project, and personal items for the 48-hour event. We'll provide food, drinks, and a comfortable hacking environment.",
+        "You should bring your laptop, charger, any hardware you plan to use for your project, and personal items for the 36-hour event. We'll provide food, drinks, and a comfortable hacking environment.",
     },
     {
       question: "Is there a registration fee?",
@@ -66,9 +66,9 @@ export default function FAQSection() {
         "No, Hack Infinity is completely free to participate in. We believe in making innovation accessible to everyone.",
     },
     {
-      question: "Will there be food and accommodation?",
+      question: "Will there be Wifi, food and accommodation?",
       answer:
-        "Yes, we'll provide meals throughout the event. As for accommodation, we'll have designated rest areas, but if you prefer a hotel, we have partnered with local hotels for discounted rates.",
+        "Yes, WiFi, meals, and accommodation will be provided.High-speed internet access will be available throughout the event. We will provide meals throughout the event .Comfortable rest areas will be arranged for accommodation.",
     },
     {
       question: "What if I don't know how to code?",
