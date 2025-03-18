@@ -101,21 +101,22 @@ const TeamSection = () => {
       { name: 'Dishu Choudhary', image: '/team/dishu-choudhary.jpg', role: 'PR Team', linkedin: 'https://www.linkedin.com/in/dishu-choudhary-008a40328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/dishu_2806_?t=hV3AaOVhFx_DeRqvQa6QIg&s=09' },
       { name: 'Ujjwal Dubey', image: '/team/ujjwal-dubey.jpg', role: 'PR Team', linkedin: 'https://www.linkedin.com/in/ujjwal-dubey-1921ba328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/UjjwalDube36317?t=2x9vPa8qyQRYVm8WDGnVJA&s=09' },
       
+      { name: 'Hariom Choudhary', image: '/team/hariom.jpg', role: 'PR Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },   
+      
+      
+      
     ],
     'Designing': [
       { name: 'Suhani Bansal', image: '/team/suhani-bansal.jpg', role: 'UI/UX Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
       { name: 'Arpit Garg', image: '/team/arpit.jpg', role: 'Graphics Designer', linkedin: 'https://www.linkedin.com/in/arpitgarg5689', twitter: 'https://x.com/Arpitgarg5689' },
       { name: 'Krati Saini', image: '/team/krati-saini.jpg', role: 'Graphics Designer', linkedin: 'https://www.linkedin.com/in/krati-saini-2b3016327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/krati_sain11?t=GjIUUpkizQqdOpreU-uCtQ&s=09' },
-      { name: 'Harsh Sahu', image: '/team/harsh-sahu.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Harsh Sahu', image: '/team/harsh-sahu.jpg', role: 'Graphics Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
     ],
     'Content': [
       { name: 'Ridhi Jain', image: '/team/ridhi-jain.jpg', role: 'Content Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
       { name: 'Khushi Gupta', image: '/team/Khushi-Gupta.jpg', role: 'Content Lead', linkedin: 'https://www.linkedin.com/in/khushi-gupta-ab07a12a3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/Khusii27?t=WRhppsuMj2UfExupGaQR-Q&s=09' },
       { name: 'Himanshu Gaud', image: '/team/himanshu-gaud.jpg', role: 'Content Team', linkedin: 'https://www.linkedin.com/in/himanshu-gaud-50a5b4327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/himanshu_g75540?t=HBPj0GaMbQWm16ve-ujtXQ&s=09' },
-      { name: 'Palak Agarwal', image: '/team/palak-agrawal.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Hariom Choudhary', image: '/team/hariom.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Palak Agarwal', image: '/team/palak-agrawal.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-    ],
+      { name: 'Palak Agarwal', image: '/team/palak-agrawal.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' } ],
     'Advisory': [
       { name: 'Kartik Mehta', image: '/team/kartik-mehta.jpg', role: 'Technical Advisor', linkedin: 'https://www.linkedin.com/in/kartik-mehta-6729b0255/', twitter: 'https://twitter.com/kartikmehta_png' },
       { name: 'Aditya Pareek', image: '/team/aditya-pareek.jpg', role: 'Advisory', linkedin: 'https://www.linkedin.com/in/aditya-pareek-4291a1258/', twitter: 'https://x.com/Aditya4289' },
