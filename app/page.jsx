@@ -92,9 +92,9 @@ export default function HackathonWebsite() {
                 Register Now
               </Button>
             </Link>
-            <Button variant="outline" className="border-red-500 text-red-500 hover:bg-red-950/20 transform hover:scale-105 transition-all duration-300">
+            {/* <Button variant="outline" className="border-red-500 text-red-500 hover:bg-red-950/20 transform hover:scale-105 transition-all duration-300">
               Learn More
-            </Button>
+            </Button> */}
           </div>
         </div>
 
