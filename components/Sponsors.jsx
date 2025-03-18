@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Link from 'next/link';
 import {
   Box,
   Typography,
@@ -44,10 +45,20 @@ function Sponsors() {
       { id: 3, name: "Community Partner 3", logo: "/placeholder.svg?height=100&width=200" },
     ],
     previous: [
-      { id: 1, name: "Previous Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 2, name: "Previous Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 3, name: "Previous Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 4, name: "Previous Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 1, name: "accenture", logo: "/hackthon/accenture.png?height=100&width=200" },
+      { id: 2, name: "Aryavart", logo: "/hackthon/af.png?height=100&width=200" },
+      { id: 3, name: "Coding Tale", logo: "/hackthon/ct.png?height=100&width=200" },
+      { id: 4, name: "Durdarshan", logo: "/hackthon/durdarshan.png?height=100&width=200" },
+      { id: 5, name: "H2S", logo: "/hackthon/h2s.png?height=100&width=200" },
+      { id: 6, name: "Aerophantom", logo: "/hackthon/ap.png?height=100&width=200" },
+      { id: 7, name: "IBM", logo: "/hackthon/ibm.png?height=100&width=200" },
+      { id: 8, name: "Local Eyes", logo: "/hackthon/le.png?height=100&width=200" },
+      { id: 9, name: "moe", logo: "/hackthon/moe.png?height=100&width=200" },
+      { id: 12, name: "rgb", logo: "/hackthon/rgb.png?height=100&width=200" },
+      { id: 13, name: "rm", logo: "/hackthon/rm.png?height=100&width=200" },
+      { id: 14, name: "tt", logo: "/hackthon/tt.png?height=100&width=200" },
+      { id: 15, name: "vg", logo: "/hackthon/vg.png?height=100&width=200" },
+      { id: 16, name: "yi", logo: "/hackthon/yi.png?height=100&width=200" }
     ]
   };
 
@@ -438,50 +449,52 @@ function Sponsors() {
                 justifyContent: "center",
                 flexWrap: "wrap"
               }}>
-                <Button
-                  variant="contained"
-                  size="large"
-                  href="/become-sponsor"
-                  // sx={{
-                  //   background: "linear-gradient(to right, #FF5733, #FFC300)",
-                  //   color: "white",
-                  //   px: 4,
-                  //   py: 2,
-                  //   fontSize: "1.1rem",
-                  //   fontWeight: "bold",
-                  //   "&:hover": {
-                  //     background: "linear-gradient(to right, #FFC300, #FF5733)",
-                  //     transform: "translateY(-2px)",
-                  //     boxShadow: "0 10px 20px rgba(255, 87, 51, 0.3)"
-                  //   },
-                  //   transition: "all 0.3s ease"
-                  // }}
-                  className="text-bold bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300"
-                >
-                  Become a Sponsor
-                </Button>
-                <Button
-                  variant="outlined"
-                  size="large"
-                  href="/community-partner"
-                  sx={{
-                    borderColor: "#FF5733",
-                    color: "#FF5733",
-                    px: 4,
-                    py: 2,
-                    fontSize: "1.1rem",
-                    fontWeight: "bold",
-                    "&:hover": {
-                      borderColor: "#FFC300",
-                      color: "#FFC300",
-                      transform: "translateY(-2px)",
-                      boxShadow: "0 10px 20px rgba(255, 87, 51, 0.1)"
-                    },
-                    transition: "all 0.3s ease"
-                  }}
-                >
-                  Become a Community Partner
-                </Button>
+                <Link href="https://drive.google.com/file/d/14L2HqNx7_mHnavibZqMBWgoD-putdvwI/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="contained"
+                    size="large"
+                    sx={{
+                      px: 4,
+                      py: 2,
+                      fontSize: "1.1rem",
+                      fontWeight: "bold",
+                      background: "linear-gradient(to right, #ef4444, #f97316)",
+                      color: "white",
+                      border: "none",
+                      "&:hover": {
+                        background: "linear-gradient(to right, #dc2626, #ea580c)",
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 10px 20px rgba(239, 68, 68, 0.2)"
+                      },
+                      transition: "all 0.3s ease"
+                    }}
+                  >
+                    Become a Sponsor
+                  </Button>
+                </Link>
+                <Link href="https://lu.ma/40abgjcr" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    sx={{
+                      px: 4,
+                      py: 2,
+                      fontSize: "1.1rem",
+                      fontWeight: "bold",
+                      borderColor: "#ef4444",
+                      color: "#ef4444",
+                      "&:hover": {
+                        borderColor: "#f97316",
+                        color: "#f97316",
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 10px 20px rgba(239, 68, 68, 0.1)"
+                      },
+                      transition: "all 0.3s ease"
+                    }}
+                  >
+                    Become a Community Partner
+                  </Button>
+                </Link>
               </Box>
             </Grid>
           </Grid>

@@ -6,8 +6,12 @@ export const metadata = {
   title: "Hack Infinity - Infinite Possibilities. Infinite Innovation.",
   description:
     "Join us for 48 hours of coding, creativity, and collaboration. Push the boundaries of what's possible and build the future.",
-    generator: 'v0.dev'
-}
+    generator: 'v0.dev',
+    icons: {
+      icon: '/favicon.png',
+    },
+  }
+
 
 export default function RootLayout({ children }) {
   return (

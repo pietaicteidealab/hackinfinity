@@ -1,11 +1,9 @@
-
-
-
 "use client"
 
 import { useState, useEffect } from "react";
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
+import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -55,7 +53,7 @@ export default function HackathonWebsite() {
     };
   }, []);
 
-  const hackathonDate = new Date("2025-04-17T00:00:00");
+  const hackathonDate = new Date("2025-04-18T00:00:00");
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -80,7 +78,7 @@ export default function HackathonWebsite() {
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 font-mono">INFINITE POSSIBILITIES. INFINITE INNOVATION.</p>
           <p className="text-lg md:text-xl text-gray-400 mt-2 max-w-2xl mx-auto">
-            Join us for 48 hours of coding, creativity, and collaboration. Push the boundaries of what's possible and build the future.
+            Join us for 36 hours of coding, creativity, and collaboration. Push the boundaries of what's possible and build the future.
           </p>
 
           {/* Countdown Timer */}
@@ -89,9 +87,11 @@ export default function HackathonWebsite() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300">
-              Register Now
-            </Button>
+            <Link href="https://lu.ma/xl5esac2" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white border-none transform hover:scale-105 transition-all duration-300">
+                Register Now
+              </Button>
+            </Link>
             <Button variant="outline" className="border-red-500 text-red-500 hover:bg-red-950/20 transform hover:scale-105 transition-all duration-300">
               Learn More
             </Button>

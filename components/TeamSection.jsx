@@ -6,7 +6,7 @@ import TiltedCard from './TiltedCard';
 import FloatingParticles from './FloatingParticles';
 
 const TeamSection = () => {
-  const [activeTab, setActiveTab] = useState('Organizers');
+  const [activeTab, setActiveTab] = useState('Tech');
 
   // Animation variants
   const containerVariants = {
@@ -66,16 +66,16 @@ const TeamSection = () => {
   // Faculty coordinators data
   const facultyCoordinators = [
     {
-      name: 'Dr. Payal Bansal',
-      image: '/placeholder-user.jpg',
-      role: 'Faculty Coordinator',
+      name: 'Dr Dinesh Goyal',
+      image: '/team/the-DG.jpg',
+      role: 'Principal and Director,piet',
       linkedin: 'https://www.linkedin.com/in/dr-payal-bansal',
       twitter: 'https://twitter.com/dr-payal-bansal'
     },
     {
-      name: 'Dr. Dinesh Goyal',
-      image: '/placeholder-user.jpg',
-      role: 'Faculty Coordinator',
+      name: 'Dr Payal Bansal',
+      image: '/team/payal.jpg',
+      role: 'HOD, Idea Lab & IoT Department',
       linkedin: 'https://www.linkedin.com/in/dr-dinesh-goyal',
       twitter: 'https://twitter.com/dr-dinesh-goyal'
     }
@@ -84,24 +84,43 @@ const TeamSection = () => {
   // Team members data
   const teamMembers = {
     'Organizers': [
-      { name: 'Lead Organizer', image: '/placeholder-user.jpg', role: 'Team Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Co-Organizer', image: '/placeholder-user.jpg', role: 'Co-Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
+      { name: 'Hardik Jain', image: '/team/hardik-jain.jpg', role: 'Team Lead', linkedin: 'https://www.linkedin.com/in/jainhardik06/', twitter: 'https://x.com/jainhardik06' },
+      { name: 'Sarthak Chopra', image: '/team/sarthak-chopra.jpg', role: 'Co-Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Raghav Sharma', image: '/team/raghav-sharma.jpg', role: 'Co-Lead', linkedin: 'https://www.linkedin.com/in/raghavsharma098?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', twitter: 'https://x.com/raghav_sharma34?s=21' },
     ],
     'Tech': [
-      { name: 'Tech Lead', image: '/placeholder-user.jpg', role: 'Lead Developer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Tech Co-Lead', image: '/placeholder-user.jpg', role: 'Backend Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
+      { name: 'Aaditya Vinayak', image: '/team/Aadiii.jpg', role: 'Tech Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Sahaj Jain', image: '/team/kuldeep.jpg', role: 'Supporting Developer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Siddhika Agrawal', image: '/team/siddhika.jpg', role: 'Developer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Vibhor Mathur', image: '/team/vibhor-mathur.jpg', role: 'Tech Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Ankit Rao', image: '/team/ankit-rao.jpg', role: 'Tech Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
     ],
     'PR': [
-      { name: 'PR Manager', image: '/placeholder-user.jpg', role: 'PR Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'PR Coordinator', image: '/placeholder-user.jpg', role: 'Social Media Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
+      { name: 'Palak Modi', image: '/team/palak-modi.jpg', role: 'PR Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Kuldeep Soni', image: '/team/kuldeep.jpg', role: 'PR Co-Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Dishu Choudhary', image: '/team/dishu-choudhary.jpg', role: 'PR Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Ujjwal Dubey', image: '/team/ujjwal-dubey.jpg', role: 'PR Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      
     ],
     'Designing': [
-      { name: 'Design Lead', image: '/placeholder-user.jpg', role: 'UI/UX Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Design Co-Lead', image: '/placeholder-user.jpg', role: 'Graphics Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
+      { name: 'Suhani Bansal', image: '/team/suhani-bansal.jpg', role: 'UI/UX Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Arpit Garg', image: '/team/arpit.jpg', role: 'Graphics Designer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Krati Saini', image: '/team/krati-saini.jpg', role: 'Graphics Designer', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
     ],
     'Content': [
-      { name: 'Content Head', image: '/placeholder-user.jpg', role: 'Content Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Content Manager', image: '/placeholder-user.jpg', role: 'Editor', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
+      { name: 'Ridhi Jain', image: '/team/ridhi-jain.jpg', role: 'Content Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Khushi Gupta', image: '/team/Khushi-Gupta.jpg', role: 'Content Lead', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Himanshu Gaud', image: '/team/himanshu-gaud.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Palak Agarwal', image: '/team/palak-agrawal.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+    ],
+    'Advisory': [
+      { name: 'Kartik Mehta', image: '/team/kartik-mehta.jpg', role: 'Technical Advisor', linkedin: 'https://www.linkedin.com/in/kartik-mehta-6729b0255/', twitter: 'https://twitter.com/kartikmehta_png' },
+      { name: 'Aditya Pareek', image: '/team/aditya-pareek.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Kartikey Sharma', image: '/team/kartikey-sharma.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Mayank Saini', image: '/team/mayank-saini.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Manish Vaishnav', image: '/placeholder-user.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Himani Jangid', image: '/team/himani jangid.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
+      { name: 'Naman Sharma', image: '/team/naman-sharma.jpg', role: 'Advisory', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' }
     ]
   };
 
@@ -137,13 +156,13 @@ const TeamSection = () => {
   );
 
   return (
-    <div id='team' className="relative min-h-screen bg-gradient-to-b from-black via-black to-orange-950/20 text-white px-4 py-16 overflow-hidden">
+    <div id='team' className="relative min-h-screen bg-gradient-to-b from-black via-black to-orange-950/20 text-white px-4 py-32 overflow-hidden">
       {/* Background container */}
       <div className="absolute inset-0">
         <FloatingParticles />
       </div>
 
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-7xl mx-auto relative space-y-32">
         {/* Decorative elements */}
         <div className="absolute inset-0 grid grid-cols-2 -z-10 pointer-events-none">
           <div className="bg-gradient-to-br from-orange-500/5 to-transparent rounded-full blur-3xl h-96 w-96 -translate-y-1/2"></div>
@@ -161,24 +180,34 @@ const TeamSection = () => {
             Faculty Coordinators
           </h2>
           
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-12"
-            variants={containerVariants}
-          >
-            {facultyCoordinators.map((faculty, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <TiltedCard
-                  imageSrc={faculty.image}
-                  altText={faculty.name}
-                  captionText={`${faculty.name} - ${faculty.role}`}
-                  containerHeight="400px"
-                  imageHeight="300px"
-                  imageWidth="300px"
-                  overlayContent={<CardContent member={faculty} />}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="flex justify-center w-full">
+            <motion.div 
+              className="inline-grid grid-cols-2 lg:grid-cols-4 gap-6 pb-12 place-items-center justify-center"
+              style={{
+                maxWidth: '100%',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                '@media screen and (maxWidth: 1024px)': {
+                  gridTemplateColumns: 'repeat(2, minmax(250px, 1fr))'
+                }
+              }}
+              variants={containerVariants}
+            >
+              {facultyCoordinators.map((faculty, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <TiltedCard
+                    imageSrc={faculty.image}
+                    altText={faculty.name}
+                    captionText={`${faculty.name} - ${faculty.role}`}
+                    containerHeight="300px"
+                    imageHeight="200px"
+                    imageWidth="200px"
+                    overlayContent={<CardContent member={faculty} />}
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Core Team Section */}
@@ -186,7 +215,7 @@ const TeamSection = () => {
           initial="hidden"
           animate="visible"
           variants={titleVariants}
-          className="mb-24"
+          className="mb-32"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-16 text-center bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
             Meet the Core Team
@@ -210,33 +239,43 @@ const TeamSection = () => {
           </div>
 
           {/* Team Members Content */}
-          <div className="relative min-h-[500px]">
+          <div className="relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
-                className="absolute inset-0"
+                className="w-full"
                 initial="hidden"
                 animate="visible"
                 exit="exit"
                 variants={containerVariants}
               >
-                <motion.div
-                  className="grid grid-cols-1 md:grid-cols-2 "
-                >
-                  {teamMembers[activeTab].map((member, index) => (
-                    <motion.div key={index} variants={itemVariants}>
-                      <TiltedCard
-                        imageSrc={member.image}
-                        altText={member.name}
-                        captionText={`${member.name} - ${member.role}`}
-                        containerHeight="400px"
-                        imageHeight="300px"
-                        imageWidth="300px"
-                        overlayContent={<CardContent member={member} />}
-                      />
-                    </motion.div>
-                  ))}
-                </motion.div>
+                <div className="flex justify-center w-full">
+                  <motion.div 
+                    className="inline-grid grid-cols-2 lg:grid-cols-4 gap-12 pb-12 place-items-center justify-center"
+                    style={{
+                      maxWidth: '100%',
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                      '@media screen and (maxWidth: 1024px)': {
+                        gridTemplateColumns: 'repeat(2, minmax(250px, 1fr))'
+                      }
+                    }}
+                  >
+                    {teamMembers[activeTab].map((member, index) => (
+                      <motion.div key={index} variants={itemVariants}>
+                        <TiltedCard
+                          imageSrc={member.image}
+                          altText={member.name}
+                          captionText={`${member.name} - ${member.role}`}
+                          containerHeight="300px"
+                          imageHeight="200px"
+                          imageWidth="200px"
+                          overlayContent={<CardContent member={member} />}
+                        />
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>

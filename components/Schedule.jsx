@@ -139,25 +139,29 @@ const tabContentVariants = {
 
 const scheduleData = {
   day1: [
-    { time: "09:00 AM", title: "Registration & Check-in", description: "Get your badge, swag bag, and find your team area" },
-    { time: "10:00 AM", title: "Opening Ceremony", description: "Welcome address, theme introduction, and rules explanation" },
-    { time: "11:30 AM", title: "Team Formation", description: "Find teammates or finalize your existing team" },
-    { time: "12:00 PM", title: "Hacking Begins!", description: "Start building your innovative solutions" },
-    { time: "07:00 PM", title: "Dinner & Networking", description: "Refuel and connect with fellow participants" },
+    { time: "08:30 AM - 10:00 AM", title: "Registration & Check-in", description: "Get your badge, swag bag, and find your team area" },
+    { time: "10:00 AM - 11:00 AM", title: "Inauguration Ceremony", description: "Welcome address, theme introduction, and rules explanation" },
+    { time: "11:00 AM - 1:20 PM", title: "Hacking Period", description: "Phase 1: Netoworking and Ideation" },
+    { time: "1:20 PM - 2:30 PM", title: "Lunch", description: "" },
+    { time: "02:30 PM - 3:00 PM", title: "Workshops 1", description: "" },
+    { time: "3:00 PM - 5:30 PM", title: "Hacking Period", description: "Phase 2: First mentoring round" },
+    { time: "5:30 PM - 6:00 PM", title: "Speaker Session - I", description: "" },
+    { time: "6:00 PM - 6:30 PM", title: "High Tea", description: "" },
+    { time: "6:30 PM - 9:00 PM", title: "Hacking Period", description: "Phase 3: Second mentoring round" },
+    { time: "9:00 PM - 9:30 PM", title: "Speaker Session - II", description: "" },
+    { time: "9:30 PM - 10:30 PM", title: "Dinner", description: "" },
+    { time: "10:30 PM - 8:30 AM", title: "Hacking Period", description: "overnight hacking session" },
+    { time: "12:30 AM - 1:30 AM", title: "Midnight Fun", description: "Team bonding and fun activities" },
   ],
   day2: [
-    { time: "08:00 AM", title: "Breakfast", description: "Start your day with a nutritious meal" },
-    { time: "10:00 AM", title: "Technical Workshops", description: "AI, Blockchain, and Web3 workshops to help with your projects" },
-    { time: "12:30 PM", title: "Lunch", description: "Refuel for the afternoon hacking session" },
-    { time: "03:00 PM", title: "Mentorship Sessions", description: "Get guidance from industry experts" },
-    { time: "08:00 PM", title: "Gaming Break", description: "Take a break with some fun tech-themed games" },
-  ],
-  day3: [
-    { time: "08:00 AM", title: "Breakfast", description: "Final day breakfast to power through" },
-    { time: "10:00 AM", title: "Submission Preparation", description: "Finalize your projects and prepare for presentations" },
-    { time: "12:00 PM", title: "Hacking Ends", description: "All code submissions due" },
-    { time: "01:00 PM", title: "Project Presentations", description: "Teams showcase their innovations to judges" },
-    { time: "04:00 PM", title: "Awards Ceremony", description: "Winners announced and prizes awarded" },
+    { time: "08:30 AM- 9:00 AM", title: "Breakfast", description: "Start your day with a nutritious meal" },
+    { time: "9:00 AM - 11:00 AM", title: "Hacking Period", description: "Phase 5" },
+    { time: "10:00 AM - 11:00 PM", title: "Final Submission Deadline", description: "submission of prototypes for all teams" },
+    { time: "11:00 AM - 11:30 AM", title: "Speaker Session - III", description: "" },
+    { time: "11:30 AM - 1:20 PM", title: "Judging Begins", description: "For all teams" },
+    { time: "1:20 PM - 2:30 PM", title: "Lunch Break", description: "" },
+    { time: "2:30 PM - 4:30 PM", title: "Announcement of Top 10 teams", description: "Final presentation of top 10 teams" },
+    { time: "4:30 PM - 5:30 PM", title: "Closing Ceremony", description: "Awards and Prize Distribution" },
   ]
 };
 
@@ -259,7 +263,7 @@ function Schedule() {
             </Box>
             <motion.div variants={itemVariants}>
               <Typography variant="body1" sx={{ color: "#aaa", maxWidth: "700px", mx: "auto" }}>
-                Your 48-hour journey to build the next generation of technology solutions.
+                Your 36-hour journey to build the next generation of technology solutions.
               </Typography>
             </motion.div>
           </Box>
@@ -289,15 +293,6 @@ function Schedule() {
                 </Stack>
               } 
               value="day2" 
-            />
-            <StyledTab 
-              label={
-                <Stack direction="row" spacing={1} alignItems="center">
-                  <CalendarIcon sx={{ color: "#f44336" }} />
-                  <Typography sx={{ color: "#fff" }}>DAY 3</Typography>
-                </Stack>
-              } 
-              value="day3" 
             />
           </DayTabs>
 
