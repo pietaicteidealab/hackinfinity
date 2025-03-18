@@ -1,6 +1,7 @@
 import "./globals.css"
 import { Suspense } from "react"
 import InfinityLoader from "@/components/InfinityLoader"
+import GoogleAnalytics from "@/lib/GoogleAnalytics"
 
 export const metadata = {
   title: "Hack Infinity - Infinite Possibilities. Infinite Innovation.",
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-black text-white">
+        <GoogleAnalytics />
         <Suspense
           fallback={
             <div className="h-screen w-full flex items-center justify-center bg-black">
