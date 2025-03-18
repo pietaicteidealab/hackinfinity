@@ -64,22 +64,22 @@ const TeamSection = () => {
   };
 
   // Faculty coordinators data
-  const facultyCoordinators = [
-    {
-      name: 'Dr Dinesh Goyal',
-      image: '/team/the-DG.jpg',
-      role: 'Principal and Director,piet',
-      linkedin: 'https://www.linkedin.com/in/dr-payal-bansal',
-      twitter: 'https://twitter.com/dr-payal-bansal'
-    },
-    {
-      name: 'Dr Payal Bansal',
-      image: '/team/payal.jpg',
-      role: 'HOD, Idea Lab & IoT Department',
-      linkedin: 'https://www.linkedin.com/in/dr-dinesh-goyal',
-      twitter: 'https://twitter.com/dr-dinesh-goyal'
-    }
-  ];
+  // const facultyCoordinators = [
+  //   {
+  //     name: 'Dr Dinesh Goyal',
+  //     image: '/team/the-DG.jpg',
+  //     role: 'Principal and Director,piet',
+  //     linkedin: 'https://www.linkedin.com/in/dr-payal-bansal',
+  //     twitter: 'https://twitter.com/dr-payal-bansal'
+  //   },
+  //   {
+  //     name: 'Dr Payal Bansal',
+  //     image: '/team/payal.jpg',
+  //     role: 'HOD, Idea Lab & IoT Department',
+  //     linkedin: 'https://www.linkedin.com/in/dr-dinesh-goyal',
+  //     twitter: 'https://twitter.com/dr-dinesh-goyal'
+  //   }
+  // ];
 
   // Team members data
   const teamMembers = {
@@ -159,13 +159,13 @@ const TeamSection = () => {
   );
 
   return (
-    <div id='team' className="relative min-h-screen bg-gradient-to-b from-black via-black to-orange-950/20 text-white px-4 py-32 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-b from-black via-black to-orange-950/20 text-white px-4 py-16 overflow-hidden">
       {/* Background container */}
       <div className="absolute inset-0">
         <FloatingParticles />
       </div>
 
-      <div className="max-w-7xl mx-auto relative space-y-32">
+      <div className="max-w-7xl mx-auto relative space-y-16">
         {/* Decorative elements */}
         <div className="absolute inset-0 grid grid-cols-2 -z-10 pointer-events-none">
           <div className="bg-gradient-to-br from-orange-500/5 to-transparent rounded-full blur-3xl h-96 w-96 -translate-y-1/2"></div>
@@ -173,7 +173,7 @@ const TeamSection = () => {
         </div>
 
         {/* Faculty Coordinators Section */}
-        <motion.div
+        {/* <motion.div
           className="mb-24"
           initial="hidden"
           animate="visible"
@@ -211,16 +211,16 @@ const TeamSection = () => {
               ))}
             </motion.div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* Core Team Section */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={titleVariants}
-          className="mb-32"
+          className="mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-16 text-center bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
+          <h2 id='team' className="text-5xl md:text-6xl font-bold mb-16 text-center bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
             Meet the Core Team
           </h2>
 
