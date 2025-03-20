@@ -354,41 +354,16 @@ const Theme = () => {
                       <Typography
                         variant="body2"
                         sx={{
-                          mb: 3,
                           color: 'grey.400',
                           display: '-webkit-box',
                           WebkitLineClamp: 3,
                           WebkitBoxOrient: 'vertical',
                           overflow: 'hidden',
-                          height: '4.5em',
                           lineHeight: 1.5
                         }}
                       >
                         {theme.description}
                       </Typography>
-                      
-                      <Stack
-                        direction="row"
-                        spacing={1}
-                        alignItems="center"
-                        sx={{
-                          pt: 2,
-                          borderTop: '1px solid rgba(48, 48, 48, 0.8)',
-                          color: 'grey.500',
-                          fontSize: '0.75rem',
-                          mt: 'auto'
-                        }}
-                      >
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                          <Language sx={{ width: 14, height: 14, mr: 0.5 }} />
-                          {theme.teams} teams
-                        </Box>
-                        <Box sx={{ mx: 1 }}>•</Box>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                          <EmojiObjects sx={{ width: 14, height: 14, mr: 0.5 }} />
-                          Top prize
-                        </Box>
-                      </Stack>
                     </CardContent>
                   </CardActionArea>
                 </Card>
