@@ -46,6 +46,7 @@ function Sponsors() {
       { id: 1, name: "Community Partner 1", logo: "/cp/CSquareWhite.png" },
       { id: 2, name: "Community Partner 2", logo: "/cp/devdisplay.png" },
       { id: 3, name: "Community Partner 3", logo: "/cp/Kaizen.jpg" },
+      { id: 4, name: "Community Partner 3", logo: "/sponsors/cyborgs.png" },
     ],
     previous: [
       { id: 1, name: "accenture", logo: "/hackthon/accenture.png?height=100&width=200" },
