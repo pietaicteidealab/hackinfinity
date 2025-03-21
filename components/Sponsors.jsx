@@ -32,20 +32,20 @@ function Sponsors() {
       { id: 2, name: "Platinum Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
     ],
     gold: [
-      { id: 1, name: "Gold Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 2, name: "Gold Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 3, name: "Gold Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 1, name: "Gold Sponsor 1", logo: "https://media.licdn.com/dms/image/v2/D4D0BAQHgu_N0xl290g/company-logo_200_200/company-logo_200_200/0/1709907862057/0xday_logo?e=2147483647&v=beta&t=Z4W7JAzQQv33LQxTE6ID_tYa6v7h-bb99kEBXl_vOIo" },
+      { id: 2, name: "Gold Sponsor 2", logo: "https://media.licdn.com/dms/image/v2/C560BAQHRD8_tPD_c4w/company-logo_200_200/company-logo_200_200/0/1668973159544/inovact_pvt_ltd2_logo?e=2147483647&v=beta&t=wYRt21sQh1yw61QaFvpOa0fqkl4sUJwvs9k8TLUKje8" },
+      // { id: 3, name: "Gold Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
     ],
     silver: [
-      { id: 1, name: "Silver Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 2, name: "Silver Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 3, name: "Silver Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 4, name: "Silver Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 1, name: "Silver Sponsor 1", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/.xyz_logo.svg/1200px-.xyz_logo.svg.png" },
+      { id: 2, name: "Silver Sponsor 2", logo: "https://media.licdn.com/dms/image/v2/D560BAQEqzh_Uhd_rbw/company-logo_200_200/company-logo_200_200/0/1684437783960/codecraftersio_logo?e=2147483647&v=beta&t=xehlblVMw6zGFt5W7qBeiK4MkSjRxbxndVn_SSA-4h0" },
+      { id: 3, name: "Silver Sponsor 3", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxT6W2J3-40UX9t2ELVsd2lBlaVIsMk63iKQ&s" },
+      // { id: 4, name: "Silver Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
     ],
     community: [
-      { id: 1, name: "Community Partner 1", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 2, name: "Community Partner 2", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 3, name: "Community Partner 3", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 1, name: "Community Partner 1", logo: "/cp/CSquareWhite.png" },
+      { id: 2, name: "Community Partner 2", logo: "/cp/devdisplay.png" },
+      { id: 3, name: "Community Partner 3", logo: "/cp/Kaizen.jpg" },
     ],
     previous: [
       { id: 1, name: "accenture", logo: "/hackthon/accenture.png?height=100&width=200" },
@@ -328,7 +328,7 @@ function Sponsors() {
           </Grid>
         </Box>
 
-        {/* Platinum Sponsors */}
+        {/* Platinum Sponsors
         <Box sx={{ mb: 8 }}>
           <Typography
             variant="h5"
@@ -349,7 +349,7 @@ function Sponsors() {
               </Grid>
             ))}
           </Grid>
-        </Box>
+        </Box> */}
 
         {/* Gold Sponsors */}
         <Box sx={{ mb: 8 }}>
