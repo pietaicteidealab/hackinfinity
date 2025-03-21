@@ -172,15 +172,30 @@ function Sponsors() {
     };
 
     const getImageSize = () => {
-      return tier === 'hosted' ? {
-        maxWidth: "500px",
-        maxHeight: "300px",
-        width: "100%",
-        objectFit: "contain"
-      } : {
-        maxWidth: "150px",
-        maxHeight: "80px",
-      };
+      switch (tier) {
+        case 'hosted':
+          return {
+            maxWidth: "500px",
+            maxHeight: "300px",
+            width: "100%",
+            objectFit: "contain"
+          };
+        case 'gold':
+        case 'silver':
+          return {
+            maxWidth: "200px",
+            maxHeight: "120px",
+            width: "100%",
+            objectFit: "contain"
+          };
+        default:
+          return {
+            maxWidth: "200px",
+            maxHeight: "120px",
+            width: "100%",
+            objectFit: "contain"
+          };
+      }
     };
 
     return (
