@@ -43,10 +43,10 @@ function Sponsors() {
       // { id: 4, name: "Silver Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
     ],
     community: [
+      { id: 4, name: "Community Partner 3", logo: "/sponsors/cyborgs.png" },
       { id: 1, name: "Community Partner 1", logo: "/cp/CSquareWhite.png" },
       { id: 2, name: "Community Partner 2", logo: "/cp/devdisplay.png" },
       { id: 3, name: "Community Partner 3", logo: "/cp/Kaizen.jpg" },
-      { id: 4, name: "Community Partner 3", logo: "/sponsors/cyborgs.png" },
     ],
     previous: [
       { id: 1, name: "accenture", logo: "/hackthon/accenture.png?height=100&width=200" },
@@ -503,7 +503,7 @@ function Sponsors() {
                 justifyContent: "center",
                 flexWrap: "wrap"
               }}>
-                <Link href="https://drive.google.com/file/d/14L2HqNx7_mHnavibZqMBWgoD-putdvwI/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <Link href="https://drive.google.com/file/d/1-8mj1j2CPinWE5YPJLZgBoq-P6quoh5w/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                   <Button
                     variant="contained"
                     size="large"
