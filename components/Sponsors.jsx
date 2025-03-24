@@ -43,7 +43,7 @@ function Sponsors() {
       // { id: 4, name: "Silver Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
     ],
     community: [
-      { id: 4, name: "Community Partner 3", logo: "/sponsors/cyborgs.png" },
+      { id: 4, name: "Community Partner 3", logo: "/sponsors/cyborgs.png", link:"https://bento.me/thecyborgs"},
       { id: 1, name: "Community Partner 1", logo: "/cp/CSquareWhite.png" },
       { id: 2, name: "Community Partner 2", logo: "/cp/devdisplay.png" },
       { id: 3, name: "Community Partner 3", logo: "/cp/Kaizen.jpg" },
@@ -414,13 +414,28 @@ function Sponsors() {
         </Box>
 
         {/* Community Partners Section */}
+
         <SectionTitle title="Community Partners" />
+
+        {/* <Box mb={12}>
+  <Grid container spacing={3} justifyContent="center">
+    {sponsors.community.map(partner => (
+      <Grid item xs={6} sm={4} md={3} key={partner.id}>
+        <Link href={partner.link}>
+          <SponsorCard logo={partner.logo} name={partner.name} />
+        </Link>
+      </Grid>
+    ))}
+  </Grid>
+</Box> */}
 
         <Box mb={12}>
           <Grid container spacing={3} justifyContent="center">
             {sponsors.community.map(partner => (
               <Grid item xs={6} sm={4} md={3} key={partner.id}>
+                <a target="_blank" href={partner.link}>
                 <SponsorCard logo={partner.logo} name={partner.name} />
+                </a>
               </Grid>
             ))}
           </Grid>

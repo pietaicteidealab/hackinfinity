@@ -89,6 +89,7 @@ const TeamSection = () => {
       { name: 'Raghav Sharma', image: '/team/raghav-sharma.jpg', role: 'Organiser', linkedin: 'https://www.linkedin.com/in/raghavsharma098?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app', twitter: 'https://x.com/raghav_sharma34?s=21' },
     ],
     'Tech': [
+      { name: 'Kartik Mehta', image: '/team/kartik-mehta.jpg', role: 'Tech Lead', linkedin: 'https://www.linkedin.com/in/kartik-mehta-6729b0255/', twitter: 'https://twitter.com/kartikmehta_png'},
       { name: 'Aaditya Vinayak', image: '/team/Aadiii.jpg', role: 'Tech Lead', linkedin: 'https://linkedin.com/in/vaaditya320', twitter: 'https://twitter.com/vaaditya320' },
       { name: 'Sahaj Jain', image: 'https://avatars.githubusercontent.com/u/118066299?v=4', role: 'Tech Team', linkedin: 'https://www.linkedin.com/in/this-is-sahaj-jain/', twitter: 'https://twitter.com' },
       { name: 'Siddhika Agrawal', image: '/team/siddhika.jpg', role: 'Tech Team', linkedin: 'https://www.linkedin.com/in/siddhi-agrawal-566591229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/siddhi9352?t=14M_i0W-XaJ6-1eVr4tFww&s=09' },
