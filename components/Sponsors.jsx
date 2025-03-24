@@ -32,20 +32,21 @@ function Sponsors() {
       { id: 2, name: "Platinum Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
     ],
     gold: [
-      { id: 1, name: "Gold Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 2, name: "Gold Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 3, name: "Gold Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 1, name: "Gold Sponsor 1", logo: "/sponsors/ox.png" },
+      { id: 2, name: "Gold Sponsor 2", logo: "/sponsors/innovact.png" },
+      // { id: 3, name: "Gold Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
     ],
     silver: [
-      { id: 1, name: "Silver Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 2, name: "Silver Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 3, name: "Silver Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 4, name: "Silver Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 1, name: "Silver Sponsor 1", logo: "/sponsors/xyz.png" },
+      { id: 2, name: "Silver Sponsor 2", logo: "/sponsors/codecrafter.png" },
+      { id: 3, name: "Silver Sponsor 3", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxT6W2J3-40UX9t2ELVsd2lBlaVIsMk63iKQ&s" },
+      // { id: 4, name: "Silver Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
     ],
     community: [
-      { id: 1, name: "Community Partner 1", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 2, name: "Community Partner 2", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 3, name: "Community Partner 3", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 4, name: "Community Partner 3", logo: "/sponsors/cyborgs.png", link: "https://bento.me/thecyborgs" },
+      { id: 1, name: "Community Partner 1", logo: "/cp/CSquareWhite.png" },
+      { id: 2, name: "Community Partner 2", logo: "/cp/devdisplay.png" },
+      { id: 3, name: "Community Partner 3", logo: "/cp/Kaizen.jpg" },
     ],
     previous: [
       { id: 1, name: "accenture", logo: "/hackthon/accenture.png?height=100&width=200" },
@@ -129,16 +130,16 @@ function Sponsors() {
       viewport={{ once: true, amount: 0.1 }}
     >
       <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 5 }}>
-        <Box sx={{ 
-          width: "40px", 
-          height: "3px", 
+        <Box sx={{
+          width: "40px",
+          height: "3px",
           backgroundColor: "#ef4444",
-          mr: 2 
+          mr: 2
         }} />
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Typography 
+          <Typography
             variant="h2"
-            sx={{ 
+            sx={{
               fontWeight: "bold",
               textTransform: "uppercase",
               color: "white",
@@ -149,11 +150,11 @@ function Sponsors() {
             {title}
           </Typography>
         </Box>
-        <Box sx={{ 
-          width: "40px", 
-          height: "3px", 
+        <Box sx={{
+          width: "40px",
+          height: "3px",
           backgroundColor: "#ef4444",
-          ml: 2 
+          ml: 2
         }} />
       </Box>
     </motion.div>
@@ -172,15 +173,30 @@ function Sponsors() {
     };
 
     const getImageSize = () => {
-      return tier === 'hosted' ? {
-        maxWidth: "500px",
-        maxHeight: "300px",
-        width: "100%",
-        objectFit: "contain"
-      } : {
-        maxWidth: "150px",
-        maxHeight: "80px",
-      };
+      switch (tier) {
+        case 'hosted':
+          return {
+            maxWidth: "500px",
+            maxHeight: "300px",
+            width: "100%",
+            objectFit: "contain"
+          };
+        case 'gold':
+        case 'silver':
+          return {
+            maxWidth: "250px",
+            maxHeight: "150px",
+            width: "100%",
+            objectFit: "contain"
+          };
+        default:
+          return {
+            maxWidth: "250px",
+            maxHeight: "150px",
+            width: "100%",
+            objectFit: "contain"
+          };
+      }
     };
 
     return (
@@ -328,7 +344,7 @@ function Sponsors() {
           </Grid>
         </Box>
 
-        {/* Platinum Sponsors */}
+        {/* Platinum Sponsors
         <Box sx={{ mb: 8 }}>
           <Typography
             variant="h5"
@@ -349,7 +365,7 @@ function Sponsors() {
               </Grid>
             ))}
           </Grid>
-        </Box>
+        </Box> */}
 
         {/* Gold Sponsors */}
         <Box sx={{ mb: 8 }}>
@@ -398,13 +414,28 @@ function Sponsors() {
         </Box>
 
         {/* Community Partners Section */}
+
         <SectionTitle title="Community Partners" />
+
+        {/* <Box mb={12}>
+  <Grid container spacing={3} justifyContent="center">
+    {sponsors.community.map(partner => (
+      <Grid item xs={6} sm={4} md={3} key={partner.id}>
+        <Link href={partner.link}>
+          <SponsorCard logo={partner.logo} name={partner.name} />
+        </Link>
+      </Grid>
+    ))}
+  </Grid>
+</Box> */}
 
         <Box mb={12}>
           <Grid container spacing={3} justifyContent="center">
             {sponsors.community.map(partner => (
               <Grid item xs={6} sm={4} md={3} key={partner.id}>
-                <SponsorCard logo={partner.logo} name={partner.name} />
+                <a target="_blank" href={partner.link}>
+                  <SponsorCard logo={partner.logo} name={partner.name} />
+                </a>
               </Grid>
             ))}
           </Grid>
@@ -487,7 +518,7 @@ function Sponsors() {
                 justifyContent: "center",
                 flexWrap: "wrap"
               }}>
-                <Link href="https://drive.google.com/file/d/14L2HqNx7_mHnavibZqMBWgoD-putdvwI/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <Link href="https://drive.google.com/file/d/1-8mj1j2CPinWE5YPJLZgBoq-P6quoh5w/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                   <Button
                     variant="contained"
                     size="large"
