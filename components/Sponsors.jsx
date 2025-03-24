@@ -43,7 +43,7 @@ function Sponsors() {
       // { id: 4, name: "Silver Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
     ],
     community: [
-      { id: 4, name: "Community Partner 3", logo: "/sponsors/cyborgs.png", link:"https://bento.me/thecyborgs"},
+      { id: 4, name: "Community Partner 3", logo: "/sponsors/cyborgs.png", link: "https://bento.me/thecyborgs" },
       { id: 1, name: "Community Partner 1", logo: "/cp/CSquareWhite.png" },
       { id: 2, name: "Community Partner 2", logo: "/cp/devdisplay.png" },
       { id: 3, name: "Community Partner 3", logo: "/cp/Kaizen.jpg" },
@@ -130,16 +130,16 @@ function Sponsors() {
       viewport={{ once: true, amount: 0.1 }}
     >
       <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 5 }}>
-        <Box sx={{ 
-          width: "40px", 
-          height: "3px", 
+        <Box sx={{
+          width: "40px",
+          height: "3px",
           backgroundColor: "#ef4444",
-          mr: 2 
+          mr: 2
         }} />
         <Box sx={{ display: "flex", alignItems: "center" }}>
-          <Typography 
+          <Typography
             variant="h2"
-            sx={{ 
+            sx={{
               fontWeight: "bold",
               textTransform: "uppercase",
               color: "white",
@@ -150,11 +150,11 @@ function Sponsors() {
             {title}
           </Typography>
         </Box>
-        <Box sx={{ 
-          width: "40px", 
-          height: "3px", 
+        <Box sx={{
+          width: "40px",
+          height: "3px",
           backgroundColor: "#ef4444",
-          ml: 2 
+          ml: 2
         }} />
       </Box>
     </motion.div>
@@ -434,7 +434,7 @@ function Sponsors() {
             {sponsors.community.map(partner => (
               <Grid item xs={6} sm={4} md={3} key={partner.id}>
                 <a target="_blank" href={partner.link}>
-                <SponsorCard logo={partner.logo} name={partner.name} />
+                  <SponsorCard logo={partner.logo} name={partner.name} />
                 </a>
               </Grid>
             ))}
