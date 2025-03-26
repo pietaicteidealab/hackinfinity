@@ -25,44 +25,43 @@ function Sponsors() {
   // Sample sponsor data - replace with your actual sponsors
   const sponsors = {
     hosted_by: [
-      { id: 1, name: "Host Organization", logo: "/piet.png?height=400&width=600" },
+      { id: 1, name: "Host Organization", logo: "/piet.png?height=400&width=600", website: "https://piet.co.in" },
     ],
     platinum: [
-      { id: 1, name: "Platinum Sponsor 1", logo: "/placeholder.svg?height=100&width=200" },
-      { id: 2, name: "Platinum Sponsor 2", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 1, name: "Platinum Sponsor 1", logo: "/placeholder.svg?height=100&width=200", website: "#" },
+      { id: 2, name: "Platinum Sponsor 2", logo: "/placeholder.svg?height=100&width=200", website: "#" },
     ],
     gold: [
-      { id: 1, name: "Gold Sponsor 1", logo: "/sponsors/ox.png" },
-      { id: 2, name: "Gold Sponsor 2", logo: "/sponsors/innovact.png" },
-      // { id: 3, name: "Gold Sponsor 3", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 1, name: "Gold Sponsor 1", logo: "/sponsors/ox.png", website: "https://0x.day" },
+      { id: 2, name: "Gold Sponsor 2", logo: "/sponsors/innovact.png", website: "https://innovact.in" },
     ],
     silver: [
-      { id: 1, name: "Silver Sponsor 1", logo: "/sponsors/xyz.png" },
-      { id: 2, name: "Silver Sponsor 2", logo: "/sponsors/codecrafter.png" },
-      { id: 3, name: "Silver Sponsor 3", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxT6W2J3-40UX9t2ELVsd2lBlaVIsMk63iKQ&s" },
-      // { id: 4, name: "Silver Sponsor 4", logo: "/placeholder.svg?height=100&width=200" },
+      { id: 1, name: "Silver Sponsor 1", logo: "/sponsors/xyz.png", website: "https://xyz.com" },
+      { id: 2, name: "Silver Sponsor 2", logo: "/sponsors/codecrafter.png", website: "https://codecrafters.io" },
+      { id: 3, name: "Silver Sponsor 3", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxT6W2J3-40UX9t2ELVsd2lBlaVIsMk63iKQ&s", website: "https://interviewbuddy.net" },
     ],
     community: [
-      { id: 4, name: "Community Partner 3", logo: "/sponsors/cyborgs.png" },
-      { id: 1, name: "Community Partner 1", logo: "/cp/CSquareWhite.png" },
-      { id: 2, name: "Community Partner 2", logo: "/cp/devdisplay.png" },
-      { id: 3, name: "Community Partner 3", logo: "/cp/Kaizen.jpg" },
+      { id: 4, name: "Community Partner 3", logo: "/sponsors/cyborgs.png", website: "https://bento.me/thecyborgs" },
+      { id: 1, name: "Community Partner 1", logo: "/cp/CSquareWhite.png", website: "#" },
+      { id: 2, name: "Community Partner 2", logo: "/cp/devdisplay.png", website: "#" },
+      { id: 3, name: "Community Partner 3", logo: "/cp/Kaizen.jpg", website: "#" },
+
     ],
     previous: [
-      { id: 1, name: "accenture", logo: "/hackthon/accenture.png?height=100&width=200" },
-      { id: 2, name: "Aryavart", logo: "/hackthon/af.png?height=100&width=200" },
-      { id: 3, name: "Coding Tale", logo: "/hackthon/ct.png?height=100&width=200" },
-      { id: 4, name: "Durdarshan", logo: "/hackthon/durdarshan.png?height=100&width=200" },
-      { id: 5, name: "H2S", logo: "/hackthon/h2s.png?height=100&width=200" },
-      { id: 6, name: "Aerophantom", logo: "/hackthon/ap.png?height=100&width=200" },
-      { id: 7, name: "IBM", logo: "/hackthon/ibm.png?height=100&width=200" },
-      { id: 8, name: "Local Eyes", logo: "/hackthon/le.png?height=100&width=200" },
-      { id: 9, name: "moe", logo: "/hackthon/moe.png?height=100&width=200" },
-      { id: 12, name: "rgb", logo: "/hackthon/rgb.png?height=100&width=200" },
-      { id: 13, name: "rm", logo: "/hackthon/rm.png?height=100&width=200" },
-      { id: 14, name: "tt", logo: "/hackthon/tt.png?height=100&width=200" },
-      { id: 15, name: "vg", logo: "/hackthon/vg.png?height=100&width=200" },
-      { id: 16, name: "yi", logo: "/hackthon/yi.png?height=100&width=200" }
+      { id: 1, name: "accenture", logo: "/hackthon/accenture.png?height=100&width=200", website: "#" },
+      { id: 2, name: "Aryavart", logo: "/hackthon/af.png?height=100&width=200", website: "#" },
+      { id: 3, name: "Coding Tale", logo: "/hackthon/ct.png?height=100&width=200", website: "#" },
+      { id: 4, name: "Durdarshan", logo: "/hackthon/durdarshan.png?height=100&width=200", website: "#" },
+      { id: 5, name: "H2S", logo: "/hackthon/h2s.png?height=100&width=200", website: "#" },
+      { id: 6, name: "Aerophantom", logo: "/hackthon/ap.png?height=100&width=200", website: "#" },
+      { id: 7, name: "IBM", logo: "/hackthon/ibm.png?height=100&width=200", website: "#" },
+      { id: 8, name: "Local Eyes", logo: "/hackthon/le.png?height=100&width=200", website: "#" },
+      { id: 9, name: "moe", logo: "/hackthon/moe.png?height=100&width=200", website: "#" },
+      { id: 12, name: "rgb", logo: "/hackthon/rgb.png?height=100&width=200", website: "#" },
+      { id: 13, name: "rm", logo: "/hackthon/rm.png?height=100&width=200", website: "#" },
+      { id: 14, name: "tt", logo: "/hackthon/tt.png?height=100&width=200", website: "#" },
+      { id: 15, name: "vg", logo: "/hackthon/vg.png?height=100&width=200", website: "#" },
+      { id: 16, name: "yi", logo: "/hackthon/yi.png?height=100&width=200", website: "#" }
     ]
   };
 
@@ -161,7 +160,7 @@ function Sponsors() {
   );
 
   // Sponsor card component
-  const SponsorCard = ({ logo, name, tier }) => {
+  const SponsorCard = ({ logo, name, tier, website, isPrevious }) => {
     const getBorderColor = () => {
       switch (tier) {
         case 'hosted': return 'linear-gradient(to right, #FF5733, #FF8C33)';
@@ -199,6 +198,47 @@ function Sponsors() {
       }
     };
 
+    const CardWrapper = (
+      <Card sx={{
+        background: "rgba(17, 17, 17, 0.7)",
+        border: "1px solid rgba(255, 87, 51, 0.3)",
+        borderRadius: 2,
+        padding: tier === 'hosted' ? 2 : 2,
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        overflow: "hidden",
+        cursor: isPrevious ? "default" : "pointer",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "4px",
+          background: getBorderColor()
+        }
+      }}>
+        <CardContent sx={{ padding: 2, textAlign: "center" }}>
+          <Box
+            component="img"
+            src={logo}
+            alt={name}
+            sx={{
+              ...getImageSize(),
+              filter: "brightness(0.9)",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                filter: "brightness(1.2)"
+              }
+            }}
+          />
+        </CardContent>
+      </Card>
+    );
+
     return (
       <motion.div
         variants={itemVariants}
@@ -207,43 +247,13 @@ function Sponsors() {
           boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.3)",
         }}
       >
-        <Card sx={{
-          background: "rgba(17, 17, 17, 0.7)",
-          border: "1px solid rgba(255, 87, 51, 0.3)",
-          borderRadius: 2,
-          padding: tier === 'hosted' ? 2 : 2,
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
-          overflow: "hidden",
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: "4px",
-            background: getBorderColor()
-          }
-        }}>
-          <CardContent sx={{ padding: 2, textAlign: "center" }}>
-            <Box
-              component="img"
-              src={logo}
-              alt={name}
-              sx={{
-                ...getImageSize(),
-                filter: "brightness(0.9)",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  filter: "brightness(1.2)"
-                }
-              }}
-            />
-          </CardContent>
-        </Card>
+        {isPrevious ? (
+          CardWrapper
+        ) : (
+          <Link href={website} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+            {CardWrapper}
+          </Link>
+        )}
       </motion.div>
     );
   };
@@ -338,7 +348,7 @@ function Sponsors() {
           <Grid container spacing={1} justifyContent="center">
             {sponsors.hosted_by.map(host => (
               <Grid item xs={12} sm={8} md={6} key={host.id}>
-                <SponsorCard logo={host.logo} name={host.name} tier="hosted" />
+                <SponsorCard logo={host.logo} name={host.name} tier="hosted" website={host.website} />
               </Grid>
             ))}
           </Grid>
@@ -384,7 +394,7 @@ function Sponsors() {
           <Grid container spacing={3} justifyContent="center">
             {sponsors.gold.map(sponsor => (
               <Grid item xs={6} sm={4} md={3} key={sponsor.id}>
-                <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="gold" />
+                <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="gold" website={sponsor.website} />
               </Grid>
             ))}
           </Grid>
@@ -407,7 +417,7 @@ function Sponsors() {
           <Grid container spacing={3} justifyContent="center">
             {sponsors.silver.map(sponsor => (
               <Grid item xs={6} sm={3} md={3} key={sponsor.id}>
-                <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="silver" />
+                <SponsorCard logo={sponsor.logo} name={sponsor.name} tier="silver" website={sponsor.website} />
               </Grid>
             ))}
           </Grid>
@@ -416,14 +426,54 @@ function Sponsors() {
         {/* Community Partners Section */}
         <SectionTitle title="Community Partners" />
 
-        <Box mb={12}>
-          <Grid container spacing={3} justifyContent="center">
-            {sponsors.community.map(partner => (
-              <Grid item xs={6} sm={4} md={3} key={partner.id}>
-                <SponsorCard logo={partner.logo} name={partner.name} />
-              </Grid>
+        <Box
+          mb={12}
+          sx={{
+            overflow: "hidden",
+            position: "relative",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              right: 0,
+              top: 0,
+              bottom: 0,
+              width: "100px",
+              background: "linear-gradient(to left, #000000, transparent)",
+              zIndex: 2
+            },
+            "&::before": {
+              content: '""',
+              position: "absolute",
+              left: 0,
+              top: 0,
+              bottom: 0,
+              width: "100px",
+              background: "linear-gradient(to right, #000000, transparent)",
+              zIndex: 2
+            }
+          }}
+        >
+          <motion.div
+            variants={slideVariants}
+            animate="animate"
+            style={{
+              display: "flex",
+              width: "fit-content",
+              gap: "16px"
+            }}
+          >
+            {[...sponsors.community, ...sponsors.community, ...sponsors.community].map((partner, index) => (
+              <Box
+                key={`${partner.id}-${index}`}
+                sx={{
+                  minWidth: "200px",
+                  px: 2,
+                }}
+              >
+                <SponsorCard logo={partner.logo} name={partner.name} website={partner.website} />
+              </Box>
             ))}
-          </Grid>
+          </motion.div>
         </Box>
 
         {/* Previous Sponsors Section */}
@@ -473,7 +523,7 @@ function Sponsors() {
                   px: 2,
                 }}
               >
-                <SponsorCard logo={sponsor.logo} name={sponsor.name} />
+                <SponsorCard logo={sponsor.logo} name={sponsor.name} website={sponsor.website} isPrevious={true} />
               </Box>
             ))}
           </motion.div>
