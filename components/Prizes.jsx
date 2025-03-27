@@ -56,7 +56,7 @@ export default function Prizes() {
       color: "#FFB800",
       icon: <Trophy className="w-12 h-12" />,
       rewards: [
-        { icon: <IndianRupee />, text: "₹20,000 Cash Prize" },
+        { icon: <IndianRupee />, text: "₹40,000 Cash Prize" },
         { icon: <FaCode />, text: "2 Years Code Crafters Subscription" },
         { icon: <FaGlobe />, text: "1 Year .xyz Domain" },
       ],
@@ -67,7 +67,7 @@ export default function Prizes() {
       color: "#C0C0C0",
       icon: <Trophy className="w-12 h-12" />,
       rewards: [
-        { icon: <IndianRupee />, text: "₹15,000 Cash Prize" },
+        { icon: <IndianRupee />, text: "₹30,000 Cash Prize" },
         { icon: <FaCode />, text: "1 Year Code Crafters Subscription" },
         { icon: <FaGlobe />, text: "1 Year .xyz Domain" },
       ],
@@ -78,7 +78,7 @@ export default function Prizes() {
       color: "#CD7F32",
       icon: <Trophy className="w-12 h-12" />,
       rewards: [
-        { icon: <IndianRupee />, text: "₹10,000 Cash Prize" },
+        { icon: <IndianRupee />, text: "₹20,000 Cash Prize" },
         { icon: <FaCode />, text: "6 Months Code Crafters Subscription" },
         { icon: <FaGlobe />, text: "1 Year .xyz Domain" },
       ],
@@ -92,7 +92,7 @@ export default function Prizes() {
       color: "#4CAF50",
       icon: <Building className="w-12 h-12" />,
       rewards: [
-        { icon: <IndianRupee />, text: "₹5,000 Cash Prize" },
+        // { icon: <IndianRupee />, text: "₹5,000 Cash Prize" },
         { icon: <GiProgression />, text: "Startup Incubation Opportunities" },
         { icon: <FaCoins />, text: "Funding & Grants up to ₹10 Lakhs" },
       ],
