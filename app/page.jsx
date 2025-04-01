@@ -16,6 +16,7 @@ import Prizes from "@/components/Prizes";
 import Sponsors from "@/components/Sponsors";
 import Contact from "@/components/Contact";
 import TeamSection from "@/components/TeamSection";
+import WhatsAppButton from "@/components/WhatsAppButton";
 const InfinityLogo = dynamic(() => import("@/components/InfinityLogo"), {
   ssr: false,
   loading: () => (
@@ -110,6 +111,9 @@ export default function HackathonWebsite() {
       <TeamSection />
       <FAQSection />
       <Contact />
+
+      {/* WhatsApp Button */}
+      <WhatsAppButton />
 
       {/* Footer */}
       <Footer />
