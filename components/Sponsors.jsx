@@ -25,7 +25,7 @@ function Sponsors() {
   // Sample sponsor data - replace with your actual sponsors
   const sponsors = {
     hosted_by: [
-      { id: 1, name: "Host Organization", logo: "/piet.png?height=400&width=600", website: "https://piet.co.in" },
+      { id: 1, name: "Host Organization", logo: "/piet.png?height=400&width=600", website: "https://piet.poornima.org" },
     ],
     platinum: [
       { id: 1, name: "Platinum Sponsor 1", logo: "/placeholder.svg?height=100&width=200", website: "#" },
