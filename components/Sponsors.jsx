@@ -33,10 +33,10 @@ function Sponsors() {
     ],
     gold: [
       { id: 1, name: "Gold Sponsor 1", logo: "/sponsors/ox.png", website: "https://0x.day" },
-      { id: 2, name: "Gold Sponsor 2", logo: "/sponsors/innovact.png", website: "https://innovact.in" },
+      { id: 2, name: "Gold Sponsor 2", logo: "/sponsors/innovact.png", website: "#" },
     ],
     silver: [
-      { id: 1, name: "Silver Sponsor 1", logo: "/sponsors/xyz.png", website: "https://xyz.com" },
+      { id: 1, name: "Silver Sponsor 1", logo: "/sponsors/xyz.png", website: "https://gen.xyz" },
       { id: 2, name: "Silver Sponsor 2", logo: "/sponsors/codecrafter.png", website: "https://codecrafters.io" },
       { id: 3, name: "Silver Sponsor 3", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxT6W2J3-40UX9t2ELVsd2lBlaVIsMk63iKQ&s", website: "https://interviewbuddy.net" },
     ],
