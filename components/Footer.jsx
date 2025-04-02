@@ -28,7 +28,7 @@ export default function Footer() {
         </div>
         <p className="text-xs text-gray-700 mt-4 font-mono">"To infinity and beyond."</p>
         <p className="text-xs text-gray-600 mt-2">
-          Designed and Developed by <a href="https://aadityavinayak.in.net" target="_blank" rel="noopener noreferrer" className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500 hover:from-red-400 hover:to-amber-400 transition-all duration-300">Aaditya Vinayak </a>
+          Designed and Developed by <a href="https://vaadi.site" target="_blank" rel="noopener noreferrer" className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500 hover:from-red-400 hover:to-amber-400 transition-all duration-300">Aaditya Vinayak </a>
            & <a href="https://bento.me/kartikmehta18" target="_blank" rel="noopener noreferrer" className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-amber-500 hover:from-red-400 hover:to-amber-400 transition-all duration-300">Kartik Mehta</a>
         </p>
       </div>
