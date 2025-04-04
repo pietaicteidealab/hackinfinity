@@ -90,6 +90,7 @@ const TeamSection = () => {
     ],
     'Tech': [
       { name: 'Aaditya Vinayak', image: '/team/Aadiii.jpg', role: 'Tech Lead', linkedin: 'https://linkedin.com/in/vaaditya320', twitter: 'https://twitter.com/vaaditya320' },
+      { name: 'Kartik Mehta', image: '/team/kartik-mehta.jpg', role: ' Tech Advisor', linkedin: 'https://www.linkedin.com/in/kartik-mehta-6729b0255/', twitter: 'https://twitter.com/kartikmehta_png' },
       { name: 'Sahaj Jain', image: 'https://avatars.githubusercontent.com/u/118066299?v=4', role: 'Tech Team', linkedin: 'https://www.linkedin.com/in/this-is-sahaj-jain/', twitter: 'https://twitter.com' },
       { name: 'Siddhika Agrawal', image: '/team/siddhika.jpg', role: 'Tech Team', linkedin: 'https://www.linkedin.com/in/siddhi-agrawal-566591229?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/siddhi9352?t=14M_i0W-XaJ6-1eVr4tFww&s=09' },
     ],
@@ -98,7 +99,7 @@ const TeamSection = () => {
       { name: 'Kuldeep Soni', image: '/team/kuldeep.jpg', role: 'PR Lead', linkedin: 'https://www.linkedin.com/in/kuldeep-soni-83b432293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/kul00035?t=wUgXlFSHHjfi4x7YYMjvxw&s=09' },
       { name: 'Dishu Choudhary', image: '/team/dishu-choudhary.jpg', role: 'PR Team', linkedin: 'https://www.linkedin.com/in/dishu-choudhary-008a40328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/dishu_2806_?t=hV3AaOVhFx_DeRqvQa6QIg&s=09' },
       { name: 'Ujjwal Dubey', image: '/team/ujjwal-dubey.jpg', role: 'PR Team', linkedin: 'https://www.linkedin.com/in/ujjwal-dubey-1921ba328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/UjjwalDube36317?t=2x9vPa8qyQRYVm8WDGnVJA&s=09' },
-      { name: 'Vibhor Mathur', image: '/team/vibhor-mathur.jpg', role: 'Tech Team', linkedin: 'https://www.linkedin.com/in/viibhor-mathur-9905b9332/', twitter: 'https://x.com/vibhhormathur' },
+      { name: 'Vibhor Mathur', image: '/team/vibhor-mathur.jpg', role: 'PR Team', linkedin: 'https://www.linkedin.com/in/viibhor-mathur-9905b9332/', twitter: 'https://x.com/vibhhormathur' },
       { name: 'Hariom Choudhary', image: '/team/hariom.jpg', role: 'PR Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },   
       
       
@@ -115,7 +116,7 @@ const TeamSection = () => {
       { name: 'Khushi Gupta', image: '/team/Khushi-Gupta.jpg', role: 'Content Lead', linkedin: 'https://www.linkedin.com/in/khushi-gupta-ab07a12a3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/Khusii27?t=WRhppsuMj2UfExupGaQR-Q&s=09' },
       { name: 'Himanshu Gaud', image: '/team/himanshu-gaud.jpg', role: 'Content Team', linkedin: 'https://www.linkedin.com/in/himanshu-gaud-50a5b4327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/himanshu_g75540?t=HBPj0GaMbQWm16ve-ujtXQ&s=09' },
       { name: 'Palak Agarwal', image: '/team/palak-agrawal.jpg', role: 'Content Team', linkedin: 'https://linkedin.com', twitter: 'https://twitter.com' },
-      { name: 'Ankit Rao', image: '/team/ankit-rao.jpg', role: 'Tech Team', linkedin: 'https://www.linkedin.com/in/ankit-rao-190427327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/__raoankitt__?s=09' },
+      { name: 'Ankit Rao', image: '/team/ankit-rao.jpg', role: 'Content Team', linkedin: 'https://www.linkedin.com/in/ankit-rao-190427327?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', twitter: 'https://x.com/__raoankitt__?s=09' },
     ],
     'Advisory': [
       { name: 'Kartik Mehta', image: '/team/kartik-mehta.jpg', role: 'Advisor', linkedin: 'https://www.linkedin.com/in/kartik-mehta-6729b0255/', twitter: 'https://twitter.com/kartikmehta_png' },
