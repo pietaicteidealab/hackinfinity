@@ -88,7 +88,7 @@ export default function HackathonWebsite() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <Navbar activeSection={activeSection} />
+      {/* <Navbar activeSection={activeSection} /> */}
 
       {/* Hero Section */}
       <section id="home" className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
@@ -158,16 +158,16 @@ export default function HackathonWebsite() {
         </div>
       </section>
 
-      <About />
-      <Theme />
+      {/* <About /> */}
+      {/* <Theme /> */}
       {/* <Schedule /> */}
       {/* <Prizes /> */}
       {/* <Sponsors /> */}
-      <TeamSection />
-      <FAQSection />
-      <Contact />
+      {/* <TeamSection /> */}
+      {/* <FAQSection /> */}
+      {/* <Contact /> */}
       {/* <WhatsAppButton /> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
